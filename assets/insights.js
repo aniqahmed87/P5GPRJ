@@ -16,7 +16,7 @@ function migrate(db){
  }
  return db;
 }
-function group(rows,order=[]){const names=[...new Set(rows.map(r=>r.category.trim()||'Uncategorized'))];const seq=[...new Set([...order.filter(n=>names.includes(n)),...names])];return seq.map(name=>{const records=rows.filter(r=>(r.category.trim()||'Uncategorized')===name),s=stats(records);return {name,records,...s,percent:s.total?Math.round(s.complete/s.total*100):0};});}
+function group(rows,order=[],includeEmpty=false){const names=[...new Set(rows.map(r=>r.category.trim()||'Unassigned milestone'))];const seq=[...new Set([...order.filter(n=>includeEmpty||names.includes(n)),...names])];return seq.map(name=>{const records=rows.filter(r=>(r.category.trim()||'Unassigned milestone')===name),s=stats(records);return {name,records,...s,percent:s.total?Math.round(s.complete/s.total*100):0};});}
 function filterRows(rows,fields,{query='',status='',columns={},sort}={}){
  const text=v=>String(v??'').toLocaleLowerCase();
  const matches=(r)=>{

@@ -44,4 +44,3 @@ body .archBodyV22 .archPath{min-height:57px!important;padding:7px 9px!important}
 body .archBodyV22 .archPathArt{width:29px!important;height:29px!important}
 body .archBodyV22 .archContList{gap:5px!important}
 body .archBodyV22 .archContList li{padding:7px 8px!important;font-size:10px!important;line-height:1.4!important}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}

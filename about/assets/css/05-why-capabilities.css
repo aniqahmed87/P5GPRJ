@@ -12,7 +12,6 @@
 body.rtl .s5photoLabel,body.rtl .s5detailHead,body.rtl .s5exactText,body.rtl .s5infraFocus,body.rtl .s5contFocus{direction:rtl;text-align:right}body.rtl .s5infraPillars button{text-align:right;direction:rtl}body.rtl .s5contStatements>div{direction:rtl;text-align:right}body.rtl .s5infraOverlay,body.rtl .s5contOverlay{text-align:right}
 body.light .s5cleanBody:before{opacity:.75}body.light .s5photoShade,body.light .s5infraHero:after,body.light .s5contHero:after{background:linear-gradient(180deg,rgba(2,6,13,.02) 0%,rgba(2,6,13,.08) 44%,rgba(4,8,16,.76) 100%)}
 @media (max-width:1180px){.s5cleanPanel{grid-template-columns:270px minmax(0,1fr) 310px}.s5cleanTab{min-width:210px}.s5detailCard>p{font-size:13px}.s5infraPanel,.s5contPanel{grid-template-columns:1fr 1fr}.s5contReadiness{grid-template-columns:repeat(3,1fr)}.s5contReadiness button:nth-child(n+4){min-height:54px}}
-@media (prefers-reduced-motion:reduce){.s5cleanPanel,.s5cleanTab,.s5capListItem,.s5photoStage>img,.s5infraHero>img,.s5contHero>img,.s5detailFooter button,.s5infraPillars button,.s5contReadiness button,.s5cleanBody:before,.s5photoLabel>span,.s5detailHead>span,.s5infraFocus>span,.s5contFocus>span{transition:none!important;animation:none!important}}
 
 @media (min-width:1400px){.s5cleanPanel{grid-template-columns:320px minmax(0,1fr) 360px}.s5detailHead h3{font-size:24px}.s5detailCard>p{font-size:15px}.s5photoLabel h3{font-size:26px}}
 @media (max-width:1280px){.s5cleanBody .title h2{font-size:34px!important}.s5cleanPanel{grid-template-columns:260px minmax(0,1fr) 300px}.s5capListItem b{font-size:11.4px}.s5detailHead h3{font-size:20px}.s5photoLabel h3{font-size:21px}.s5detailCard>p{font-size:13.2px;line-height:1.62}}
@@ -55,7 +54,4 @@ body.light .s5cleanBody:before{opacity:.75}body.light .s5photoShade,body.light .
   .s5infraFocus,.s5contFocus{padding:14px 16px}
   .s5infraFocus b,.s5contFocus b{font-size:16px}
   .s5infraFocus p,.s5contFocus p{font-size:12px;line-height:1.48}
-}
-@media (prefers-reduced-motion:reduce){
-  .s5infraHero::before,.s5contHero::before,.s5infraHero::after,.s5contHero::after{animation:none!important}
 }

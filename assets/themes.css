@@ -1,0 +1,52 @@
+/* Explicit theme surfaces and ink. Images keep their own exposure; text sits on readable surfaces. */
+body.light{--bg:#edf2f7;--text:#172e43;--muted:#50667a;--line:#6e8ca533;--surface:#f5f9fde8;--panel:#f6faff;--panel2:#e7eff7;--success:#0a7152;--warning:#875100;--danger:#b3274b;--info:#09658e;--violet:#7047a2;--gold:#835b1c;--neutral:#50677c;--unconfirmed:#53647a;--scroll-thumb:#607f9d70;--scroll-track:#163d6010}
+body.light:before{background:radial-gradient(ellipse at 0 0,#fff9,transparent 50%),linear-gradient(125deg,#edf4fa,#dce8f2 65%,#f3f7fa)}
+body.light #main[data-page] :is(h1,h2,h3){color:var(--text);text-shadow:none}
+body.light #main .tracker-heading{background:linear-gradient(135deg,#ffffffeb,#e8f1f9f5);border-color:#8faac448;border-top-color:white;box-shadow:inset 0 1px #fff,0 9px 24px #24446120}
+body.light .tracker-art .art-dark{display:none}body.light .tracker-art .art-light{display:block;opacity:1;object-position:65% center}body.light .tracker-art:after{background:linear-gradient(90deg,#eff6fc11,#f2f7fc55 50%,#f2f7fccc)}
+body.light .tracker-title :is(h1,.eyebrow,.title-scope){text-shadow:0 1px 2px #fff}body.light .tracker-title .eyebrow{color:#6a4d21}
+body.light #main .summary-panel{background:linear-gradient(130deg,#ffffffed,#eaf3fce8);border-color:#7e9db648;border-top-color:white;box-shadow:inset 0 1px white,0 4px 12px #264c6b0d}
+body.light .summary-stat:before{background:linear-gradient(transparent,#587e9b55,transparent)}body.light button.summary-stat:hover{background:#adcbe32b}
+body.light #main[data-page] .donut b{color:var(--tone,var(--info))}body.light #main[data-page] .donut small{color:var(--muted)}body.light #main[data-page] .ring-track{stroke:#53728c2b}
+body.light #main[data-page] :is(.record,.milestone-summary-card,.team-column,.team-board,.member,.asset-card,.raci-legend,.table-wrap){background:linear-gradient(140deg,#fff,#edf5fb);border-color:#91afc74f;border-top-color:white;box-shadow:inset 0 1px white,inset 0 -1px #9ab3c422,0 6px 16px #2d526c17;color:var(--text)}
+body.light #main[data-page] .record.due-overdue{background:linear-gradient(135deg,#fff1f4,#fbe4ea 65%,#f5edf3);border-color:#d3708766;box-shadow:inset 0 1px white,0 0 15px #a92f4d17}
+body.light #main[data-page] .record:before{opacity:.12}body.light #main[data-page] .record:hover{box-shadow:inset 0 1px white,0 9px 22px #224e7024}
+body.light #main[data-page] .record :is(.action-title,.risk-name,.rfp-name,h3,.record-summary,.latest-update p,.record-meta,.action-owner,.risk-owner,.rfp-facts,.risk-response p,.action-dates time,.history-button,.risk-edit){color:var(--text);text-shadow:none}
+body.light #main[data-page] .record :is(.latest-update small,.action-dates small,.risk-owner small,.rfp-facts small,.record-meta small,.action-owner small){color:var(--muted)}
+body.light #main[data-page] .record :is(.latest-update,.risk-response>section){background:#dcecf640;border-color:#8baec333;box-shadow:inset 0 1px white}
+body.light #main[data-page] .record :is(.action-dates,.record-bottom){border-color:#5b819c30}
+body.light #main[data-page] .record .badge{color:var(--tone);background:color-mix(in srgb,var(--tone) 9%,#fff);border-color:color-mix(in srgb,var(--tone) 26%,transparent);text-shadow:none}
+body.light #main[data-page] .record :is(.record-id,.risk-number){text-shadow:none}body.light #main[data-page] .record :is(.record-id small,.risk-number small){color:var(--muted)}
+body.light #main[data-page] .action-initials{background:#dae8f3;color:#285573;border-color:#789bb740}
+body.light #main[data-page] .rfp-card-cover:after{background:linear-gradient(90deg,#071a2ad4,transparent),linear-gradient(0deg,#07182744,transparent 65%)}body.light #main[data-page] .rfp-card-cover{background:#11283e}body.light #main[data-page] .rfp-card-cover .rfp-number{color:#d2eeff}body.light #main[data-page] .rfp-number small{color:#c5ddec}
+body.light #main[data-page] .rfp-card-cover .badge{background:#edf6ffeb}
+body.light #main[data-page=milestones] .milestone-open{background:none;box-shadow:none;color:var(--text)}body.light #main[data-page=milestones] .milestone-open:hover{background:#c5deef12}
+body.light #main[data-page=milestones] :is(.milestone-task-count,.milestone-deadlines,.milestone-card-footer,.milestone-card-footer>span){color:var(--muted)}
+body.light #main[data-page=milestones] .milestone-deadlines .urgent{color:var(--danger)}body.light #main[data-page=milestones] .milestone-card-footer{background:#e7f0f9;border-color:#96afc338}
+body.light #main[data-page=milestones] .milestone-cover:after{background:linear-gradient(90deg,#041320a6,transparent 80%)}body.light #main[data-page=milestones] .milestone-cover{background:#11243a}body.light #main[data-page=milestones] .milestone-cover img{opacity:1;filter:saturate(.95)}body.light #main[data-page=milestones] .milestone-index small{color:#e4eef6}body.light #main[data-page=milestones] .milestone-index b{color:#ffe1ac}body.light #main[data-page=milestones] .tone-danger .milestone-index b{color:#ffadbf}body.light #main[data-page=milestones] .tone-success .milestone-index b{color:#a5f5d7}
+body.light #main[data-page] :is(input,textarea,.glass-select-trigger){background:linear-gradient(145deg,#ffffff,#e9f1f9);border-color:#86a2ba5c;color:var(--text);box-shadow:inset 0 1px white,0 2px 4px #345b7110;color-scheme:light}
+body.light #main[data-page] input::placeholder{color:#5a7084;opacity:1}
+body.light #main[data-page] .tracker-table :is(th,.cell-text,.row-name,.cell-history button,.action-owner,.action-dates time){color:var(--text)}body.light #main[data-page] .tracker-table thead th{background:#e0ecf6;border-color:#7699b239}body.light #main[data-page] .tracker-table td{border-color:#7f9cb32b}
+body.light #main[data-page] .tracker-table tbody tr:hover td{background:#d8e9f680}
+body.light #main[data-page] .asset-group h2,body.light #main[data-page] .section-heading h2{color:var(--text)}body.light #main[data-page] .asset-card span{color:var(--muted)}
+body.light #main[data-page] .member :is(.role,.person){text-shadow:none}body.light #main[data-page] .member .person{color:var(--text)}body.light #main[data-page] .member .role{color:#78531c}
+body.light #main[data-page] .raci-cell{border-color:#87a6bc4d;color:var(--tone,var(--text));box-shadow:inset 0 1px #fff9}body.light #main[data-page] .raci-table th{color:var(--text)}
+body.light #main[data-page=agenda] .agenda-metric-label,body.light #main[data-page=agenda] .agenda-caption{color:#36536c}
+body.light #main[data-page=agenda] :is(.delivery-status-label,.delivery-status-note,.category-bars button,.attention-row p,.feed-entry p,.feed-name){color:var(--text);text-shadow:none}
+body.light #main[data-page=agenda] :is(.feed-type,.feed-entry time,.panel-title>span){color:var(--muted)}body.light #main[data-page=agenda] .feed-visual:after{background:linear-gradient(0deg,#edf5fc,transparent 60%)}
+body.light #main[data-page=agenda] .attention-row strong{color:var(--tone)}
+body.light #modal,body.light #milestone-modal{color:var(--text);background:linear-gradient(135deg,#f8fcff,#e7f0f8);border-color:white;box-shadow:inset 0 1px white,0 25px 80px #15324d4d}
+body.light :is(#modal,#milestone-modal) :is(.modal-header,.modal-footer){background:#f1f7fc;border-color:#8eaabe3d}
+body.light :is(#modal,#milestone-modal) :is(h2,h3,.task-name,.detail-fields dd,.timeline-entry p){color:var(--text);text-shadow:none}
+body.light :is(#modal,#milestone-modal) :is(.form-grid label,.detail-fields dt,.task-results,.date-not-set,.task-latest,.task-completed-date,.milestone-overlay-summary span){color:var(--muted)}
+body.light :is(#modal,#milestone-modal) :is(input,textarea,.glass-select-trigger){color:var(--text);background:#fbfdff;border-color:#789ab653;box-shadow:inset 0 1px #fff;color-scheme:light}
+body.light #milestone-modal :is(.milestone-overlay-summary,#milestone-tasks){background:#eaf3fa;border-color:#80a0b747}body.light #milestone-modal .milestone-task-table th{background:#dcebf5;color:var(--text);border-color:#88a7bc4a}body.light #milestone-modal .milestone-task-table td{border-color:#8da9bd38}body.light #milestone-modal .task-table-row.due-overdue{background:#ffe8ef}body.light #milestone-modal .task-table-row:hover{background-color:#d4e8f5}
+body.light .glass-options{color:var(--text);background:linear-gradient(135deg,#fff,#e9f2fb);border-color:#8da8bf66}body.light .glass-option{color:#344f65}body.light .glass-option:is(:hover,:focus,[aria-selected=true]){background:#d9eaf7;color:#18364e}
+body.light .summary-donut .ring-track{stroke:#56728b2b}body.light .metric-track{background:#486d8e1b;box-shadow:inset 0 1px 2px #34577320}
+/* PIP retains a dark plotting surface with an explicit readable theme in both modes. */
+body.light #pip-modal{--text:#e9f3ff;--muted:#b1c8dc;--line:#c9dfee33;--tone:#91d5f8;--gold:#e6c590;--info:#8ad2fa;color:#e9f3ff;background:linear-gradient(130deg,#182b3d,#0b1525)}
+body.light #pip-modal :is(button,.glass-select-trigger){color:#e9f3ff;background:linear-gradient(145deg,#2b4359,#152638);border-color:#b1d8f03b;box-shadow:inset 0 1px #c3e6ff30}
+body.light #pip-modal .glass-options{background:#182e44;color:#e9f3ff}body.light #pip-modal .glass-option{color:#bed7e9}body.light #pip-modal .glass-option:hover{background:#2c4a63}
+body.light #main[data-page] .page-export{color:#21566b!important;opacity:1}body.light #main[data-page] .page-export svg{color:#087454}
+body.light #main[data-page] .owner-avatar{background:linear-gradient(135deg,#edf6fc,#d7e7f3);color:#28536c;border-color:#89abc347;box-shadow:inset 0 1px white}
+body.light #main[data-page] .risk-owner>svg,body.light #main[data-page] .rfp-facts svg{color:#4f7794}

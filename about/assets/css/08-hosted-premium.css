@@ -83,11 +83,6 @@ body.light .hostedBadge{background:rgba(255,255,255,.88);color:#243248;border-co
 
 html.ios-lite .card:hover,html.ios-lite .pocSiteItem:hover{transform:none;box-shadow:inherit}
 html.ios-lite .tag,html.ios-lite .subtag,html.ios-lite .infochip,html.ios-lite .chip,html.ios-lite .kcapChip,html.ios-lite .keycapPill{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-
-@media (prefers-reduced-motion:reduce){
-  .bootMark,.bootTrace:after,.deckProgress span{animation:none!important;transition:none!important}
-  .card:hover{transform:none}
-}
 @media (max-width:900px){
   .hostedBadge{display:none}
   .cardVisual{height:96px}

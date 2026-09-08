@@ -33,7 +33,7 @@ function validate(rows,key,existing=[]){
  const s=M.schemas[key],errors=[],warnings=[],records=[],duplicates=[];
  const headerIndex=rows.findIndex(r=>r.values.some(v=>String(v??'').trim()));if(headerIndex<0)throw Error('The worksheet is empty.');
  const header=rows[headerIndex].values.map(v=>String(v??'').trim()),seen=new Set(),mapping=[],extras=[];
- header.forEach((h,i)=>{if(!h)return;let n=norm(h);if(n==='imact')n='impact';if(seen.has(n))errors.push('Duplicate header: '+h);seen.add(n);const f=s.fields.find(f=>norm(f.label)===n);if(f)mapping.push({index:i,field:f});else extras.push({index:i,label:h});});
+ header.forEach((h,i)=>{if(!h)return;let n=norm(h);if(n==='imact')n='impact';if(seen.has(n))errors.push('Duplicate header: '+h);seen.add(n);const alias=key==='milestones'?({milestonecategory:'category',milestonename:'name',taskname:'name'})[n]:null;const f=alias?s.fields.find(f=>f.key===alias):s.fields.find(f=>norm(f.label)===n);if(f){if(mapping.some(m=>m.field.key===f.key))errors.push('Repeated field: '+f.label);else mapping.push({index:i,field:f});}else extras.push({index:i,label:h});});
  if(!mapping.some(x=>x.field.key==='name'))errors.push('Required header is missing: '+s.fields.find(f=>f.key==='name').label+'. Check that this is the correct tracker template.');
  if(errors.length)return {errors,warnings,records,duplicates,mapping,extras,header};
  const missing=s.fields.filter(f=>!mapping.some(x=>x.field.key===f.key));if(missing.length)warnings.push('Optional columns not supplied: '+missing.map(f=>f.label).join(', ')+'.');if(extras.length)warnings.push('Additional columns will be preserved: '+extras.map(e=>e.label).join(', ')+'.');
@@ -50,6 +50,7 @@ function validate(rows,key,existing=[]){
   }
   if(!value.name.trim()){errors.push(`Row ${row.number}: name/title is required.`);valid=false;}
   if(key==='actions'&&value.assignedDate&&value.closeDate&&value.closeDate<value.assignedDate){errors.push(`Row ${row.number}: Close Date precedes Assign Date.`);valid=false;}
+  if(key==='milestones'&&value.startDate&&value.dueDate&&value.startDate>value.dueDate){errors.push(`Row ${row.number}: Start Date is after Due Date.`);valid=false;}
   value.extraFields=Object.fromEntries(extras.map(e=>[e.label,String(row.values[e.index]??'')]));
   if(valid){const n=identity(value);const duplicate=names.has(n);if(duplicate)duplicates.push(row.number);names.add(n);records.push({values:value,row:row.number,duplicate});}
  }

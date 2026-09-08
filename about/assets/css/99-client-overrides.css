@@ -413,7 +413,6 @@ body.rtl .deckProgress>span{right:0!important;left:auto!important;border-radius:
 body.rtl .deckProgress>span::before{left:auto!important;right:0!important;inset-block:-2px!important;background:linear-gradient(270deg,transparent 0%,transparent 24%,rgba(211,162,79,.08) 36%,rgba(255,230,177,.72) 49%,rgba(255,99,120,.55) 55%,rgba(211,162,79,.16) 66%,transparent 78%,transparent 100%)!important;transform:translateX(115%);animation:deckGlowSweepRTL54 4.6s cubic-bezier(.45,0,.55,1) infinite!important}
 body.rtl .deckProgress>span::after{right:auto!important;left:1px!important}
 @keyframes deckGlowSweepRTL54{0%{transform:translateX(115%)}100%{transform:translateX(-115%)}}
-@media (prefers-reduced-motion:reduce){body.rtl .deckProgress>span::before{animation:none!important;transform:none!important}}
 
 
 /* v55: force RTL deck-progress glow visibility and sweep from right to left */
@@ -423,7 +422,6 @@ body.rtl .deckProgress>span::before,body.rtl #deckProgressBar>span::before{conte
 body.rtl .deckProgress>span::after,body.rtl #deckProgressBar>span::after{content:""!important;left:-7px!important;right:auto!important;top:50%!important;translate:0 -50%!important;width:14px!important;height:14px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(255,238,199,1) 0%,var(--gold) 28%,var(--accent2) 52%,rgba(255,49,77,.12) 76%,transparent 78%)!important;box-shadow:0 0 12px rgba(255,80,90,.34),0 0 20px rgba(211,162,79,.20)!important;animation:deckHeadPulse 2.8s ease-in-out infinite!important;opacity:1!important}
 @keyframes deckGlowSweepRTL55{0%{transform:translateX(120%)}100%{transform:translateX(-235%)}}
 @media (max-width:760px){body.rtl .deckProgress>span::after,body.rtl #deckProgressBar>span::after{left:1px!important;right:auto!important}}
-@media (prefers-reduced-motion:reduce){body.rtl .deckProgress>span::before,body.rtl #deckProgressBar>span::before{animation:none!important;transform:none!important;opacity:.2!important}}
 
 
 /* v56: RTL deck glow sweep - animate background position, not transform.
@@ -461,14 +459,6 @@ body.rtl #deckProgressBar>span::before{
   0%{background-position:120% 0}
   100%{background-position:-120% 0}
 }
-@media (prefers-reduced-motion:reduce){
-  body.rtl .deckProgress>span::before,
-  body.rtl #deckProgressBar>span::before{
-    animation:none!important;
-    background-position:50% 0!important;
-    opacity:.22!important;
-  }
-}
 
 
 /* v56 final: RTL glow travel using the independent translate property.
@@ -502,14 +492,6 @@ body.rtl #deckProgressBar>span::before{
 @keyframes deckGlowTranslateRTL56{
   0%{translate:120% 0}
   100%{translate:-235% 0}
-}
-@media (prefers-reduced-motion:reduce){
-  body.rtl .deckProgress>span::before,
-  body.rtl #deckProgressBar>span::before{
-    animation:none!important;
-    translate:-55% 0;
-    opacity:.22!important;
-  }
 }
 
 
@@ -545,14 +527,6 @@ body.rtl #deckProgressBar>span::before{
   0%{translate:100% 0}
   100%{translate:-435% 0}
 }
-@media (prefers-reduced-motion:reduce){
-  body.rtl .deckProgress>span::before,
-  body.rtl #deckProgressBar>span::before{
-    animation:none!important;
-    translate:-170% 0;
-    opacity:.18!important;
-  }
-}
 
 
 /* ===== Slide 1 map refinement v61 ===== */
@@ -580,7 +554,6 @@ body.light .introMapZoomBtn{color:#29455d;background:rgba(29,63,91,.05);border-c
 .introNativeAttribution{right:6px!important;bottom:5px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;font-size:6.5px!important;font-weight:600!important;color:rgba(215,232,244,.44)!important}
 body.light .introNativeAttribution{background:transparent!important;color:rgba(45,67,85,.44)!important}
 .introEmirateLabel{background:rgba(5,15,27,.46)!important;border-color:rgba(116,190,239,.08)!important;font-size:9px!important}
-@media (prefers-reduced-motion:reduce){.introBackbonePulse,.introNativeMarker.is-selected .nativeMarkerGlow{animation:none!important}}
 .introNativeMarker .nativeMarkerIcon,.introNativeMarker .nativeMarkerGlow,.introNativeMarker .nativeMarkerLabel{pointer-events:none!important}
 .introNativeMarker.radio{z-index:4!important}
 .introNativeMarker.pop,.introNativeMarker.ila{z-index:6!important}

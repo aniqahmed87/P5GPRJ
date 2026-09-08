@@ -488,12 +488,6 @@ html.ios-lite .archRingSpin{animation-duration:12s}
 html.ios-lite .awLine.ctrl{animation:none}
 html.ios-lite .archNodeSeal{animation:none}
 
-@media (prefers-reduced-motion:reduce){
-  .archRingSpin,.archNodeSeal,.awLine.ctrl,.archPathBeam,.archChainLink:after{animation:none!important}
-  .awDot{display:none}
-  .archChainItem{opacity:1;transform:none}
-}
-
 /* chain overlay — endpoint captions frame the flow as site-to-site */
 .archChainEnds{
   display:flex;align-items:center;gap:12px;margin:0 0 10px;direction:ltr;

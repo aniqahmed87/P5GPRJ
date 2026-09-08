@@ -1,0 +1,11 @@
+{
+  "night": {
+    "file": "cover-night-v19.png",
+    "prompt": "Premium executive private 5G portal background, NIGHT, landscape 16:9. Photorealistic cinematic aerial-oblique architectural view of an Abu Dhabi island waterfront with modern UAE urban infrastructure. Buildings concentrated right/bottom, left 40% calm Gulf water/sky negative space. Deep midnight navy/charcoal; crisp architecture and warm windows. Subtle red/cyan fibre light traces along real streets and waterfront. Restrained horizon with space for an independent Three.js model. No people, drones, equipment diagrams, UI, words, labels, logos, text or watermark."
+  },
+  "day": {
+    "file": "cover-day-v19.png",
+    "edited_from": "cover-night-v19.png",
+    "prompt": "Transform the same night image into bright clear realistic Abu Dhabi daylight. Preserve exact aerial camera, angle, lens, framing, skyline silhouette, building shapes/positions, roads, shoreline, greenery and horizon. Change physical illumination/time of day only. Pearl blue sky, natural azure water, coherent sunlight/shadows, stone/glass detail, artificial lights switched off. Retain subtle red/cyan communication traces. Do not invent, remove or redesign architecture; no new objects or text. True daylight materials, not an exposure-lifted night image."
+  }
+}

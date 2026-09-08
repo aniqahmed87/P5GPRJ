@@ -1,5 +1,5 @@
 /* Pulse 5G v8. One set of agenda rules: no layered v6/v7 motion overrides. */
-/* Navigation keeps the original glass material and v65's single border orbit. */
+/* Navigation uses the selected red glass material and a non-rotating halo pulse. */
 .shell-header{gap:15px}
 .nav-rail{gap:6px;padding-inline:8px}
 .nav-rail .page-link{position:relative;isolation:isolate;overflow:visible;min-height:38px;padding:5px 6px;gap:7px;border-radius:13px;border:1px solid transparent;background:none;color:var(--text);opacity:.86;transform:none;transition:background .22s,border-color .22s,box-shadow .22s,opacity .22s}
@@ -7,17 +7,23 @@
 .nav-rail .page-link .nav-icon,body.light .nav-rail .page-link .nav-icon{display:flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:25px;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit;filter:none}
 .nav-rail .page-link .nav-icon svg{display:block;width:24px;height:24px;stroke-width:1.75}
 .nav-rail .page-link .nav-label{font-weight:550;margin:0}
-.nav-rail .page-link.active{opacity:1;color:#fff;border-color:#f0d8bf7a;background:linear-gradient(150deg,#f4d9b82e,#b9d4ff16 65%,#19334859);box-shadow:inset 0 2px 2px #fff7,0 5px 15px #0004,0 0 24px #d7c5a219;transform:none}
+.nav-rail .page-link.active{opacity:1;color:#fff;font-size:14px;padding:5px 12px;border-radius:12px;border-color:#ee789566;background:linear-gradient(140deg,#b7284569,#ffffff0a 80%);box-shadow:0 6px 20px #90182e29,inset 0 1px 1px #ffc0cb80,inset 0 -1px 1px #15051488;transform:scale(1);transition:background .35s,opacity .35s,transform .35s,border-color .35s,box-shadow .35s}
 .nav-rail .page-link.active .nav-label{font-weight:650}
 .nav-rail .page-link.active .nav-icon,body.light .nav-rail .page-link.active .nav-icon{border:0;background:none;box-shadow:none;color:inherit;filter:none}
 .nav-rail .page-link:hover{opacity:1;background:#ffffff12;transform:none}
-body.light .nav-rail .page-link.active{color:#132c48;border-color:white;background:linear-gradient(145deg,#ffffffed,#dce7f690);box-shadow:0 5px 15px #344c6c1c,inset 0 1px white}
 @property --ringAngle{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes ringSpin{to{--ringAngle:360deg}}
-@keyframes ringPulse{0%,100%{opacity:.58}50%{opacity:1}}
-.nav-rail .page-link.active:before{content:'';display:block;position:absolute;inset:-2px;border-radius:15px;padding:2px;background:conic-gradient(from var(--ringAngle),rgba(255,255,255,0) 0deg 300deg,rgba(255,214,122,.10) 312deg,rgba(255,214,122,.98) 327deg,rgba(255,255,255,.98) 338deg,rgba(255,117,144,.95) 349deg,rgba(255,214,122,.36) 357deg,rgba(255,255,255,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;z-index:2;animation:ringSpin 3.2s linear infinite;filter:drop-shadow(0 0 6px rgba(255,214,122,.34)) drop-shadow(0 0 10px rgba(255,117,144,.16));transform:none}
-.nav-rail .page-link.active:after{content:'';display:block;position:absolute;inset:-1px;height:auto;border-radius:14px;padding:0;pointer-events:none;z-index:1;background:none;mask:none;-webkit-mask:none;box-shadow:0 0 0 1px rgba(255,255,255,.10) inset,0 0 10px rgba(255,214,122,.18),0 0 20px rgba(255,214,122,.10);animation:ringPulse 2.2s ease-in-out infinite}
-body.light .nav-rail .page-link.active:after{box-shadow:0 0 0 1px rgba(0,0,0,.06) inset,0 0 10px rgba(255,184,78,.20),0 0 18px rgba(255,184,78,.11)}
+@keyframes nav-halo{0%{transform:scale(1);opacity:.8}70%,100%{transform:scale(1.15,1.38);opacity:0}}
+.nav-rail .page-link.active:before{content:none;display:none;animation:none;background:none;mask:none;-webkit-mask:none;filter:none;box-shadow:none}
+.nav-rail .page-link.active:after{content:'';display:block;position:absolute;inset:0;height:auto;border-radius:inherit;padding:0;pointer-events:none;z-index:-1;border:2px solid #f06086;box-shadow:0 0 12px #ef426a38;background:none;mask:none;-webkit-mask:none;transform-origin:center;animation:nav-halo 1.9s cubic-bezier(.2,.6,.3,1) infinite}
+.nav-rail .page-link.active:hover{background:linear-gradient(140deg,#cf355575,#ffffff12 80%);border-color:#f59bb08c}
+body.light .nav-rail .page-link.active{color:#7a1534;border-color:#c7355b66;background:linear-gradient(140deg,#ef7f9b42,#ffffffbb 80%);box-shadow:0 6px 20px #90182e14,inset 0 1px 1px #fff,inset 0 -1px #bb477026}
+body.light .nav-rail .page-link.active:after{border-color:#cf365d;box-shadow:0 0 12px #c8315826}
+.nav-flow{position:fixed;inset:0 0 auto;z-index:70;width:100%;height:var(--nav);overflow:visible;pointer-events:none;fill:none;stroke:none}
+.nav-flow path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 3px #f4527b88)}
+/* Keep numeric values and their units together, including 100%. */
+.donut b{display:inline-flex;align-items:baseline;justify-content:center;gap:0;white-space:nowrap;flex:none;line-height:1}
+.donut b .donut-unit{display:inline;font-size:.7em;line-height:1;margin-left:1px;white-space:nowrap}
 
 .brand{position:relative;inset:auto;height:46px;gap:8px;padding:4px 8px;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,#eef8ff1f,#d8eaff05);border-color:#eff8ff55;box-shadow:inset 0 1px 1px #ffffff8f,inset 0 -1px #cee7ff26,0 5px 15px #0004}
 .brand .brand-logo{display:grid;place-items:center;flex:0 0 36px;width:36px;height:37px;margin:0;transition:filter .2s,transform .2s}
@@ -99,7 +105,7 @@ body.light .brand{background:linear-gradient(145deg,#fff,#e6edf67f);border-color
 #main[data-page=agenda] .attention-mark{display:flex;flex:0 0 14px;color:var(--tone)}
 #main[data-page=agenda] .attention-mark svg{width:14px;height:14px;color:var(--tone);stroke-width:2}
 #main[data-page=agenda] a[href="#milestones"] .attention-mark{--tone:var(--warning)}
-#main[data-page=agenda] .compact-card[href="#risks"] .donut,#main[data-page=agenda] .compact-card[href="#raci"] .donut{width:58px;height:58px;flex-basis:58px}
+#main[data-page=agenda] .compact-card[href="#risks"] .donut,#main[data-page=agenda] .compact-card[href="#raci"] .donut{width:62px;height:62px;flex-basis:62px}
 #main[data-page=agenda] .compact-card[href="#raci"] .agenda-value strong{font-size:40px}
 #main[data-page=agenda] .agenda-empty-metric{width:64px;height:64px;display:grid;place-items:center;font-size:24px;color:var(--muted)}
 
@@ -218,4 +224,3 @@ body.light #main[data-page=agenda] .delivery-status-row:hover .delivery-status-l
  #main[data-page=agenda] .category-chart{height:295px;flex:0 0 295px}
  #main[data-page=agenda] .meeting-feed{height:420px;flex:0 0 420px}
 }
-@media(prefers-reduced-motion:reduce){.nav-rail .page-link.active:before,.nav-rail .page-link.active:after,#main[data-page=agenda] *,#main[data-page=agenda] *:before,#main[data-page=agenda] *:after{animation:none!important;transition:none!important}.brand:hover .brand-logo,#main[data-page=agenda] .compact-card:hover,#main[data-page=agenda] .compact-card:hover .shortcut-art{transform:none}}

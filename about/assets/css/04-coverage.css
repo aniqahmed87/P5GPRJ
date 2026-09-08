@@ -115,4 +115,3 @@ body.rtl .coverageChoice.active{box-shadow:inset -4px 0 0 var(--accent),0 16px 3
 body.rtl .coverageHintV58{text-align:right!important}
 @media (max-width:1180px){.coverageShell.coverageShellV58{grid-template-columns:270px minmax(0,1fr)!important;gap:12px!important;padding:12px!important}.coveragePicker{padding:12px}.coverageChoiceText b{font-size:13.8px}.coverageChoiceText small{font-size:9.8px}.coverageActiveTitleWrap h3{font-size:22px}}
 @media (max-width:820px){.coverageShell.coverageShellV58{grid-template-columns:1fr!important;grid-template-rows:auto minmax(0,1fr)!important}.coveragePicker{grid-template-rows:auto auto auto}.coverageChoices{grid-template-rows:none;grid-template-columns:1fr;gap:8px}.coverageChoice{min-height:68px}}
-@media (prefers-reduced-motion:reduce){.coverageMainFrame:after{animation:none!important;opacity:.15}}

@@ -257,7 +257,6 @@ body.light .dashboardShell.portalMode{background:linear-gradient(180deg,rgba(255
 @keyframes deckHeadPulse{0%,100%{filter:brightness(.92);transform:translateY(-50%) scale(.92)}50%{filter:brightness(1.16);transform:translateY(-50%) scale(1.08)}}
 body.light .deckProgress span{box-shadow:0 0 8px rgba(213,34,64,.18),0 0 14px rgba(186,143,60,.08)!important}
 body.light .deckProgress span::before{background:linear-gradient(90deg,transparent 0%,transparent 25%,rgba(186,143,60,.08) 38%,rgba(255,255,255,.92) 49%,rgba(239,92,114,.36) 56%,rgba(186,143,60,.12) 68%,transparent 80%,transparent 100%)}
-@media (prefers-reduced-motion:reduce){.deckProgress span::before,.deckProgress span::after{animation:none!important}.deckProgress span::before{opacity:.18;transform:none}}
 
 
 /* progress motion v2: frame-by-frame fill/drain; glow remains contained inside the filled segment */
@@ -271,4 +270,3 @@ body.rtl .deckProgress span::before{left:auto!important;right:0!important;backgr
 body.rtl .deckProgress span::after{right:auto!important;left:-7px!important}
 @keyframes deckGlowSweepRTL{0%{transform:translateX(115%)}100%{transform:translateX(-115%)}}
 @media (max-width:760px){body.rtl .deckProgress span::after{left:1px!important;right:auto!important}}
-@media (prefers-reduced-motion:reduce){body.rtl .deckProgress span::before{animation:none!important;transform:none!important}}
