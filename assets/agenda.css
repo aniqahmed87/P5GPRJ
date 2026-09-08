@@ -58,7 +58,7 @@ body.light .brand{background:linear-gradient(145deg,#fff,#e6edf67f);border-color
 #main[data-page=agenda] .delivery-status-row:hover .delivery-status-label{color:#fff}
 
 #main[data-page=agenda] .dashboard-layout{display:grid;grid-template-columns:minmax(0,1fr) clamp(275px,24%,340px);gap:19px;min-height:0;flex:1}
-#main[data-page=agenda] .dashboard-content{display:grid;grid-template-rows:minmax(246px,1fr) minmax(218px,1fr);gap:14px;min-height:0;min-width:0}
+#main[data-page=agenda] .dashboard-content{display:grid;grid-template-rows:minmax(280px,1.1fr) minmax(218px,1fr);gap:14px;min-height:0;min-width:0}
 #main[data-page=agenda] .agenda-workspace{display:block;min-height:0;flex:none}
 #main[data-page=agenda] .compact-agenda{display:grid;height:100%;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
 #main[data-page=agenda] .compact-card{grid-column:span 3}
@@ -81,23 +81,27 @@ body.light .brand{background:linear-gradient(145deg,#fff,#e6edf67f);border-color
 #main[data-page=agenda] .compact-card:hover .card-open{color:#fff;transform:translateX(2px)}
 #main[data-page=agenda] .agenda-metric{display:flex;align-items:center;justify-content:space-between;gap:5px;flex:1;min-height:0}
 #main[data-page=agenda] .agenda-value{min-width:0}
-#main[data-page=agenda] .agenda-value strong{font-size:25px;line-height:1.05;letter-spacing:-.7px;font-weight:600;color:var(--tone);white-space:nowrap;display:block;text-shadow:0 2px 8px #0008}
+#main[data-page=agenda] .agenda-value strong{font-size:42px;line-height:1.05;letter-spacing:-.7px;font-weight:600;color:var(--tone);white-space:nowrap;display:block;text-shadow:0 2px 8px #0008}
 #main[data-page=agenda] .metric-number{display:inline-block;font-variant-numeric:tabular-nums;text-align:left}
-#main[data-page=agenda] .metric-total{font-size:.82em;letter-spacing:-.5px}
+#main[data-page=agenda] .metric-total{font-size:.5em;letter-spacing:-.5px}
 #main[data-page=agenda] .agenda-value>span{display:block;font-size:12px;line-height:14px;color:#c7d7e8;margin-top:3px;white-space:nowrap}
-#main[data-page=agenda] .agenda-metric .donut{width:48px;height:48px;flex:0 0 48px;--tone:inherit}
+#main[data-page=agenda] .agenda-metric .donut{width:64px;height:64px;flex:0 0 64px;--tone:inherit}
 #main[data-page=agenda] .agenda-metric .donut circle{stroke-width:6}
 #main[data-page=agenda] .agenda-metric .ring-track{stroke:#d4e4f52f}
-#main[data-page=agenda] .agenda-metric .donut b{font-size:15px;color:#edf6ff;font-weight:600;letter-spacing:-.2px}
+#main[data-page=agenda] .agenda-metric .donut b{font-size:21px;color:#edf6ff;font-weight:600;letter-spacing:-.2px}
 #main[data-page=agenda] .agenda-metric .donut small{display:none}
 #main[data-page=agenda] .agenda-object{width:39px;height:39px;display:grid;place-items:center;color:var(--tone)}
 #main[data-page=agenda] .agenda-object svg{height:30px;width:30px;stroke-width:1.5;color:var(--tone)}
-#main[data-page=agenda] .agenda-caption{display:flex;align-items:center;gap:5px;min-height:15px;flex-shrink:0;color:#c6d6e8;font-size:12px;line-height:15px}
+#main[data-page=agenda] .agenda-card-footer{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:0 7px;min-height:28px;flex-shrink:0}
+#main[data-page=agenda] .agenda-metric-label{font-size:12px;line-height:14px;color:#c7d7e8}
+#main[data-page=agenda] .agenda-caption{display:flex;align-items:center;justify-content:flex-end;margin-left:auto;text-align:right;gap:4px;min-height:15px;flex-shrink:1;color:#c6d6e8;font-size:11px;line-height:14px}
 #main[data-page=agenda] .agenda-caption>span:last-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #main[data-page=agenda] .attention-mark{display:flex;flex:0 0 14px;color:var(--tone)}
 #main[data-page=agenda] .attention-mark svg{width:14px;height:14px;color:var(--tone);stroke-width:2}
 #main[data-page=agenda] a[href="#milestones"] .attention-mark{--tone:var(--warning)}
-#main[data-page=agenda] .agenda-empty-metric{width:48px;height:48px;display:grid;place-items:center;font-size:24px;color:var(--muted)}
+#main[data-page=agenda] .compact-card[href="#risks"] .donut,#main[data-page=agenda] .compact-card[href="#raci"] .donut{width:58px;height:58px;flex-basis:58px}
+#main[data-page=agenda] .compact-card[href="#raci"] .agenda-value strong{font-size:40px}
+#main[data-page=agenda] .agenda-empty-metric{width:64px;height:64px;display:grid;place-items:center;font-size:24px;color:var(--muted)}
 
 /* Number entrances and text-only sheen; no spinning light across card faces. */
 @keyframes text-gloss{from{background-position:180% 0}to{background-position:-80% 0}}
@@ -143,7 +147,7 @@ body.light #main[data-page=agenda] .agenda-card.compact-card{background:#dce6f0;
 body.light #main[data-page=agenda] .compact-card:before{background:linear-gradient(90deg,#e9f1fbf5,#e9f1fbc9 45%,#dcebf854),linear-gradient(0deg,#dbe7f4c9,transparent 75%)}
 body.light #main[data-page=agenda] .compact-card h3{color:#10263e;text-shadow:none}
 body.light #main[data-page=agenda] .agenda-value strong{text-shadow:none}
-body.light #main[data-page=agenda] .agenda-value>span,body.light #main[data-page=agenda] .agenda-caption{color:#324b65}
+body.light #main[data-page=agenda] .agenda-metric-label,body.light #main[data-page=agenda] .agenda-value>span,body.light #main[data-page=agenda] .agenda-caption{color:#324b65}
 body.light #main[data-page=agenda] .agenda-metric .donut b{color:#112b46}
 body.light #main[data-page=agenda] .agenda-metric .ring-track{stroke:#163e632f}
 body.light #main[data-page=agenda] .agenda-card-icon{filter:none}
@@ -159,12 +163,12 @@ body.light #main[data-page=agenda] .delivery-status-row:hover .delivery-status-l
  #main[data-page=agenda] .dashboard-heading{flex-basis:52px;margin-bottom:16px}
  #main[data-page=agenda] .dashboard-heading h1{font-size:36px}
  #main[data-page=agenda]>.delivery-status{height:96px;flex-basis:96px;margin-bottom:18px;grid-template-columns:180px 1fr}
- #main[data-page=agenda] .dashboard-content{grid-template-rows:minmax(270px,1fr) minmax(245px,1fr);gap:18px}
+ #main[data-page=agenda] .dashboard-content{grid-template-rows:minmax(306px,1.05fr) minmax(245px,1fr);gap:18px}
  #main[data-page=agenda] .agenda-card.compact-card{padding:15px 17px 12px;gap:7px}
  #main[data-page=agenda] .compact-card h3{font-size:16px}
- #main[data-page=agenda] .agenda-value strong{font-size:30px}
- #main[data-page=agenda] .agenda-metric .donut{width:58px;height:58px;flex-basis:58px}
- #main[data-page=agenda] .agenda-metric .donut b{font-size:18px}
+ #main[data-page=agenda] .agenda-value strong{font-size:50px}
+ #main[data-page=agenda] .agenda-metric .donut{width:76px;height:76px;flex-basis:76px}
+ #main[data-page=agenda] .agenda-metric .donut b{font-size:24px}
  #main[data-page=agenda] .agenda-caption,#main[data-page=agenda] .category-bars>a,#main[data-page=agenda] .category-bars b{font-size:13px}
  #main[data-page=agenda] .feed-visual{height:145px;flex-basis:145px}
 }
@@ -177,7 +181,7 @@ body.light #main[data-page=agenda] .delivery-status-row:hover .delivery-status-l
  #main[data-page=agenda] .delivery-status .panel-title h2{font-size:14px}
  #main[data-page=agenda] .dashboard-layout{grid-template-columns:minmax(0,1fr) 250px;gap:14px;overflow:auto;align-items:start}
  #main[data-page=agenda] .dashboard-content{display:flex;flex-direction:column;min-height:755px;gap:14px}
- #main[data-page=agenda] .agenda-workspace{flex:0 0 500px}
+ #main[data-page=agenda] .agenda-workspace{flex:0 0 570px}
  #main[data-page=agenda] .compact-agenda{grid-template-columns:1fr 1.15fr;grid-template-rows:repeat(4,minmax(0,1fr));gap:10px}
  #main[data-page=agenda] .compact-card{grid-column:auto!important}
  #main[data-page=agenda] .dashboard-charts{min-height:240px;grid-template-columns:1fr 1fr;gap:12px}
@@ -207,8 +211,8 @@ body.light #main[data-page=agenda] .delivery-status-row:hover .delivery-status-l
  #main[data-page=agenda] .compact-card{grid-column:auto!important}
  #main[data-page=agenda] .agenda-card.compact-card{padding:14px 17px;gap:7px}
  #main[data-page=agenda] .compact-card h3{font-size:16px}
- #main[data-page=agenda] .agenda-value strong{font-size:28px}
- #main[data-page=agenda] .agenda-metric .donut{height:54px;width:54px;flex-basis:54px}
+ #main[data-page=agenda] .agenda-value strong{font-size:42px}
+ #main[data-page=agenda] .agenda-metric .donut{height:64px;width:64px;flex-basis:64px}
  #main[data-page=agenda] .dashboard-charts{display:flex;flex-direction:column;gap:17px;min-height:0}
  #main[data-page=agenda] .attention-panel{height:260px;flex:0 0 260px}
  #main[data-page=agenda] .category-chart{height:295px;flex:0 0 295px}

@@ -4,9 +4,10 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(p
 let actionRefreshContext=null;
 let context=null,activePopup=null,selectCount=0,lastNav='';
 if(window.gsap&&window.Flip)gsap.registerPlugin(Flip);
-function cleanup(){actionRefreshContext?.revert();actionRefreshContext=null;context?.revert();context=null;closeSelect();}
+function cleanup(){window.PulseNetwork?.destroy();actionRefreshContext?.revert();actionRefreshContext=null;context?.revert();context=null;closeSelect();}
 function enter(root,dir=1){
  enhance(root);
+ if(root.dataset.page==='actions')window.PulseNetwork?.mount(root.querySelector('.network-model'));
  if(!window.gsap||reduced.matches)return;
  context=gsap.context(()=>{
   const heading=root.querySelector('.page-heading,.dashboard-heading,.agenda-hero');
