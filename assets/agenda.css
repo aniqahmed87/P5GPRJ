@@ -1,0 +1,217 @@
+/* Pulse 5G v8. One set of agenda rules: no layered v6/v7 motion overrides. */
+/* Navigation keeps the original glass material and v65's single border orbit. */
+.shell-header{gap:15px}
+.nav-rail{gap:6px;padding-inline:8px}
+.nav-rail .page-link{position:relative;isolation:isolate;overflow:visible;min-height:38px;padding:5px 6px;gap:7px;border-radius:13px;border:1px solid transparent;background:none;color:var(--text);opacity:.86;transform:none;transition:background .22s,border-color .22s,box-shadow .22s,opacity .22s}
+.nav-rail .page-link:before,.nav-rail .page-link:after{content:none;display:none;animation:none;transform:none;transition:none;filter:none;mask:none;-webkit-mask:none;background:none;box-shadow:none}
+.nav-rail .page-link .nav-icon,body.light .nav-rail .page-link .nav-icon{display:flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:25px;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit;filter:none}
+.nav-rail .page-link .nav-icon svg{display:block;width:24px;height:24px;stroke-width:1.75}
+.nav-rail .page-link .nav-label{font-weight:550;margin:0}
+.nav-rail .page-link.active{opacity:1;color:#fff;border-color:#f0d8bf7a;background:linear-gradient(150deg,#f4d9b82e,#b9d4ff16 65%,#19334859);box-shadow:inset 0 2px 2px #fff7,0 5px 15px #0004,0 0 24px #d7c5a219;transform:none}
+.nav-rail .page-link.active .nav-label{font-weight:650}
+.nav-rail .page-link.active .nav-icon,body.light .nav-rail .page-link.active .nav-icon{border:0;background:none;box-shadow:none;color:inherit;filter:none}
+.nav-rail .page-link:hover{opacity:1;background:#ffffff12;transform:none}
+body.light .nav-rail .page-link.active{color:#132c48;border-color:white;background:linear-gradient(145deg,#ffffffed,#dce7f690);box-shadow:0 5px 15px #344c6c1c,inset 0 1px white}
+@property --ringAngle{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes ringSpin{to{--ringAngle:360deg}}
+@keyframes ringPulse{0%,100%{opacity:.58}50%{opacity:1}}
+.nav-rail .page-link.active:before{content:'';display:block;position:absolute;inset:-2px;border-radius:15px;padding:2px;background:conic-gradient(from var(--ringAngle),rgba(255,255,255,0) 0deg 300deg,rgba(255,214,122,.10) 312deg,rgba(255,214,122,.98) 327deg,rgba(255,255,255,.98) 338deg,rgba(255,117,144,.95) 349deg,rgba(255,214,122,.36) 357deg,rgba(255,255,255,0) 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;z-index:2;animation:ringSpin 3.2s linear infinite;filter:drop-shadow(0 0 6px rgba(255,214,122,.34)) drop-shadow(0 0 10px rgba(255,117,144,.16));transform:none}
+.nav-rail .page-link.active:after{content:'';display:block;position:absolute;inset:-1px;height:auto;border-radius:14px;padding:0;pointer-events:none;z-index:1;background:none;mask:none;-webkit-mask:none;box-shadow:0 0 0 1px rgba(255,255,255,.10) inset,0 0 10px rgba(255,214,122,.18),0 0 20px rgba(255,214,122,.10);animation:ringPulse 2.2s ease-in-out infinite}
+body.light .nav-rail .page-link.active:after{box-shadow:0 0 0 1px rgba(0,0,0,.06) inset,0 0 10px rgba(255,184,78,.20),0 0 18px rgba(255,184,78,.11)}
+
+.brand{position:relative;inset:auto;height:46px;gap:8px;padding:4px 8px;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,#eef8ff1f,#d8eaff05);border-color:#eff8ff55;box-shadow:inset 0 1px 1px #ffffff8f,inset 0 -1px #cee7ff26,0 5px 15px #0004}
+.brand .brand-logo{display:grid;place-items:center;flex:0 0 36px;width:36px;height:37px;margin:0;transition:filter .2s,transform .2s}
+.brand .brand-logo img,.brand .brand-logo img:first-child{width:36px;height:37px;object-fit:contain;max-width:none;filter:drop-shadow(0 2px 2px #0004)}
+.brand-line{height:28px;opacity:.6}
+.brand:hover .brand-logo{filter:brightness(1.12);transform:translateY(-1px)}
+body.light .brand{background:linear-gradient(145deg,#fff,#e6edf67f);border-color:white;box-shadow:inset 0 1px white,0 5px 14px #1d365429}
+
+/* Fixed material; moving light is clipped exclusively to the perimeter. */
+#main[data-page=agenda]{padding:16px 50px 12px}
+#main[data-page=agenda] .dashboard-heading{flex:0 0 44px;min-height:44px;margin:0 0 12px;gap:12px}
+#main[data-page=agenda] .dashboard-heading h1{font-size:31px;line-height:1.08}
+#main[data-page=agenda] .dashboard-heading>.button-row{gap:12px}
+#main[data-page=agenda] .agenda-save-state{display:flex;align-items:center;gap:7px;font-size:12px;line-height:1.35;color:var(--muted)}
+#main[data-page=agenda] .agenda-save-state svg{width:17px;height:17px;color:var(--success)}
+#main[data-page=agenda] .agenda-save-state.has-warning svg{color:var(--warning)}
+#main[data-page=agenda] .analytics-panel{border-radius:17px;border:1px solid #c2def132;border-top-color:#d9efff66;background:linear-gradient(160deg,#2330448c,#0c1523dc 55%);box-shadow:0 8px 18px #0004,inset 0 1px #e9f6ff88,inset 1px 0 #e9f6ff18;padding:15px 17px;position:relative;min-height:0;isolation:isolate}
+#main[data-page=agenda] .analytics-panel:before{animation:none;background:linear-gradient(180deg,#ffffff0b,transparent 35%);background-size:auto;box-shadow:none;z-index:0}
+#main[data-page=agenda] .analytics-panel:after{content:none;animation:none;background:none;box-shadow:none;border:0}
+#main[data-page=agenda] .panel-title{margin:0 0 11px;display:flex;gap:8px;align-items:center;justify-content:space-between}
+#main[data-page=agenda] .panel-title h2{font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+#main[data-page=agenda] .panel-title h2 svg{width:20px;height:20px;color:var(--warning)}
+#main[data-page=agenda] .panel-title>a{display:flex;align-items:center;gap:7px;color:var(--info);font-size:12px}
+#main[data-page=agenda] .panel-title>a svg{width:17px;height:17px}
+
+/* Delivery Status is its own compact row directly below Project Overview. */
+#main[data-page=agenda]>.delivery-status{display:grid;grid-template-columns:155px minmax(0,1fr);align-items:center;gap:21px;flex:0 0 88px;height:88px;min-height:88px;padding:12px 18px;margin:0 0 14px}
+#main[data-page=agenda] .delivery-status>.panel-title{margin:0}
+#main[data-page=agenda] .delivery-status .panel-title h2 svg{color:var(--info)}
+#main[data-page=agenda] .delivery-status-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;min-height:0;position:relative}
+#main[data-page=agenda] .delivery-status-row{display:block;min-width:0;border-radius:8px}
+#main[data-page=agenda] .delivery-status-label{display:flex;align-items:center;gap:7px;font-size:14px;line-height:19px;margin:0 0 6px}
+#main[data-page=agenda] .delivery-status-label svg{height:18px;width:18px;color:var(--tone)}
+#main[data-page=agenda] .delivery-status-label strong{margin-left:auto;font-size:17px;line-height:19px;color:var(--tone);font-weight:600;white-space:nowrap}
+#main[data-page=agenda] .delivery-full-bar{height:9px;position:relative;width:100%;background:#c2d8ff17;border-radius:7px;box-shadow:inset 0 2px 4px #0006,inset 0 -1px #e1f1ff12;overflow:hidden}
+#main[data-page=agenda] .delivery-full-bar i{height:100%;display:block;background:linear-gradient(180deg,color-mix(in srgb,var(--tone) 72%,#fff),var(--tone) 62%,color-mix(in srgb,var(--tone) 80%,#000));border-radius:inherit;box-shadow:inset 0 1px #fff9;transition:width .35s}
+#main[data-page=agenda] .delivery-status-row small{display:block;margin-top:5px;font-size:12px;line-height:15px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#main[data-page=agenda] .delivery-status-row:hover .delivery-status-label{color:#fff}
+
+#main[data-page=agenda] .dashboard-layout{display:grid;grid-template-columns:minmax(0,1fr) clamp(275px,24%,340px);gap:19px;min-height:0;flex:1}
+#main[data-page=agenda] .dashboard-content{display:grid;grid-template-rows:minmax(246px,1fr) minmax(218px,1fr);gap:14px;min-height:0;min-width:0}
+#main[data-page=agenda] .agenda-workspace{display:block;min-height:0;flex:none}
+#main[data-page=agenda] .compact-agenda{display:grid;height:100%;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
+#main[data-page=agenda] .compact-card{grid-column:span 3}
+#main[data-page=agenda] .compact-card[href="#risks"],#main[data-page=agenda] .compact-card[href="#raci"]{grid-column:span 2}
+#main[data-page=agenda] .compact-card[href="#milestones"],#main[data-page=agenda] .compact-card[href="#escalations"]{grid-column:span 4}
+#main[data-page=agenda] .agenda-card.compact-card{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;padding:11px 12px 9px;gap:5px;min-height:0;border-radius:16px;border:1px solid #d2e3f344;border-top-color:#eff8ff88;border-left-color:#d8eeff50;background:#101923;box-shadow:0 7px 16px #0005,inset 0 1px 1px #ffffff88,inset 1px 0 1px #ffffff24,inset 0 -1px 2px #0009;position:relative;isolation:isolate;overflow:hidden;transform-style:flat;transition:transform .2s,box-shadow .2s,border-color .2s}
+#main[data-page=agenda] .shortcut-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;opacity:.85;mask-image:none;-webkit-mask-image:none;z-index:-2;filter:saturate(.86);transition:transform .28s,filter .25s}
+#main[data-page=agenda] .compact-card:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:linear-gradient(90deg,#09101bf5,#0b1527c9 36%,#07112435),linear-gradient(0deg,#070c17d9,transparent 65%);animation:none;background-size:auto;box-shadow:none}
+#main[data-page=agenda] .compact-card:after{content:'';position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ringAngle),transparent 0deg 300deg,#ffd67a1a 312deg,#ffd67afa 327deg,#fff 338deg,#ff7590f2 349deg,#ffd67a5c 357deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;z-index:3;opacity:0;box-shadow:none;border:0;animation:none;transition:opacity .18s}
+#main[data-page=agenda] .compact-card:hover:after,#main[data-page=agenda] .compact-card:focus-visible:after{opacity:1;animation:ringSpin 3.2s linear infinite}
+#main[data-page=agenda] .compact-card:hover,#main[data-page=agenda] .compact-card:focus-visible{transform:translateY(-2px);border-color:#e2f1ff99;box-shadow:0 11px 22px #0007,inset 0 1px 1px #fff9,0 0 15px #d6be8715}
+#main[data-page=agenda] .compact-card:hover .shortcut-art{transform:scale(1.025);filter:saturate(1.05)}
+#main[data-page=agenda] .compact-card:active{transform:translateY(0);transition-duration:.07s}
+#main[data-page=agenda] .agenda-card-heading{display:flex;align-items:center;gap:7px;min-height:20px;flex-shrink:0}
+#main[data-page=agenda] .agenda-card-icon{display:flex;align-items:center;justify-content:center;flex:0 0 20px;width:20px;height:21px;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--tone);filter:drop-shadow(0 2px 3px #0008)}
+#main[data-page=agenda] .agenda-card-icon svg{width:21px;height:21px}
+#main[data-page=agenda] .compact-card h3{flex:1;min-width:0;font-size:14px;font-weight:600;line-height:1.2;letter-spacing:-.2px;color:#f4f8ff;margin:0;text-shadow:0 2px 5px #0006}
+#main[data-page=agenda] .card-open{position:static;display:flex;flex:0 0 12px;color:#cfdeed99;transition:transform .18s,color .18s}
+#main[data-page=agenda] .card-open svg{width:12px;height:12px}
+#main[data-page=agenda] .compact-card:hover .card-open{color:#fff;transform:translateX(2px)}
+#main[data-page=agenda] .agenda-metric{display:flex;align-items:center;justify-content:space-between;gap:5px;flex:1;min-height:0}
+#main[data-page=agenda] .agenda-value{min-width:0}
+#main[data-page=agenda] .agenda-value strong{font-size:25px;line-height:1.05;letter-spacing:-.7px;font-weight:600;color:var(--tone);white-space:nowrap;display:block;text-shadow:0 2px 8px #0008}
+#main[data-page=agenda] .metric-number{display:inline-block;font-variant-numeric:tabular-nums;text-align:left}
+#main[data-page=agenda] .metric-total{font-size:.82em;letter-spacing:-.5px}
+#main[data-page=agenda] .agenda-value>span{display:block;font-size:12px;line-height:14px;color:#c7d7e8;margin-top:3px;white-space:nowrap}
+#main[data-page=agenda] .agenda-metric .donut{width:48px;height:48px;flex:0 0 48px;--tone:inherit}
+#main[data-page=agenda] .agenda-metric .donut circle{stroke-width:6}
+#main[data-page=agenda] .agenda-metric .ring-track{stroke:#d4e4f52f}
+#main[data-page=agenda] .agenda-metric .donut b{font-size:15px;color:#edf6ff;font-weight:600;letter-spacing:-.2px}
+#main[data-page=agenda] .agenda-metric .donut small{display:none}
+#main[data-page=agenda] .agenda-object{width:39px;height:39px;display:grid;place-items:center;color:var(--tone)}
+#main[data-page=agenda] .agenda-object svg{height:30px;width:30px;stroke-width:1.5;color:var(--tone)}
+#main[data-page=agenda] .agenda-caption{display:flex;align-items:center;gap:5px;min-height:15px;flex-shrink:0;color:#c6d6e8;font-size:12px;line-height:15px}
+#main[data-page=agenda] .agenda-caption>span:last-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#main[data-page=agenda] .attention-mark{display:flex;flex:0 0 14px;color:var(--tone)}
+#main[data-page=agenda] .attention-mark svg{width:14px;height:14px;color:var(--tone);stroke-width:2}
+#main[data-page=agenda] a[href="#milestones"] .attention-mark{--tone:var(--warning)}
+#main[data-page=agenda] .agenda-empty-metric{width:48px;height:48px;display:grid;place-items:center;font-size:24px;color:var(--muted)}
+
+/* Number entrances and text-only sheen; no spinning light across card faces. */
+@keyframes text-gloss{from{background-position:180% 0}to{background-position:-80% 0}}
+@keyframes text-arrive{from{opacity:.3;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
+#main[data-page=agenda] .compact-card h3{animation:text-arrive .7s .1s both}
+@supports(background-clip:text){
+ #main[data-page=agenda] .compact-card:hover h3,#main[data-page=agenda] .compact-card:focus-visible h3,#main[data-page=agenda] .compact-card:hover .metric-number,#main[data-page=agenda] .compact-card:focus-visible .metric-number,#main[data-page=agenda] .delivery-status-row:hover .metric-number{background-image:linear-gradient(105deg,var(--gloss-ink,#d8e8fa) 0 37%,#fff 46% 49%,var(--gloss-ink,#d8e8fa) 60% 100%);background-size:260% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none;animation:text-gloss 1.3s ease-in-out infinite}
+ #main[data-page=agenda] .compact-card:hover .metric-number{--gloss-ink:var(--tone)}
+}
+#main[data-page=agenda] .compact-card:hover .agenda-caption{color:#f1f7ff}
+
+/* The original bottom row is preserved: attention left, milestone categories right. */
+#main[data-page=agenda] .dashboard-charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:none;min-height:0;max-height:none}
+#main[data-page=agenda] .attention-panel,#main[data-page=agenda] .category-chart{display:flex;flex-direction:column;min-height:0}
+#main[data-page=agenda] .attention-list{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding-right:3px}
+#main[data-page=agenda] .attention-row{display:flex;align-items:center;gap:9px;padding:6px 5px;border-bottom:1px solid #cbe2ff13;border-radius:8px;transition:background .18s}
+#main[data-page=agenda] .attention-row:last-child{border-bottom:0}
+#main[data-page=agenda] .attention-row:hover{background:color-mix(in srgb,var(--tone) 9%,transparent)}
+#main[data-page=agenda] .attention-symbol{display:flex;flex:0 0 21px;color:var(--tone)}
+#main[data-page=agenda] .attention-symbol svg{height:21px;width:21px}
+#main[data-page=agenda] .attention-row>div{flex:1;min-width:0}
+#main[data-page=agenda] .attention-row strong{font-size:13px;line-height:18px;color:var(--tone);font-weight:550}
+#main[data-page=agenda] .attention-row p{font-size:12px;line-height:16px;color:var(--muted);margin:3px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#main[data-page=agenda] .attention-row>svg{height:13px;width:13px;color:var(--muted)}
+#main[data-page=agenda] .attention-clear{display:flex;gap:12px;color:var(--success);font-size:14px;padding-top:20px}
+#main[data-page=agenda] .attention-clear svg{width:24px;height:24px}
+#main[data-page=agenda] .category-bars{display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;gap:6px;justify-content:space-between;padding-right:2px}
+#main[data-page=agenda] .category-bars>a{display:grid;grid-template-columns:minmax(100px,1.3fr) minmax(30px,1fr) 30px;gap:8px;align-items:center;min-height:16px;font-size:12px}
+#main[data-page=agenda] .category-bars b{font-size:12px;color:var(--info)}
+#main[data-page=agenda] .category-bars>a:hover>span{color:var(--text)}
+#main[data-page=agenda] .meeting-feed{display:flex;flex-direction:column;padding:0 0 12px;min-height:0}
+#main[data-page=agenda] .feed-visual{height:115px;flex:0 0 115px;position:relative;overflow:hidden}
+#main[data-page=agenda] .feed-visual img{animation:none;transform:none;height:100%;width:100%;object-fit:cover;object-position:70% center;mask-image:linear-gradient(#000 78%,transparent)}
+#main[data-page=agenda] .meeting-feed>.panel-title{padding:0 15px;margin:4px 0 11px}
+#main[data-page=agenda] .meeting-feed>.panel-title h2{font-size:16px}
+#main[data-page=agenda] .meeting-feed>.panel-title>svg{height:17px;width:17px;color:var(--muted)}
+#main[data-page=agenda] .feed-entry p{max-height:140px}
+#main[data-page=agenda] .feed-empty{padding:20px 12px}
+#main[data-page=agenda] .feed-empty .empty-glyph{background:none;box-shadow:none;border:0}
+
+body.light #main[data-page=agenda] .analytics-panel{background:linear-gradient(150deg,#ffffffb8,#edf3fbd9);border-color:#fff9;border-top-color:white;box-shadow:0 8px 18px #233f601f,inset 0 1px white}
+body.light #main[data-page=agenda] .agenda-card.compact-card{background:#dce6f0;border-color:#f8fcffb3;border-top-color:white;box-shadow:0 6px 14px #2a40572b,inset 0 1px 1px #fff,inset 1px 0 #fffc;--success:#126d50;--warning:#8c5200;--info:#005e88;--danger:#b91d42;--violet:#692c9f}
+body.light #main[data-page=agenda] .compact-card:before{background:linear-gradient(90deg,#e9f1fbf5,#e9f1fbc9 45%,#dcebf854),linear-gradient(0deg,#dbe7f4c9,transparent 75%)}
+body.light #main[data-page=agenda] .compact-card h3{color:#10263e;text-shadow:none}
+body.light #main[data-page=agenda] .agenda-value strong{text-shadow:none}
+body.light #main[data-page=agenda] .agenda-value>span,body.light #main[data-page=agenda] .agenda-caption{color:#324b65}
+body.light #main[data-page=agenda] .agenda-metric .donut b{color:#112b46}
+body.light #main[data-page=agenda] .agenda-metric .ring-track{stroke:#163e632f}
+body.light #main[data-page=agenda] .agenda-card-icon{filter:none}
+body.light #main[data-page=agenda] .card-open{color:#29496399}
+body.light #main[data-page=agenda] .delivery-full-bar{background:#173e5e13;box-shadow:inset 0 1px 3px #1d405430,inset 0 -1px #fff8}
+body.light #main[data-page=agenda] .attention-row{border-bottom-color:#42618518}
+body.light #main[data-page=agenda] .compact-card:hover h3{--gloss-ink:#10263e;color:transparent}
+body.light #main[data-page=agenda] .compact-card:hover .agenda-caption{color:#10263e}
+body.light #main[data-page=agenda] .delivery-status-row:hover .delivery-status-label{color:#10263e}
+
+@media(min-width:1600px){
+ #main[data-page=agenda]{padding:20px 52px 16px}
+ #main[data-page=agenda] .dashboard-heading{flex-basis:52px;margin-bottom:16px}
+ #main[data-page=agenda] .dashboard-heading h1{font-size:36px}
+ #main[data-page=agenda]>.delivery-status{height:96px;flex-basis:96px;margin-bottom:18px;grid-template-columns:180px 1fr}
+ #main[data-page=agenda] .dashboard-content{grid-template-rows:minmax(270px,1fr) minmax(245px,1fr);gap:18px}
+ #main[data-page=agenda] .agenda-card.compact-card{padding:15px 17px 12px;gap:7px}
+ #main[data-page=agenda] .compact-card h3{font-size:16px}
+ #main[data-page=agenda] .agenda-value strong{font-size:30px}
+ #main[data-page=agenda] .agenda-metric .donut{width:58px;height:58px;flex-basis:58px}
+ #main[data-page=agenda] .agenda-metric .donut b{font-size:18px}
+ #main[data-page=agenda] .agenda-caption,#main[data-page=agenda] .category-bars>a,#main[data-page=agenda] .category-bars b{font-size:13px}
+ #main[data-page=agenda] .feed-visual{height:145px;flex-basis:145px}
+}
+@media(min-width:701px) and (max-width:1199px){
+ .shell-header{gap:8px}.brand{height:43px;gap:6px;padding-inline:6px}.brand .brand-logo,.brand .brand-logo img,.brand .brand-logo img:first-child{width:29px;height:32px}.brand .brand-logo{flex-basis:29px}
+ #main[data-page=agenda]{padding:16px 38px 10px}
+ #main[data-page=agenda] .dashboard-heading h1{font-size:28px}
+ #main[data-page=agenda]>.delivery-status{grid-template-columns:130px minmax(0,1fr);gap:14px;padding-inline:14px}
+ #main[data-page=agenda] .delivery-status-rows{gap:15px}
+ #main[data-page=agenda] .delivery-status .panel-title h2{font-size:14px}
+ #main[data-page=agenda] .dashboard-layout{grid-template-columns:minmax(0,1fr) 250px;gap:14px;overflow:auto;align-items:start}
+ #main[data-page=agenda] .dashboard-content{display:flex;flex-direction:column;min-height:755px;gap:14px}
+ #main[data-page=agenda] .agenda-workspace{flex:0 0 500px}
+ #main[data-page=agenda] .compact-agenda{grid-template-columns:1fr 1.15fr;grid-template-rows:repeat(4,minmax(0,1fr));gap:10px}
+ #main[data-page=agenda] .compact-card{grid-column:auto!important}
+ #main[data-page=agenda] .dashboard-charts{min-height:240px;grid-template-columns:1fr 1fr;gap:12px}
+ #main[data-page=agenda] .category-bars>a{grid-template-columns:1fr 30px;gap:3px}
+ #main[data-page=agenda] .category-bars .metric-track{grid-row:2;grid-column:1/-1}
+ #main[data-page=agenda] .meeting-feed{position:sticky;top:0;height:100%;max-height:500px;min-height:400px}
+ #main[data-page=agenda] .analytics-panel{padding:13px}
+ #main[data-page=agenda] .meeting-feed{padding:0 0 10px}
+ #main[data-page=agenda] .panel-title h2{font-size:14px}
+}
+@media(max-width:700px){
+ .shell-header{gap:6px}.brand{height:38px;padding:3px 5px;gap:4px}.brand-line{display:none}.brand .brand-logo,.brand .brand-logo img,.brand .brand-logo img:first-child{width:23px;height:28px}.brand .brand-logo{flex-basis:23px}
+ .nav-rail .page-link .nav-icon{display:flex!important;flex-basis:22px;width:22px}.nav-rail .page-link .nav-icon svg{height:22px;width:22px}
+ #main[data-page=agenda]{padding:14px 30px 10px;overflow-y:auto;display:block}
+ #main[data-page=agenda] .dashboard-heading{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;min-height:0}
+ #main[data-page=agenda] .dashboard-heading h1{font-size:27px}
+ #main[data-page=agenda] .dashboard-heading>.button-row{width:100%;gap:10px;justify-content:flex-end}
+ #main[data-page=agenda] .agenda-save-state{margin-right:auto;font-size:12px}
+ #main[data-page=agenda]>.delivery-status{height:auto;min-height:0;display:block;margin-bottom:16px;padding:15px}
+ #main[data-page=agenda] .delivery-status>.panel-title{margin-bottom:15px}
+ #main[data-page=agenda] .delivery-status-rows{display:flex;flex-direction:column;gap:15px}
+ #main[data-page=agenda] .delivery-status-row small{white-space:normal}
+ #main[data-page=agenda] .dashboard-layout{display:flex;flex-direction:column;overflow:visible;gap:17px}
+ #main[data-page=agenda] .dashboard-content{display:flex;flex-direction:column;gap:17px;min-height:0}
+ #main[data-page=agenda] .agenda-workspace{flex:none}
+ #main[data-page=agenda] .compact-agenda{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:136px;gap:12px}
+ #main[data-page=agenda] .compact-card{grid-column:auto!important}
+ #main[data-page=agenda] .agenda-card.compact-card{padding:14px 17px;gap:7px}
+ #main[data-page=agenda] .compact-card h3{font-size:16px}
+ #main[data-page=agenda] .agenda-value strong{font-size:28px}
+ #main[data-page=agenda] .agenda-metric .donut{height:54px;width:54px;flex-basis:54px}
+ #main[data-page=agenda] .dashboard-charts{display:flex;flex-direction:column;gap:17px;min-height:0}
+ #main[data-page=agenda] .attention-panel{height:260px;flex:0 0 260px}
+ #main[data-page=agenda] .category-chart{height:295px;flex:0 0 295px}
+ #main[data-page=agenda] .meeting-feed{height:420px;flex:0 0 420px}
+}
+@media(prefers-reduced-motion:reduce){.nav-rail .page-link.active:before,.nav-rail .page-link.active:after,#main[data-page=agenda] *,#main[data-page=agenda] *:before,#main[data-page=agenda] *:after{animation:none!important;transition:none!important}.brand:hover .brand-logo,#main[data-page=agenda] .compact-card:hover,#main[data-page=agenda] .compact-card:hover .shortcut-art{transform:none}}

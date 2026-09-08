@@ -1,0 +1,419 @@
+/* Hosted / browser-specific premium layer. */
+
+/* Pulse 5G — hosted premium layer.  The approved presentation core stays intact. */
+:root{
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-right:env(safe-area-inset-right,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-left:env(safe-area-inset-left,0px);
+  --deck-progress:11.111%;
+  --premium-gold:rgba(211,162,79,.78);
+}
+html,body{overscroll-behavior:none;background-color:var(--bg)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,a{-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:2px solid color-mix(in oklab,var(--gold) 76%,white);outline-offset:3px}
+
+/* Short, GPU-light hosted boot veil. */
+.bootScreen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:radial-gradient(circle at 50% 34%,rgba(255,49,77,.13),transparent 23%),radial-gradient(circle at 64% 72%,rgba(90,132,255,.10),transparent 26%),linear-gradient(145deg,#07101a,#0b1421 58%,#101823);opacity:1;visibility:visible;transition:opacity .46s ease,visibility 0s .46s;pointer-events:none}
+body.light .bootScreen{background:radial-gradient(circle at 50% 34%,rgba(213,34,64,.08),transparent 24%),linear-gradient(145deg,#f9fbfe,#fff 64%,#fbf7f8)}
+body.boot-ready .bootScreen{opacity:0;visibility:hidden}
+.bootMark{display:grid;justify-items:center;gap:15px;transform:translateY(-8px);animation:bootMarkIn .65s cubic-bezier(.2,.75,.2,1) both}
+.bootBrands{display:flex;align-items:center;gap:16px;padding:13px 18px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:rgba(255,255,255,.045);box-shadow:0 20px 50px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.05)}
+.bootBrands img:first-child{height:31px}.bootBrands img:last-child{height:35px}
+.bootDivider{width:1px;height:28px;background:linear-gradient(transparent,var(--premium-gold),transparent)}
+.bootTitle{font-size:24px;font-weight:900;letter-spacing:-.035em}
+.bootSub{margin-top:-7px;font-size:11px;color:var(--muted);font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.bootTrace{width:154px;height:2px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.07)}
+.bootTrace:after{content:"";display:block;width:54px;height:100%;background:linear-gradient(90deg,transparent,var(--gold),var(--accent),transparent);animation:bootTrace 1.05s ease-in-out infinite}
+body.light .bootBrands{background:rgba(255,255,255,.88);border-color:rgba(16,24,38,.09);box-shadow:0 18px 42px rgba(52,66,94,.09)}
+@keyframes bootMarkIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(-8px) scale(1)}}
+@keyframes bootTrace{from{transform:translateX(-60px)}to{transform:translateX(168px)}}
+
+/* Hosted chrome and deck progress. */
+.topbar{padding-left:max(14px,var(--safe-left));padding-right:max(14px,var(--safe-right));box-shadow:0 16px 42px rgba(0,0,0,.16),inset 0 -1px 0 rgba(255,255,255,.025)}
+.deckProgress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden;pointer-events:none;background:rgba(255,255,255,.025)}
+.deckProgress span{display:block;width:var(--deck-progress);height:100%;border-radius:0 999px 999px 0;background:linear-gradient(90deg,var(--accent),var(--accent2) 60%,var(--gold));box-shadow:0 0 11px rgba(255,70,95,.35);transition:width .52s cubic-bezier(.2,.72,.2,1)}
+body.rtl .deckProgress span{margin-left:auto;border-radius:999px 0 0 999px}
+body.light .deckProgress{background:rgba(16,24,38,.035)}
+
+.frame{border-color:color-mix(in oklab,var(--stroke) 80%,rgba(211,162,79,.10));box-shadow:0 28px 78px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.018),inset 0 1px 0 rgba(255,255,255,.045)}
+body.light .frame{box-shadow:0 26px 68px rgba(52,66,94,.11),0 0 0 1px rgba(255,255,255,.9),inset 0 1px 0 #fff}
+.panel,.card,.metric,.mini,.archbox,.flowblock,.sitecard,.dashcard,.infochip{border-color:color-mix(in oklab,var(--stroke) 88%,rgba(211,162,79,.06))}
+
+/* Capability / strategic-driver cards now use the extracted authored art. */
+.card{isolation:isolate;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 88%,transparent),color-mix(in oklab,var(--panel2) 94%,transparent))}
+.card:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(150deg,rgba(255,255,255,.035),transparent 28%,transparent 76%,rgba(211,162,79,.035));opacity:.85}
+.card>*{position:relative;z-index:2}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in oklab,var(--gold) 28%,var(--stroke));box-shadow:0 19px 38px rgba(0,0,0,.20),0 0 24px rgba(211,162,79,.055),inset 0 1px 0 rgba(255,255,255,.05)}
+.cardVisual{position:relative;isolation:isolate;overflow:hidden;background-image:linear-gradient(105deg,rgba(7,12,20,.88),rgba(7,12,20,.52)),var(--cardimg);background-size:cover;background-position:center;border-color:color-mix(in oklab,var(--gold) 18%,var(--soft2));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.cardVisual:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 20%,rgba(255,49,77,.20),transparent 28%),linear-gradient(145deg,rgba(255,255,255,.06),transparent 35%);z-index:0}
+.cardVisual:after{content:"";position:absolute;left:-36px;bottom:-44px;width:122px;height:122px;border-radius:50%;background:radial-gradient(circle,rgba(211,162,79,.12),transparent 67%);z-index:0}
+.cardVisual img{position:relative;z-index:2;width:54px;height:54px;padding:12px;border-radius:18px;background:rgba(5,10,18,.54);border:1px solid rgba(255,255,255,.11);box-shadow:0 12px 26px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.08);filter:drop-shadow(0 6px 9px rgba(0,0,0,.16))}
+body.light .card{background:linear-gradient(180deg,#fff,#f9fbfd)}
+body.light .cardVisual{background-image:linear-gradient(105deg,rgba(255,255,255,.88),rgba(255,255,255,.58)),var(--cardimg);filter:saturate(.88)}
+body.light .cardVisual img{background:rgba(255,255,255,.82);border-color:rgba(16,24,38,.09);box-shadow:0 10px 22px rgba(52,66,94,.10)}
+
+.eyebrow{box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.title h1,.title h2,.heroBig,.briefHeroTitle,.keycapLead h3,.archx-cloud-title strong{text-wrap:balance}
+.title p,.lead,.briefHeroLead,.keycapLead p{text-wrap:pretty}
+.tag,.subtag,.infochip,.chip,.kcapChip,.keycapPill{backdrop-filter:blur(8px)}
+body.light .tag,body.light .subtag,body.light .infochip{box-shadow:inset 0 1px 0 rgba(255,255,255,.92)}
+
+/* Maps: keep natural OpenStreetMap tiles and improve overlays only. */
+#pocMapCanvas,.osmMap{background-color:#e9e7df}
+.pocMapPanel{box-shadow:0 20px 46px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.04)}
+.pocMapFrame{box-shadow:inset 0 0 0 1px rgba(255,255,255,.025),inset 0 0 55px rgba(4,8,14,.08)}
+.pocChip,.pocLegendItem,.pocMapHint{backdrop-filter:blur(9px) saturate(126%)}
+.pocSiteItem{transition:border-color .22s ease,box-shadow .22s ease,background .22s ease}
+.pocSiteItem:hover{border-color:color-mix(in oklab,var(--gold) 24%,var(--stroke));box-shadow:0 0 18px rgba(211,162,79,.055),inset 0 1px 0 rgba(255,255,255,.04)}
+.leaflet-container{outline:none}.leaflet-control-zoom a{font-family:inherit!important;font-weight:900!important}
+
+/* Dashboard keeps its motion but gets cleaner containment and scrolling. */
+.dashboardShell{scroll-behavior:smooth}
+.dashKpi,.dashcard,.opsCard{contain:layout paint}
+.dashKpi:hover,.dashcard:hover,.opsCard:hover{filter:none!important}
+.opsToolbar{position:sticky;top:0;z-index:8}
+.toolbarBtn,.actionBtn{min-width:0}.osmTile{image-rendering:auto}
+
+/* Brief status cue appears only on online/offline transition. */
+.hostedBadge{position:fixed;right:max(12px,var(--safe-right));bottom:max(10px,var(--safe-bottom));z-index:60;display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:rgba(7,12,20,.68);border:1px solid rgba(255,255,255,.08);color:#dfe7f2;font-size:9px;font-weight:850;letter-spacing:.03em;opacity:0;transform:translateY(6px);pointer-events:none;transition:.25s ease;backdrop-filter:blur(8px)}
+.hostedBadge.show{opacity:1;transform:none}.hostedBadge i{width:7px;height:7px;border-radius:50%;background:var(--green)}.hostedBadge.offline i{background:var(--amber)}
+body.light .hostedBadge{background:rgba(255,255,255,.88);color:#243248;border-color:rgba(16,24,38,.09)}
+
+html.ios-lite .card:hover,html.ios-lite .pocSiteItem:hover{transform:none;box-shadow:inherit}
+html.ios-lite .tag,html.ios-lite .subtag,html.ios-lite .infochip,html.ios-lite .chip,html.ios-lite .kcapChip,html.ios-lite .keycapPill{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+@media (prefers-reduced-motion:reduce){
+  .bootMark,.bootTrace:after,.deckProgress span{animation:none!important;transition:none!important}
+  .card:hover{transform:none}
+}
+@media (max-width:900px){
+  .hostedBadge{display:none}
+  .cardVisual{height:96px}
+  .cardVisual img{width:48px;height:48px;padding:11px}
+}
+
+/* Hosted slide switching: visibility is immediate; the frame still performs the premium directional animation.
+   This removes the old local/iOS blank interval between sections. */
+.slide:not(.active){
+  visibility:hidden!important;
+  transition:opacity .34s ease,transform .34s cubic-bezier(.2,.72,.2,1),filter .34s ease!important;
+}
+.slide.active{
+  visibility:visible!important;
+  transition:opacity .38s ease,transform .38s cubic-bezier(.2,.72,.2,1),filter .38s ease!important;
+  transition-delay:0s!important;
+}
+html.ios-lite .slide:not(.active){
+  visibility:hidden!important;
+  transition:opacity .28s ease,transform .28s cubic-bezier(.2,.72,.2,1)!important;
+}
+html.ios-lite .slide.active{
+  visibility:visible!important;
+  transition:opacity .30s ease,transform .30s cubic-bezier(.2,.72,.2,1)!important;
+  transition-delay:0s!important;
+}
+
+/* Final hosted transition model: paint the incoming slide immediately and animate only position.
+   This avoids blank/dim frames on iPad while retaining directional motion. */
+.slide,.slide.active,.slide:not(.active),html.ios-lite .slide,html.ios-lite .slide.active,html.ios-lite .slide:not(.active){transition:none!important;filter:none!important}
+.slide:not(.active){opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:none!important}
+.slide.active{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important}
+html[data-navdir="1"] .slide.active .frame{animation:hostedSlideNext .34s cubic-bezier(.2,.72,.2,1) both!important}
+html[data-navdir="-1"] .slide.active .frame{animation:hostedSlidePrev .34s cubic-bezier(.2,.72,.2,1) both!important}
+@keyframes hostedSlideNext{from{opacity:1;transform:translate3d(18px,0,0) scale(.996)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes hostedSlidePrev{from{opacity:1;transform:translate3d(-18px,0,0) scale(.996)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+
+
+/* ===== v4: generated UAE imagery; layout-safe ===== */
+.photo-card{
+  background-image:linear-gradient(104deg,rgba(6,11,18,.94) 0%,rgba(7,12,20,.88) 36%,rgba(7,12,20,.61) 68%,rgba(7,12,20,.48) 100%),var(--photoimg)!important;
+  background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;
+  border-color:color-mix(in oklab,var(--stroke) 82%,rgba(211,162,79,.16))!important;
+}
+.photo-card .metricVal,.photo-card .metricLbl,.photo-card .miniTop,.photo-card .briefFactVal,.photo-card .briefFactLbl,.photo-card .briefBulletText,.photo-card .briefPillarHead,.photo-card h3,.photo-card p,.photo-card>.text-reveal{position:relative;z-index:2}
+.photo-card .metricLbl,.photo-card .briefFactLbl,.photo-card .briefBulletText,.photo-card p{max-width:76%}
+.photo-card .briefIcon,.photo-card .briefPillarBadge,.photo-card .miniBadge{background:rgba(7,12,20,.60)!important;backdrop-filter:blur(10px) saturate(140%);border-color:rgba(211,162,79,.24)!important}
+body.light .photo-card{background-image:linear-gradient(104deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 38%,rgba(255,255,255,.76) 70%,rgba(255,255,255,.62) 100%),var(--photoimg)!important;filter:saturate(.86) brightness(1.02)}
+body.light .photo-card .briefIcon,body.light .photo-card .briefPillarBadge,body.light .photo-card .miniBadge{background:rgba(255,255,255,.78)!important}
+
+/* Capability/driver cards use the same new generated image system. */
+.cardVisual{background-image:linear-gradient(105deg,rgba(7,12,20,.75),rgba(7,12,20,.36)),var(--cardimg)!important;background-size:cover!important;background-position:center!important}
+.cardVisual img{background:rgba(5,10,18,.64)!important}
+body.light .cardVisual{background-image:linear-gradient(105deg,rgba(255,255,255,.80),rgba(255,255,255,.46)),var(--cardimg)!important}
+
+/* Network-flow cards receive a cropped generated visual without changing their position/size. */
+.photo-flow{background-image:linear-gradient(112deg,rgba(10,15,25,.97) 0%,rgba(10,15,25,.92) 55%,rgba(10,15,25,.68) 100%),var(--flowimg)!important;background-size:cover!important;background-position:center!important}
+body.light .photo-flow{background-image:linear-gradient(112deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 58%,rgba(255,255,255,.70) 100%),var(--flowimg)!important}
+
+/* Architecture: generated operations-hub image + animated data paths; geometry is untouched. */
+.archx-main{background-image:linear-gradient(112deg,rgba(6,10,17,.94) 0%,rgba(6,10,17,.84) 34%,rgba(6,10,17,.58) 66%,rgba(8,11,17,.48) 100%),var(--archbg)!important;background-size:cover!important;background-position:center!important;border-radius:26px;border:1px solid color-mix(in oklab,var(--stroke) 82%,rgba(211,162,79,.16));box-shadow:0 24px 56px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04)}
+.archx-panel,.archx-meta,.archx-capstrip{backdrop-filter:blur(15px) saturate(135%);-webkit-backdrop-filter:blur(15px) saturate(135%)}
+.archx-panel{background:linear-gradient(180deg,rgba(13,20,31,.80),rgba(9,14,24,.88))!important}
+.archx-wire svg{filter:drop-shadow(0 0 7px rgba(211,162,79,.17))}
+.archx-wire-gold,.archx-wire-blue{stroke-dasharray:9 11!important;animation:archHostedFlow 2.9s linear infinite!important}.archx-wire-blue{animation-duration:3.5s!important}
+@keyframes archHostedFlow{to{stroke-dashoffset:-100}}
+.archx-cloud-ring{filter:drop-shadow(0 0 10px rgba(255,49,77,.30))!important}
+.archx-router,.archx-gw,.archx-fw{animation-duration:3.5s!important}
+.archx-click:focus-visible{outline:2px solid rgba(211,162,79,.75);outline-offset:3px}
+.archx-click:hover{filter:saturate(1.08) brightness(1.035)}
+.archx-detail.open{animation:archDetailIn .26s cubic-bezier(.2,.75,.2,1) both}@keyframes archDetailIn{from{opacity:0;transform:translateY(9px) scale(.985)}to{opacity:1;transform:none}}
+body.light .archx-main{background-image:linear-gradient(112deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 40%,rgba(255,255,255,.67) 72%,rgba(255,255,255,.55) 100%),var(--archbg)!important;filter:saturate(.85)}
+body.light .archx-panel{background:linear-gradient(180deg,rgba(255,255,255,.91),rgba(249,251,254,.96))!important}
+
+/* Fresh SVG icons. */
+img[src$=".svg"]{object-fit:contain}
+@media (max-width:900px){.photo-card .metricLbl,.photo-card .briefFactLbl,.photo-card .briefBulletText,.photo-card p{max-width:100%}}
+
+
+/* ==========================================================
+   Executive refinement — under-frame navigation + NOC type
+   ========================================================== */
+
+/* The slide itself becomes a transparent pointer layer; the frame stays interactive.
+   This allows the navigation tabs to genuinely sit beneath the painted frame. */
+#viewport{overflow:visible!important}
+#slides>.slide.active{z-index:3!important;pointer-events:none!important}
+#slides>.slide.active .frame{position:relative;z-index:3;pointer-events:auto!important}
+#slides>.slide:not(.active){z-index:0!important}
+
+.edgeNav{
+  position:absolute!important;
+  top:50%!important;
+  width:68px!important;
+  height:104px!important;
+  margin:0!important;
+  padding:0!important;
+  z-index:2!important;
+  display:flex!important;
+  align-items:center!important;
+  border-radius:24px!important;
+  border:1px solid rgba(211,162,79,.26)!important;
+  color:#f3dfb1!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(211,162,79,.10),transparent 58%),
+    linear-gradient(180deg,rgba(20,27,39,.98),rgba(10,16,26,.98))!important;
+  box-shadow:
+    0 18px 34px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 0 0 0 1px rgba(211,162,79,.025)!important;
+  backdrop-filter:blur(14px) saturate(135%);
+  cursor:pointer;
+  opacity:.94;
+  transition:transform .22s cubic-bezier(.2,.72,.2,1),border-color .22s ease,box-shadow .22s ease,opacity .22s ease!important;
+}
+.edgeNavPrev{left:-8px!important;right:auto!important;justify-content:flex-start!important;padding-left:13px!important;transform:translateY(-50%)!important}
+.edgeNavNext{right:-8px!important;left:auto!important;justify-content:flex-end!important;padding-right:13px!important;transform:translateY(-50%)!important}
+.edgeNav span{
+  display:block;
+  width:22px;
+  height:32px;
+  line-height:29px;
+  text-align:center;
+  font-family:"Segoe UI Symbol","Segoe UI",sans-serif;
+  font-size:30px!important;
+  font-weight:300!important;
+  color:#f1d69a!important;
+  text-shadow:0 0 14px rgba(211,162,79,.18);
+  transition:transform .22s ease,color .22s ease,text-shadow .22s ease;
+}
+.edgeNav::after{
+  content:"";
+  position:absolute;
+  top:20px;
+  bottom:20px;
+  width:1px;
+  background:linear-gradient(transparent,rgba(211,162,79,.52),transparent);
+  opacity:.75;
+}
+.edgeNavPrev::after{left:30px}.edgeNavNext::after{right:30px}
+.edgeNav:hover{
+  opacity:1;
+  border-color:rgba(211,162,79,.48)!important;
+  box-shadow:0 20px 38px rgba(0,0,0,.25),0 0 18px rgba(211,162,79,.07),inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+.edgeNavPrev:hover{transform:translate(-3px,-50%)!important}
+.edgeNavNext:hover{transform:translate(3px,-50%)!important}
+.edgeNav:hover span{color:#ffe5ac!important;text-shadow:0 0 17px rgba(211,162,79,.26)}
+.edgeNav:active{opacity:.88}
+body.light .edgeNav{
+  color:#855f20!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(245,248,252,.99))!important;
+  border-color:rgba(186,143,60,.34)!important;
+  box-shadow:0 16px 30px rgba(52,66,94,.11),inset 0 1px 0 #fff!important;
+}
+body.light .edgeNav span{color:#9a6d20!important;text-shadow:none}
+body.light .edgeNav::after{background:linear-gradient(transparent,rgba(186,143,60,.50),transparent)}
+body.ops-overlay-open .edgeNav{opacity:0!important;pointer-events:none!important}
+
+/* Dashboard portal owns a browser-responsive typography system. */
+.opsPortal{
+  --noc-font:Inter,"Segoe UI Variable","Segoe UI",Arial,sans-serif;
+  --noc-display:clamp(30px,2.2vw,44px);
+  --noc-eyebrow:clamp(9px,.62vw,12px);
+  --noc-toolbar:clamp(10px,.72vw,13px);
+  --noc-tab:clamp(10.5px,.76vw,13.5px);
+  --noc-kpi-label:clamp(10px,.70vw,12px);
+  --noc-kpi-value:clamp(22px,1.72vw,34px);
+  --noc-kpi-meta:clamp(9px,.64vw,11px);
+  --noc-card-title:clamp(14px,1.03vw,19px);
+  --noc-card-sub:clamp(9.5px,.67vw,12px);
+  --noc-body:clamp(10px,.72vw,13px);
+  --noc-micro:clamp(8.5px,.58vw,10.5px);
+  font-family:var(--noc-font)!important;
+  font-size:var(--noc-body);
+  line-height:1.42;
+}
+.opsPortalPanel{padding:clamp(12px,1vw,20px)!important}
+.opsPortal .opsOverlayHeader{margin-bottom:clamp(8px,.7vw,13px)!important;align-items:center!important}
+.opsPortal .opsOverlayHeader .eyebrow{
+  font-size:var(--noc-eyebrow)!important;
+  line-height:1.2!important;
+  letter-spacing:.09em!important;
+  font-weight:900!important;
+}
+.opsPortal .opsOverlayHeader h3{
+  margin:clamp(3px,.25vw,6px) 0 0!important;
+  font-size:var(--noc-display)!important;
+  line-height:.98!important;
+  letter-spacing:-.035em!important;
+  font-weight:920!important;
+}
+.opsPortal .opsOverlayX{
+  width:clamp(38px,2.8vw,48px)!important;
+  height:clamp(38px,2.8vw,48px)!important;
+  border-radius:clamp(11px,.9vw,15px)!important;
+  font-size:clamp(24px,1.7vw,31px)!important;
+}
+.opsPortal .opsToolbar{gap:clamp(7px,.7vw,12px)!important;margin-bottom:clamp(7px,.62vw,11px)!important}
+.opsPortal .toolbarLeft,.opsPortal .toolbarRight{gap:clamp(6px,.55vw,10px)!important}
+.opsPortal .toolbarBadge,.opsPortal .toolbarBtn{
+  min-height:clamp(32px,2.5vw,40px)!important;
+  padding:0 clamp(10px,.82vw,15px)!important;
+  border-radius:clamp(11px,.85vw,14px)!important;
+  font-size:var(--noc-toolbar)!important;
+  line-height:1.2!important;
+  font-weight:820!important;
+  white-space:nowrap;
+}
+.opsPortal .toolbarBtn img{width:clamp(12px,.86vw,16px)!important;height:clamp(12px,.86vw,16px)!important}
+.opsPortal .opsTicker{height:clamp(31px,2.35vw,38px)!important;margin:0 0 clamp(7px,.62vw,11px)!important}
+.opsPortal .opsTickerTrack{gap:clamp(26px,2.2vw,42px)!important;font-size:var(--noc-toolbar)!important;line-height:1.2!important}
+.opsPortal .dashboardTabs{gap:clamp(5px,.55vw,9px)!important;margin-bottom:clamp(7px,.6vw,11px)!important}
+.opsPortal .dashTabBtn{
+  min-height:clamp(34px,2.6vw,42px)!important;
+  padding:0 clamp(10px,.85vw,16px)!important;
+  border-radius:clamp(11px,.85vw,14px)!important;
+  font-size:var(--noc-tab)!important;
+  line-height:1.15!important;
+  font-weight:850!important;
+}
+.opsPortal .dashTabBtn .tabNo{
+  font-size:clamp(9px,.62vw,11px)!important;
+  min-width:clamp(24px,1.7vw,30px)!important;
+}
+.opsPortal .dashboardShell.portalMode{
+  padding:clamp(11px,.9vw,17px)!important;
+  border-radius:clamp(18px,1.35vw,25px)!important;
+}
+.opsPortal .dashKpis{gap:clamp(7px,.65vw,11px)!important}
+.opsPortal .dashKpi{
+  min-height:clamp(82px,6.5vw,112px)!important;
+  padding:clamp(10px,.86vw,15px)!important;
+  border-radius:clamp(15px,1.2vw,20px)!important;
+}
+.opsPortal .dashKpiLabel{font-size:var(--noc-kpi-label)!important;line-height:1.22!important;font-weight:820!important}
+.opsPortal .dashKpiValue{margin-top:clamp(6px,.55vw,10px)!important;font-size:var(--noc-kpi-value)!important;line-height:.95!important;letter-spacing:-.035em!important;font-weight:930!important}
+.opsPortal .dashKpiMeta{margin-top:clamp(4px,.38vw,7px)!important;font-size:var(--noc-kpi-meta)!important;line-height:1.18!important;font-weight:780!important}
+.opsPortal .dashKpiIcon{width:clamp(27px,2vw,34px)!important;height:clamp(27px,2vw,34px)!important;border-radius:clamp(9px,.7vw,11px)!important}
+.opsPortal .dashKpiIcon img{width:clamp(13px,.9vw,16px)!important;height:clamp(13px,.9vw,16px)!important}
+.opsPortal .dashcard,.opsPortal .opsCard{
+  padding:clamp(11px,.9vw,16px)!important;
+  border-radius:clamp(16px,1.25vw,22px)!important;
+}
+.opsPortal .dashTitle,.opsPortal .opsCard .dashTitle{
+  font-size:var(--noc-card-title)!important;
+  line-height:1.12!important;
+  letter-spacing:-.018em!important;
+  font-weight:900!important;
+}
+.opsPortal .dashSub,.opsPortal .opsCard .dashSub{
+  margin-top:clamp(3px,.28vw,5px)!important;
+  font-size:var(--noc-card-sub)!important;
+  line-height:1.42!important;
+}
+.opsPortal .liveBadge{
+  padding:clamp(5px,.42vw,7px) clamp(7px,.62vw,10px)!important;
+  font-size:var(--noc-micro)!important;
+  line-height:1!important;
+}
+.opsPortal .actionBtn{
+  min-height:clamp(32px,2.4vw,39px)!important;
+  padding:0 clamp(9px,.72vw,13px)!important;
+  border-radius:clamp(10px,.78vw,13px)!important;
+  font-size:var(--noc-body)!important;
+  line-height:1.15!important;
+}
+.opsPortal .actionBtn img{width:clamp(12px,.8vw,15px)!important;height:clamp(12px,.8vw,15px)!important}
+.opsPortal .miniStat{padding:clamp(8px,.65vw,11px)!important;border-radius:clamp(11px,.85vw,14px)!important}
+.opsPortal .miniStat strong{font-size:clamp(15px,1.15vw,21px)!important;line-height:1!important}
+.opsPortal .miniStat span{font-size:var(--noc-micro)!important;line-height:1.3!important}
+.opsPortal .phaseBarRow{font-size:var(--noc-body)!important;grid-template-columns:clamp(92px,7.4vw,132px) 1fr clamp(34px,2.6vw,46px)!important}
+.opsPortal .heatLabel,.opsPortal .mapLegendItem,.opsPortal .towerLegendRow small,.opsPortal .phaseStepBody span,.opsPortal .phaseRailPct span{
+  font-size:var(--noc-micro)!important;
+  line-height:1.25!important;
+}
+.opsPortal .siteLabel{font-size:var(--noc-micro)!important;padding:clamp(4px,.34vw,6px) clamp(6px,.5vw,9px)!important}
+.opsPortal .opsChart text{font-size:clamp(8.5px,.58vw,10.5px)!important;font-family:var(--noc-font)!important}
+.opsPortal .opsDrillPanel{padding:clamp(17px,1.25vw,24px)!important;border-radius:clamp(20px,1.5vw,28px)!important}
+.opsPortal .opsDrillHeader .eyebrow{font-size:var(--noc-eyebrow)!important}
+.opsPortal .opsDrillHeader h4{font-size:clamp(25px,1.8vw,34px)!important;line-height:1.03!important;letter-spacing:-.028em!important}
+.opsPortal .opsDrillHeader p{font-size:clamp(11px,.75vw,13.5px)!important;line-height:1.6!important}
+.opsPortal .opsDrillStats strong{font-size:clamp(22px,1.55vw,30px)!important}
+.opsPortal .opsDrillStats span,.opsPortal .opsDrillFooter{font-size:var(--noc-body)!important}
+.opsPortal .drillRow span{font-size:clamp(10.5px,.72vw,13px)!important;line-height:1.42!important}
+
+/* Large desktop receives breathing room, not merely bigger text. */
+@media (min-width:1700px){
+  .opsPortalPanel{inset:12px!important;padding:20px!important}
+  .opsPortal .dashboardShell.portalMode{padding:18px!important}
+  .opsPortal .opsGridA,.opsPortal .opsGridB,.opsPortal .opsGridC,.opsPortal .opsGridD{gap:16px!important}
+}
+/* iPad / compact desktop keeps type readable while allowing the dashboard to scroll. */
+@media (max-width:1100px){
+  .edgeNav{width:58px!important;height:92px!important;border-radius:20px!important}
+  .edgeNavPrev{left:-7px!important;padding-left:11px!important}.edgeNavNext{right:-7px!important;padding-right:11px!important}
+  .edgeNav span{font-size:27px!important;width:20px!important}
+  .edgeNavPrev::after{left:27px}.edgeNavNext::after{right:27px}
+  .opsPortal{--noc-display:clamp(27px,3.25vw,35px);--noc-card-title:clamp(14px,1.55vw,17px);--noc-kpi-value:clamp(22px,2.65vw,29px)}
+  .opsPortal .dashboardTabs{overflow-x:auto;flex-wrap:nowrap!important;padding-bottom:3px}
+  .opsPortal .dashTabBtn{flex:0 0 auto}
+  .opsPortal .dashboardShell.portalMode{overflow:auto!important}
+}
+@media (max-width:760px){
+  .edgeNav{width:52px!important;height:82px!important}
+  .edgeNavPrev{left:-6px!important}.edgeNavNext{right:-6px!important}
+  .opsPortalPanel{inset:4px!important;padding:10px!important;border-radius:20px!important}
+  .opsPortal .opsOverlayHeader h3{font-size:clamp(25px,6.2vw,32px)!important}
+  .opsPortal .toolbarRight{width:100%!important;overflow-x:auto!important;flex-wrap:nowrap!important}
+  .opsPortal .toolbarBtn{flex:0 0 auto!important}
+}
+
+
+/* Final NOC type specificity + compact-layout readability */
+.opsPortal .dashKpis.kpi6 .dashKpiLabel{font-size:var(--noc-kpi-label)!important}
+.opsPortal .dashKpis.kpi6 .dashKpiValue{font-size:var(--noc-kpi-value)!important;line-height:.95!important}
+.opsPortal .dashKpis.kpi6 .dashKpiMeta{font-size:var(--noc-kpi-meta)!important}
+.opsPortal .opsOverlayHeader h3{word-spacing:.035em!important}
+.opsPortal .dashTitle{word-spacing:.015em}
+.opsPortal .opsTableHead{font-size:var(--noc-micro)!important;line-height:1.25!important}
+.opsPortal .opsTableRow{font-size:var(--noc-body)!important;line-height:1.34!important}
+.opsPortal .opsTableRow small{font-size:var(--noc-micro)!important;line-height:1.25!important}
+@media (max-width:1180px){
+  .opsPortal .opsGridA,.opsPortal .opsGridB,.opsPortal .opsGridC,.opsPortal .opsGridD,.opsPortal .opsGridE{grid-template-columns:1fr!important}
+  .opsPortal .opsCol.two,.opsPortal .opsCol.three{grid-template-rows:none!important}
+  .opsPortal .cardSplit{grid-template-columns:1fr!important}
+  .opsPortal .towerMixWrap{grid-template-columns:minmax(170px,.68fr) 1fr!important}
+  .opsPortal .dashboardShell.portalMode{overflow-y:auto!important;overflow-x:hidden!important}
+}

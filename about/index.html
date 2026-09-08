@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07101a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="شبكة نبض الأمنية - الجيل الخامس — عرض تنفيذي تفاعلي لشبكة خاصة من الجيل الخامس">
+  <title>شبكة نبض الأمنية - الجيل الخامس</title>
+  <!-- See _START_HERE.md before making customer edits. -->
+
+  <link rel="stylesheet" href="assets/css/01-foundation-and-intro.css">
+  <link rel="stylesheet" href="assets/css/02-poc.css">
+  <link rel="stylesheet" href="assets/css/03-dashboard.css">
+  <link rel="stylesheet" href="assets/css/04-coverage.css">
+  <link rel="stylesheet" href="assets/css/05-why-capabilities.css">
+  <link rel="stylesheet" href="assets/css/06-architecture.css">
+  <link rel="stylesheet" href="assets/css/07-final-fixes-and-overrides.css">
+  <link rel="stylesheet" href="assets/css/08-hosted-premium.css">
+  <link rel="stylesheet" href="assets/css/99-client-overrides.css">
+
+  <link rel="stylesheet" href="assets/css/100-portal-embed.css">
+</head>
+<body>
+  <div class="bootScreen" aria-hidden="true">
+    <div class="bootMark">
+      <div class="bootBrands">
+        <img src="assets/images/brand/e-logo.webp" alt="">
+        <span class="bootDivider"></span>
+        <img src="assets/images/brand/csc-logo.webp" alt="">
+      </div>
+      <div class="bootTitle">شبكة نبض الأمنية - الجيل الخامس</div>
+      <div class="bootSub">خاصة • مرنة • جاهزة للمهام</div>
+      <div class="bootTrace"></div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="topbar">
+      <div class="brand" aria-label="Programme branding">
+        <img class="eLogo" src="assets/images/brand/e-logo.webp" alt="e&">
+        <span class="brandDivider"></span>
+        <img class="cLogo" src="assets/images/brand/csc-logo.webp" alt="CSC">
+      </div>
+      <div class="navzone"><div class="navrail" id="navRail" aria-label="Section navigation"></div></div>
+      <div class="actions">
+        <button class="iconbtn" id="themeBtn" type="button" title="السمة" aria-label="تبديل السمة">◐</button>
+        <button class="iconbtn" id="langBtn" type="button" title="اللغة" aria-label="تبديل اللغة">EN</button>
+        <button class="iconbtn" id="fullBtn" type="button" title="ملء الشاشة" aria-label="تبديل وضع ملء الشاشة">⤢</button>
+      </div>
+      <div class="deckProgress" id="deckProgressBar" aria-hidden="true"><span></span></div>
+    </div>
+    <div class="stage"><div id="viewport"><div id="slides"></div><button class="edgeNav edgeNavPrev" id="edgePrev" type="button" aria-label="Previous slide"><span>‹</span></button><button class="edgeNav edgeNavNext" id="edgeNext" type="button" aria-label="Next slide"><span>›</span></button></div></div>
+  </div>
+  <div id="opsPortal" class="opsPortal" aria-hidden="true"></div>
+  <div class="hostedBadge" id="hostedStatus" aria-live="polite"></div>
+
+  <!-- Customer-editable configuration -->
+  <script src="assets/config/presentation-content.js"></script>
+  <script src="assets/config/asset-paths.js"></script>
+
+  <!-- Presentation engine: loaded in dependency order -->
+  <script src="assets/js/core/01-foundation.js"></script>
+  <script src="assets/js/core/04-navigation-intro.js"></script>
+  <script src="assets/js/slides/04-coverage.js"></script>
+  <script src="assets/js/slides/05-architecture.js"></script>
+  <script src="assets/js/slides/06-why-capabilities.js"></script>
+  <script src="assets/js/slides/07-poc.js"></script>
+  <script src="assets/js/dashboard/08-dashboard.js"></script>
+  <script src="assets/js/core/09-app-bootstrap.js"></script>
+  <script src="assets/js/core/10-hosted-enhancements.js"></script>
+  <script src="assets/js/core/11-portal-embed.js"></script>
+</body>
+</html>

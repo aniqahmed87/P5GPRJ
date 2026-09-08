@@ -1,0 +1,333 @@
+/* 03 Dashboard — split from the working master stylesheet. */
+
+/* ===== V7.8 OPERATIONAL DASHBOARD OVERHAUL ===== */
+.tabs{gap:8px;align-items:center}.dashTabBtn{min-height:40px;padding:0 17px}.dashboardShell{gap:10px}.dashPane{height:100%}
+.dashKpis{grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:9px}.dashKpi{min-height:82px}.dashKpiValue{font-size:24px}
+.opsGridA{display:grid;grid-template-columns:1.4fr .8fr;gap:12px;min-height:0;height:calc(100% - 92px);margin-top:10px}.opsGridB{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;min-height:0;height:calc(100% - 92px);margin-top:10px}.opsGridC{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;min-height:0;height:calc(100% - 92px);margin-top:10px}
+.opsCol{display:grid;gap:12px;min-height:0}.opsCol.two{grid-template-rows:1fr 1fr}.opsCol.three{grid-template-rows:1fr 1fr 1fr}.opsCard{padding:12px;min-height:0;display:flex;flex-direction:column}.opsCard .dashTitle{font-size:14px}.opsCard .dashSub{font-size:9px}.opsCard:hover{transform:translateY(-2px);border-color:color-mix(in oklab,var(--gold) 24%,var(--stroke));box-shadow:0 16px 32px rgba(0,0,0,.18)}
+.opsChart{width:100%;height:100%;min-height:0}.opsChart text{font-family:Inter,Segoe UI,Arial,sans-serif}.drawPath{stroke-dasharray:900;stroke-dashoffset:900;animation:drawPath 1.3s cubic-bezier(.25,.7,.2,1) forwards}.drawPath.delay{animation-delay:.18s}.areaReveal{opacity:0;animation:fadeArea .9s ease .32s forwards}.barGrow{transform-box:fill-box;transform-origin:center bottom;animation:barGrow .75s cubic-bezier(.2,.8,.2,1) both}.barGrow:nth-of-type(2){animation-delay:.06s}.barGrow:nth-of-type(3){animation-delay:.12s}.barGrow:nth-of-type(4){animation-delay:.18s}.barGrow:nth-of-type(5){animation-delay:.24s}.barGrow:nth-of-type(6){animation-delay:.30s}@keyframes drawPath{to{stroke-dashoffset:0}}@keyframes fadeArea{to{opacity:1}}@keyframes barGrow{from{transform:scaleY(.04);opacity:.25}to{transform:scaleY(1);opacity:1}}
+.statusDonut{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:12px;height:100%}.donutSvg{width:150px;height:150px}.donutArc{transform-origin:50% 50%;animation:donutIn 1s cubic-bezier(.2,.8,.2,1) both}@keyframes donutIn{from{stroke-dasharray:0 500;opacity:.2}to{opacity:1}}
+.phaseBars{display:grid;gap:9px;margin-top:10px}.phaseBarRow{display:grid;grid-template-columns:100px 1fr 34px;gap:8px;align-items:center;font-size:10px}.phaseTrack{height:10px;border-radius:999px;background:var(--soft);overflow:hidden;border:1px solid var(--soft2)}.phaseFill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--gold));animation:phaseGrow .9s cubic-bezier(.2,.8,.2,1) both}.phaseBarRow:nth-child(2) .phaseFill{animation-delay:.08s}.phaseBarRow:nth-child(3) .phaseFill{animation-delay:.16s}.phaseBarRow:nth-child(4) .phaseFill{animation-delay:.24s}@keyframes phaseGrow{from{width:0!important}}
+.heatMatrix{display:grid;grid-template-columns:62px repeat(12,1fr);gap:3px;align-items:center;margin-top:8px}.heatLabel{font-size:8.5px;color:var(--muted);white-space:nowrap}.heatCell{height:18px;border-radius:5px;background:color-mix(in oklab,var(--green) var(--heat,60%),var(--soft));opacity:.8;animation:heatIn .5s ease both}.heatCell.hot{background:color-mix(in oklab,var(--accent) 70%,var(--soft))}.heatCell.warn{background:color-mix(in oklab,var(--amber) 72%,var(--soft))}.heatCell:nth-child(3n){animation-delay:.06s}.heatCell:nth-child(4n){animation-delay:.1s}@keyframes heatIn{from{opacity:0;transform:scale(.7)}to{opacity:.86;transform:scale(1)}}
+.rsrpHist{display:flex;align-items:flex-end;gap:7px;height:128px;padding:10px 5px 20px;position:relative}.histBar{flex:1;min-width:0;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,var(--blue),color-mix(in oklab,var(--blue) 55%,transparent));height:var(--h);animation:histGrow .75s cubic-bezier(.2,.8,.2,1) both;transform-origin:bottom}.histBar.bad{background:linear-gradient(180deg,var(--accent),color-mix(in oklab,var(--accent) 55%,transparent))}.histBar.good{background:linear-gradient(180deg,var(--green),color-mix(in oklab,var(--green) 55%,transparent))}@keyframes histGrow{from{transform:scaleY(.04);opacity:.2}to{transform:scaleY(1);opacity:1}}
+.coverageBand{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.bandCard{padding:9px;border-radius:12px;background:var(--soft);border:1px solid var(--soft2);text-align:center}.bandVal{font-size:20px;font-weight:950}.bandLbl{font-size:8.5px;color:var(--muted);margin-top:3px}
+.utilDialRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}.utilDial{position:relative;display:grid;place-items:center}.utilDial svg{width:120px;height:120px;transform:rotate(-90deg)}.utilDial circle{fill:none;stroke-width:11}.utilDial .track{stroke:var(--soft2)}.utilDial .arc{stroke-linecap:round;animation:dashRing 1s ease both}.utilDial .voiceArc{stroke:var(--accent)}.utilDial .dataArc{stroke:var(--blue)}.utilDialText{position:absolute;text-align:center}.utilDialText strong{display:block;font-size:25px}.utilDialText span{font-size:9px;color:var(--muted)}@keyframes dashRing{from{stroke-dashoffset:251}}
+.funnel{display:grid;gap:5px;margin-top:10px;align-items:center}.funnelStage{height:29px;margin-inline:auto;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:linear-gradient(90deg,var(--blue),color-mix(in oklab,var(--blue) 50%,var(--panel)));color:white;font-size:9px;font-weight:800;animation:funnelIn .55s ease both}.funnelStage:nth-child(2){animation-delay:.08s}.funnelStage:nth-child(3){animation-delay:.16s}.funnelStage:nth-child(4){animation-delay:.24s}@keyframes funnelIn{from{opacity:0;transform:translateY(8px) scaleX(.7)}to{opacity:1;transform:none}}
+.scatterDot{animation:scatterIn .55s cubic-bezier(.2,.8,.2,1) both;transform-origin:center}.scatterDot:nth-of-type(2n){animation-delay:.08s}.scatterDot:nth-of-type(3n){animation-delay:.15s}@keyframes scatterIn{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+.opsTimeline{display:grid;gap:8px;margin-top:8px}.timelineRow{display:grid;grid-template-columns:62px 14px 1fr;gap:8px;align-items:center}.timelineTime{font-size:9px;color:var(--muted);text-align:right}.timelineDot{width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(31,208,154,.10)}.timelineDot.warn{background:var(--amber);box-shadow:0 0 0 4px rgba(255,184,91,.10)}.timelineDot.bad{background:var(--accent);box-shadow:0 0 0 4px rgba(255,49,77,.10)}.timelineText{font-size:9.5px;font-weight:760}.timelineText span{display:block;font-size:8.5px;color:var(--muted);margin-top:2px}
+.slaRing{display:grid;place-items:center;height:100%}.slaRing svg{width:140px;height:140px;transform:rotate(-90deg)}.slaRing .bg{fill:none;stroke:var(--soft2);stroke-width:12}.slaRing .fg{fill:none;stroke:var(--green);stroke-width:12;stroke-linecap:round;stroke-dasharray:270 302;animation:dashRing 1.1s ease both}.slaText{position:absolute;text-align:center}.slaText strong{display:block;font-size:28px}.slaText span{font-size:9px;color:var(--muted)}
+.opsMapCard .osmMap{min-height:270px}.coverageMapCard .osmMap{min-height:330px}
+@media (prefers-reduced-motion:reduce){.drawPath,.areaReveal,.barGrow,.phaseFill,.heatCell,.histBar,.funnelStage,.scatterDot,.slaRing .fg{animation:none!important}}
+
+
+/* v7.9 dashboard enhancement */
+.dashboardShell{display:block;flex:1;min-height:0;overflow:auto;padding-right:4px;scrollbar-gutter:stable}
+.dashboardShell::-webkit-scrollbar{width:10px;height:10px}.dashboardShell::-webkit-scrollbar-track{background:color-mix(in oklab,var(--panel) 80%,transparent);border-radius:999px}.dashboardShell::-webkit-scrollbar-thumb{background:linear-gradient(180deg,color-mix(in oklab,var(--blue) 42%, var(--panel2)),color-mix(in oklab,var(--accent) 44%, var(--panel2)));border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dashboardShell{scrollbar-width:thin;scrollbar-color:color-mix(in oklab,var(--blue) 55%, var(--accent)) transparent}
+.dashPane{min-height:100%;padding-right:2px}
+.dashKpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px}
+.opsGridA,.opsGridB,.opsGridC,.opsGridD,.opsGridE{display:grid;gap:12px;min-height:0;height:auto;margin-top:10px;align-content:start}
+.opsGridA{grid-template-columns:1.38fr .86fr}.opsGridB{grid-template-columns:1.08fr .92fr}.opsGridC{grid-template-columns:1.14fr .86fr}.opsGridD{grid-template-columns:1.02fr .98fr}.opsGridE{grid-template-columns:1fr 1fr}
+.opsCol{display:grid;gap:12px;min-height:0;align-content:start}.opsCol.two{grid-template-rows:repeat(2,minmax(180px,auto))}.opsCol.three{grid-template-rows:repeat(3,minmax(160px,auto))}
+.opsCard{padding:14px;min-height:0;display:flex;flex-direction:column}.opsCard .dashTitle{font-size:14px}.opsCard .dashSub{font-size:9.5px;margin-bottom:3px}.opsChart{width:100%;height:172px;min-height:172px;display:block}.opsChart.tall{height:210px;min-height:210px}.opsChart.compact{height:138px;min-height:138px}
+.cardFill{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}.cardSplit{display:grid;grid-template-columns:1fr 1fr;gap:10px}.cardSplit.v{grid-template-columns:1fr}
+.opsActions{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}.actionBtn{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:12px;border:1px solid var(--soft2);background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 75%,transparent),color-mix(in oklab,var(--panel2) 88%,transparent));font-size:11px;font-weight:850;color:var(--text);box-shadow:var(--shadow2);cursor:pointer;transition:.22s ease}.actionBtn:hover{transform:translateY(-2px);border-color:color-mix(in oklab,var(--gold) 34%,var(--stroke));box-shadow:0 12px 24px rgba(0,0,0,.18)}.actionBtn img{width:13px;height:13px}.actionBtn.critical{background:linear-gradient(135deg,var(--redsoft),rgba(255,49,77,.07))}.actionBtn.blue{background:linear-gradient(135deg,rgba(90,132,255,.14),rgba(90,132,255,.04))}.actionBtn.green{background:linear-gradient(135deg,rgba(31,208,154,.12),rgba(31,208,154,.04))}
+.miniStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.miniStat{padding:9px 10px;border-radius:14px;background:var(--soft);border:1px solid var(--soft2)}.miniStat strong{display:block;font-size:16px;line-height:1}.miniStat span{display:block;margin-top:4px;font-size:9px;color:var(--muted);font-weight:800}
+.phaseSummary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.phaseSummary .miniStat{padding:10px}
+.opsTable{display:grid;gap:8px;margin-top:4px}.opsTableHead,.opsTableRow{display:grid;grid-template-columns:1.25fr .8fr .7fr .6fr;gap:10px;align-items:center}.opsTableHead{padding:0 4px;font-size:9px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.05em}.opsTableRow{padding:10px 12px;border-radius:14px;background:var(--soft);border:1px solid var(--soft2);font-size:10.5px;font-weight:800}.opsTableRow small{display:block;color:var(--muted);font-weight:700;margin-top:2px}.statusPill{display:inline-flex;align-items:center;justify-content:center;min-width:62px;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900;border:1px solid transparent}.statusPill.good{background:rgba(31,208,154,.11);border-color:rgba(31,208,154,.26);color:var(--green)}.statusPill.warn{background:rgba(255,184,78,.11);border-color:rgba(255,184,78,.26);color:var(--amber)}.statusPill.bad{background:rgba(255,49,77,.11);border-color:rgba(255,49,77,.24);color:var(--accent)}.statusPill.blue{background:rgba(90,132,255,.10);border-color:rgba(90,132,255,.24);color:var(--blue)}
+.milestoneRail{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px;padding-top:12px}.milestoneRail:before{content:"";position:absolute;left:8%;right:8%;top:24px;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--blue),var(--amber),var(--accent))}.milestoneNode{position:relative;padding-top:30px;text-align:center}.milestoneDot{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:var(--panel2);border:3px solid var(--soft2);box-shadow:0 0 0 6px rgba(255,255,255,.02)}.milestoneNode.done .milestoneDot{border-color:var(--green);background:rgba(31,208,154,.18)}.milestoneNode.live .milestoneDot{border-color:var(--blue);background:rgba(90,132,255,.14)}.milestoneNode.next .milestoneDot{border-color:var(--amber);background:rgba(255,184,78,.15)}.milestoneNode .msTitle{font-size:10px;font-weight:900}.milestoneNode .msMeta{font-size:8.5px;color:var(--muted);margin-top:3px}
+.waveBars{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;height:155px;padding:4px 2px 0}.waveCol{display:flex;flex-direction:column;align-items:center;gap:6px}.waveStack{position:relative;width:100%;max-width:58px;height:120px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px}.waveSeg{border-radius:8px 8px 3px 3px;animation:barGrow .8s cubic-bezier(.2,.8,.2,1) both}.waveSeg.live{background:linear-gradient(180deg,var(--green),rgba(31,208,154,.42))}.waveSeg.plan{background:linear-gradient(180deg,var(--blue),rgba(90,132,255,.40))}.waveSeg.acc{background:linear-gradient(180deg,var(--amber),rgba(255,184,78,.42))}.waveLbl{font-size:9px;color:var(--muted);font-weight:800}.waveVal{font-size:10px;font-weight:900}
+.legendRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.legendItem{display:inline-flex;align-items:center;gap:6px;font-size:9px;color:var(--muted);font-weight:800}.legendSw{width:10px;height:10px;border-radius:3px}
+.trafficMix{display:grid;gap:10px;margin-top:8px}.mixRow{display:grid;grid-template-columns:78px 1fr 40px;gap:10px;align-items:center;font-size:10px;font-weight:800}.mixBar{height:12px;border-radius:999px;background:var(--soft);overflow:hidden;border:1px solid var(--soft2)}.mixFill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--accent));animation:phaseGrow .8s cubic-bezier(.2,.8,.2,1) both}
+.sparkRow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.sparkCard{padding:9px;border-radius:14px;background:var(--soft);border:1px solid var(--soft2)}.sparkCard strong{display:block;font-size:15px}.sparkCard span{font-size:9px;color:var(--muted);font-weight:800}.sparkSvg{width:100%;height:36px;margin-top:5px}
+.responsePanel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.responsePanel .miniStat{padding:10px}
+@media (max-width:1280px){.opsGridA,.opsGridB,.opsGridC,.opsGridD,.opsGridE{grid-template-columns:1fr}.opsCol.two,.opsCol.three{grid-template-rows:none}.opsChart{height:160px;min-height:160px}.cardSplit{grid-template-columns:1fr}.dashboardShell{padding-right:0}}
+
+
+/* v7.9.1 dashboard polish */
+.dashboardShell{position:relative;padding:8px 6px 4px 0;border-radius:28px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 46%,transparent),color-mix(in oklab,var(--panel2) 28%,transparent));box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.dashboardShell:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at 18% 10%, rgba(90,132,255,.08), transparent 24%),radial-gradient(circle at 88% 12%, rgba(211,162,79,.08), transparent 22%),linear-gradient(180deg,rgba(255,255,255,.03),transparent 22%)}
+body.light .dashboardShell{background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.28));box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 12px 28px rgba(36,54,92,.06)}
+.dashKpi,.dashcard,.opsCard,.sparkCard,.miniStat,.bandCard,.actionBtn{transition:border-color .26s ease, box-shadow .26s ease, background .26s ease, filter .26s ease}
+.dashKpi,.dashcard{background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 88%, transparent),color-mix(in oklab,var(--panel2) 94%, transparent));border-color:color-mix(in oklab,var(--stroke) 82%, rgba(255,255,255,.06));box-shadow:0 10px 24px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.03)}
+.dashKpi:before,.dashcard:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(145deg,rgba(255,255,255,.05),transparent 26%,transparent 72%,rgba(211,162,79,.05));opacity:.9}
+body.light .dashKpi,body.light .dashcard{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,250,253,.98));border-color:rgba(32,49,82,.10);box-shadow:0 12px 28px rgba(36,54,92,.08), inset 0 1px 0 rgba(255,255,255,.96)}
+body.light .dashKpi:before,body.light .dashcard:before{background:linear-gradient(145deg,rgba(255,255,255,.84),transparent 34%,transparent 70%,rgba(220,190,126,.12))}
+.dashKpi:hover,.dashcard:hover,.opsCard:hover,.sparkCard:hover,.miniStat:hover,.bandCard:hover{transform:none!important;box-shadow:0 0 0 1px color-mix(in oklab,var(--blue) 22%, var(--stroke)),0 0 22px color-mix(in oklab,var(--blue) 10%, transparent),0 0 34px color-mix(in oklab,var(--gold) 8%, transparent),inset 0 1px 0 rgba(255,255,255,.05);border-color:color-mix(in oklab,var(--blue) 24%, var(--stroke));filter:saturate(1.03)}
+body.light .dashKpi:hover,body.light .dashcard:hover,body.light .opsCard:hover,body.light .sparkCard:hover,body.light .miniStat:hover,body.light .bandCard:hover{box-shadow:0 0 0 1px rgba(72,103,170,.18),0 10px 22px rgba(53,76,116,.10),0 0 18px rgba(90,132,255,.07),inset 0 1px 0 rgba(255,255,255,.98);border-color:rgba(72,103,170,.20)}
+.opsCard:hover{border-color:color-mix(in oklab,var(--gold) 18%,var(--stroke))}
+.dashKpi:hover:after{opacity:.88;filter:saturate(1.08)}
+.dashKpi:after{background:radial-gradient(circle,color-mix(in oklab,var(--accent) 16%,transparent),transparent 66%),radial-gradient(circle at 38% 32%,color-mix(in oklab,var(--blue) 11%,transparent),transparent 50%)}
+body.light .dashKpiIcon{background:linear-gradient(135deg,rgba(255,88,112,.12),rgba(214,175,95,.10));border-color:rgba(56,76,116,.10)}
+body.light .dashKpiIcon img{filter:none}
+.dashTabBtn{position:relative;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 72%,transparent),color-mix(in oklab,var(--panel2) 88%,transparent));border:1px solid var(--stroke);box-shadow:var(--shadow2)}
+.dashTabBtn:hover{transform:none;box-shadow:0 0 0 1px color-mix(in oklab,var(--blue) 24%, var(--stroke)),0 0 18px color-mix(in oklab,var(--blue) 9%, transparent)}
+.dashTabBtn.active{background:linear-gradient(135deg,color-mix(in oklab,var(--blue) 22%,var(--panel)),color-mix(in oklab,var(--accent) 14%,var(--panel2)));border-color:color-mix(in oklab,var(--gold) 18%, var(--stroke));box-shadow:0 0 0 1px color-mix(in oklab,var(--gold) 14%, var(--stroke)),0 0 24px color-mix(in oklab,var(--blue) 12%, transparent)}
+body.light .dashTabBtn{background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(248,250,253,.98));border-color:rgba(32,49,82,.10)}
+body.light .dashTabBtn.active{background:linear-gradient(135deg,rgba(90,132,255,.12),rgba(255,92,118,.08));border-color:rgba(182,150,84,.24)}
+.actionBtn{box-shadow:0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.04)}
+.actionBtn:hover{transform:none;box-shadow:0 0 0 1px color-mix(in oklab,var(--gold) 24%, var(--stroke)),0 0 18px color-mix(in oklab,var(--gold) 8%, transparent),0 10px 20px rgba(0,0,0,.12)}
+body.light .actionBtn{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(248,250,253,.98));border-color:rgba(32,49,82,.10);box-shadow:0 8px 18px rgba(36,54,92,.06), inset 0 1px 0 rgba(255,255,255,.98)}
+.mapLegend,.legendRow{background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 76%,transparent),color-mix(in oklab,var(--panel2) 90%,transparent));border:1px solid var(--soft2);padding:8px 10px;border-radius:14px}
+body.light .mapLegend,body.light .legendRow{background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(248,250,253,.98));border-color:rgba(32,49,82,.08)}
+.opsChart text{font-weight:800}
+.phaseTrack,.mixBar{background:color-mix(in oklab,var(--panel2) 70%,var(--soft));border-color:color-mix(in oklab,var(--stroke) 45%, var(--soft2))}
+.heatCell{box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 1px rgba(255,255,255,.02)}
+.bandCard,.sparkCard,.miniStat{background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 78%,transparent),color-mix(in oklab,var(--panel2) 94%,transparent));border:1px solid var(--soft2)}
+body.light .bandCard,body.light .sparkCard,body.light .miniStat{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(248,250,253,.99));border-color:rgba(32,49,82,.09)}
+.statusPill.good{box-shadow:0 0 14px rgba(31,208,154,.06)}.statusPill.warn{box-shadow:0 0 14px rgba(255,184,78,.06)}.statusPill.bad{box-shadow:0 0 14px rgba(255,49,77,.06)}.statusPill.blue{box-shadow:0 0 14px rgba(90,132,255,.06)}
+.osmMap{box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 14px 26px rgba(0,0,0,.14)}
+body.light .osmMap{box-shadow:inset 0 1px 0 rgba(255,255,255,.96),0 10px 22px rgba(36,54,92,.08)}
+
+
+/* v7.9.2 ultimate dashboard pass */
+.dashboardTabs{margin-top:2px;gap:8px;padding:4px 0 2px}
+.opsToolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 10px;padding:10px 12px;border-radius:18px;border:1px solid color-mix(in oklab,var(--stroke) 82%, rgba(255,255,255,.06));background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 85%, transparent),color-mix(in oklab,var(--panel2) 94%, transparent));box-shadow:0 12px 24px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.04)}
+body.light .opsToolbar{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,250,253,.98));border-color:rgba(32,49,82,.10);box-shadow:0 12px 24px rgba(36,54,92,.06), inset 0 1px 0 rgba(255,255,255,.98)}
+.toolbarLeft,.toolbarRight{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.toolbarBadge,.toolbarBtn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:999px;font-size:10.5px;font-weight:900;letter-spacing:.03em}
+.toolbarBadge{background:linear-gradient(180deg,color-mix(in oklab,var(--panel2) 82%, transparent),color-mix(in oklab,var(--panel) 86%, transparent));border:1px solid var(--soft2);color:var(--text)}
+.toolbarBadge.subtle{color:var(--muted)}
+.toolbarDot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(31,208,154,.12), 0 0 14px rgba(31,208,154,.18);animation:dotPulse 2.2s ease-in-out infinite}
+.toolbarBtn{border:1px solid var(--soft2);background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 76%, transparent),color-mix(in oklab,var(--panel2) 92%, transparent));color:var(--text);box-shadow:var(--shadow2);cursor:pointer;transition:border-color .24s ease, box-shadow .24s ease, background .24s ease}
+.toolbarBtn img{width:12px;height:12px}
+.toolbarBtn:hover{transform:none;box-shadow:0 0 0 1px color-mix(in oklab,var(--blue) 20%, var(--stroke)),0 0 18px color-mix(in oklab,var(--blue) 8%, transparent)}
+.toolbarBtn.emphasis{background:linear-gradient(135deg,color-mix(in oklab,var(--blue) 18%,var(--panel)),color-mix(in oklab,var(--accent) 10%,var(--panel2)));border-color:color-mix(in oklab,var(--gold) 14%, var(--stroke))}
+body.light .toolbarBadge,body.light .toolbarBtn{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(248,250,253,.98));border-color:rgba(32,49,82,.10)}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 4px rgba(31,208,154,.10),0 0 10px rgba(31,208,154,.16)}50%{box-shadow:0 0 0 7px rgba(31,208,154,.08),0 0 18px rgba(31,208,154,.24)}}
+.dashTabBtn{height:38px;border-radius:14px;padding:0 14px;gap:8px}
+.dashTabBtn .tabNo{font-size:10px;font-weight:950;color:var(--muted);padding:4px 6px;border-radius:999px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel2) 84%,transparent),color-mix(in oklab,var(--panel) 88%,transparent));border:1px solid var(--soft2)}
+.dashTabBtn.active .tabNo{color:var(--text);background:linear-gradient(135deg,var(--redsoft),rgba(211,162,79,.10));border-color:color-mix(in oklab,var(--gold) 18%, var(--stroke))}
+body.light .dashTabBtn .tabNo{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(248,250,253,.98));border-color:rgba(32,49,82,.08)}
+.dashboardShell[data-tab="0"]{--tabAccent:var(--blue);--tabGlow:rgba(90,132,255,.10);--tabGold:rgba(211,162,79,.06)}
+.dashboardShell[data-tab="1"]{--tabAccent:var(--green);--tabGlow:rgba(31,208,154,.10);--tabGold:rgba(90,132,255,.08)}
+.dashboardShell[data-tab="2"]{--tabAccent:var(--accent);--tabGlow:rgba(255,49,77,.08);--tabGold:rgba(90,132,255,.08)}
+.dashboardShell[data-tab="3"]{--tabAccent:var(--amber);--tabGlow:rgba(255,184,78,.10);--tabGold:rgba(90,132,255,.07)}
+.dashboardShell[data-tab="4"]{--tabAccent:var(--accent);--tabGlow:rgba(255,49,77,.08);--tabGold:rgba(211,162,79,.10)}
+.dashboardShell{background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 38%,transparent),color-mix(in oklab,var(--panel2) 22%,transparent));border:1px solid color-mix(in oklab,var(--stroke) 75%, rgba(255,255,255,.06))}
+.dashboardShell:before{background:radial-gradient(circle at 15% 10%, var(--tabGlow), transparent 23%),radial-gradient(circle at 84% 14%, var(--tabGold), transparent 18%),linear-gradient(180deg,rgba(255,255,255,.03),transparent 22%),repeating-linear-gradient(90deg, transparent 0 86px, rgba(255,255,255,.01) 86px 87px)}
+body.light .dashboardShell{background:linear-gradient(180deg,rgba(255,255,255,.54),rgba(251,252,255,.26));border-color:rgba(32,49,82,.08)}
+.dashPane{position:relative}
+.dashPane:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:24px;background:radial-gradient(circle at 88% 18%, color-mix(in oklab,var(--tabAccent) 7%, transparent), transparent 18%);opacity:.9}
+.dashKpiValue{background:linear-gradient(180deg,var(--text),color-mix(in oklab,var(--tabAccent) 10%, var(--text)));-webkit-background-clip:text;background-clip:text;color:transparent}
+body.light .dashKpiValue{background:linear-gradient(180deg,#1c2230,color-mix(in oklab,var(--tabAccent) 22%, #1c2230));-webkit-background-clip:text;background-clip:text}
+.dashKpiMeta{color:color-mix(in oklab,var(--tabAccent) 55%, var(--green))}
+.dashcard .dashTitle{letter-spacing:-.015em}
+.dashSub{line-height:1.45}
+.osmMap{border-radius:18px;border:1px solid color-mix(in oklab,var(--tabAccent) 18%, var(--soft2));overflow:hidden;min-height:300px}
+.coverageMapCard .osmMap{min-height:340px}
+.opsMapCard .osmMap{min-height:300px}
+.mapLegend{display:flex;align-items:center;justify-content:flex-start;gap:16px;flex-wrap:wrap}
+.mapLegendItem{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:850;color:var(--muted)}
+.mapLegendDot{width:10px;height:10px;border-radius:50%;box-shadow:0 0 10px rgba(255,255,255,.12)}
+.opsGridA .dashcard,.opsGridB .dashcard,.opsGridC .dashcard,.opsGridD .dashcard,.opsGridE .dashcard{backdrop-filter:blur(18px) saturate(140%)}
+.phaseBars,.coverageBand,.trafficMix,.legendRow,.responsePanel,.sparkRow,.phaseSummary{margin-top:8px}
+.bandVal{font-size:24px;font-weight:950;letter-spacing:-.03em}
+.bandLbl{margin-top:4px;font-size:10px;font-weight:850;color:var(--muted)}
+.timelineRow{position:relative}
+.timelineRow:before{content:"";position:absolute;left:40px;top:22px;bottom:-12px;width:1px;background:linear-gradient(180deg,color-mix(in oklab,var(--tabAccent) 24%, transparent),transparent)}
+.timelineRow:last-child:before{display:none}
+.timelineDot{box-shadow:0 0 0 6px rgba(255,255,255,.02),0 0 12px rgba(255,255,255,.08)}
+.timelineDot.bad{box-shadow:0 0 0 6px rgba(255,49,77,.06),0 0 12px rgba(255,49,77,.14)}
+.timelineDot.warn{box-shadow:0 0 0 6px rgba(255,184,78,.06),0 0 12px rgba(255,184,78,.14)}
+.opsTableRow{transition:border-color .24s ease, box-shadow .24s ease, background .24s ease}
+.opsTableRow:hover{transform:none;box-shadow:0 0 0 1px color-mix(in oklab,var(--tabAccent) 20%, var(--soft2)),0 0 16px color-mix(in oklab,var(--tabAccent) 6%, transparent);border-color:color-mix(in oklab,var(--tabAccent) 18%, var(--soft2))}
+.phaseTrack .phaseFill,.mixFill{box-shadow:0 0 14px rgba(255,255,255,.06)}
+@media (max-width:980px){.opsToolbar{padding:10px}.dashboardTabs{overflow:auto;padding-bottom:2px}.dashTabBtn{flex:0 0 auto}.toolbarRight{width:100%}}
+
+
+/* v8.1 dashboard tab refinement */
+.towerMixWrap{display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:center;min-height:0}.towerMixDonut{display:grid;place-items:center}.towerMixRing{width:168px;height:168px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) 0 306deg,var(--blue) 306deg 342deg,var(--amber) 342deg 360deg);box-shadow:0 0 0 1px rgba(255,255,255,.04),0 22px 34px rgba(0,0,0,.18),inset 0 0 30px rgba(255,255,255,.05);position:relative}.towerMixRing:before{content:"";position:absolute;inset:12px;border-radius:50%;background:radial-gradient(circle at 30% 22%, rgba(255,255,255,.08), transparent 28%),linear-gradient(180deg,color-mix(in oklab,var(--panel) 94%,transparent),color-mix(in oklab,var(--panel2) 100%,transparent));box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}.towerMixInner{position:relative;z-index:1;display:grid;place-items:center;text-align:center;padding:0 18px}.towerMixInner strong{font-size:34px;line-height:1;font-weight:950;letter-spacing:-.04em}.towerMixInner span{display:block;margin-top:6px;font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.towerMixInner small{display:block;margin-top:8px;font-size:8.5px;line-height:1.45;color:var(--muted)}.towerMixLegend{display:grid;gap:10px}.towerLegendRow{display:grid;grid-template-columns:118px 26px 1fr 36px;gap:10px;align-items:center;padding:9px 10px;border-radius:14px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 76%,transparent),color-mix(in oklab,var(--panel2) 96%,transparent));border:1px solid var(--soft2)}.towerLegendHead{display:flex;align-items:center;gap:8px}.towerLegendHead .sw{width:10px;height:10px;border-radius:50%}.towerLegendRow.good .sw{background:var(--green)}.towerLegendRow.plan .sw{background:var(--blue)}.towerLegendRow.warn .sw{background:var(--amber)}.towerLegendRow b{font-size:15px;line-height:1}.towerLegendRow small{font-size:10px;font-weight:850;color:var(--muted);text-align:right}.towerMixFooter{display:grid;grid-template-columns:1fr 1fr;gap:8px}.towerMixFooter .miniStat{padding:10px 12px}body.light .towerMixRing:before{background:radial-gradient(circle at 30% 22%, rgba(255,255,255,.9), transparent 28%),linear-gradient(180deg,rgba(255,255,255,.98),rgba(245,248,252,.98))}body.light .towerLegendRow{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(247,249,252,.98));border-color:rgba(32,49,82,.08)}
+.trafficLegend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px}.trafficLegend .legendSw{width:16px;height:3px;border-radius:999px}.trafficLegend .legendSw.dashed{background:linear-gradient(90deg,var(--green) 0 50%, transparent 50% 100%);background-size:10px 100%;height:3px}.opsTrafficChart{background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);border-radius:16px}
+.phaseRailWrap{display:grid;gap:14px}.phaseRailHead{display:flex;align-items:center;justify-content:space-between;gap:14px}.phaseRailProgress{position:relative;flex:1;height:12px;border-radius:999px;background:linear-gradient(90deg,color-mix(in oklab,var(--panel2) 90%,transparent),color-mix(in oklab,var(--panel) 80%,transparent));border:1px solid var(--soft2);overflow:hidden}.phaseRailFill{position:absolute;left:0;top:0;bottom:0;width:78%;border-radius:inherit;background:linear-gradient(90deg,var(--green),var(--blue),var(--amber));box-shadow:0 0 18px rgba(90,132,255,.18);animation:phaseRailLoad 1s cubic-bezier(.2,.8,.2,1) both}.phaseRailPct{min-width:120px;text-align:right}.phaseRailPct strong{display:block;font-size:24px;line-height:1;font-weight:950}.phaseRailPct span{font-size:10px;font-weight:850;color:var(--muted)}.phaseRailNodes{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;align-items:center}.phaseStep{display:grid;justify-items:center;gap:8px;text-align:center}.phaseStepDot{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--soft2);background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 82%,transparent),color-mix(in oklab,var(--panel2) 96%,transparent));box-shadow:0 12px 24px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.05)}.phaseStepDot img{width:18px;height:18px}.phaseStepBody strong{display:block;font-size:10.5px;line-height:1.25}.phaseStepBody span{display:block;margin-top:4px;font-size:8.8px;line-height:1.4;color:var(--muted)}.phaseConnector{height:4px;border-radius:999px;background:linear-gradient(90deg,color-mix(in oklab,var(--blue) 32%,transparent),color-mix(in oklab,var(--amber) 32%,transparent));position:relative;top:-22px}.phaseStep.done .phaseStepDot{border-color:rgba(31,208,154,.34);box-shadow:0 0 0 5px rgba(31,208,154,.05),0 16px 26px rgba(0,0,0,.14)}.phaseStep.live .phaseStepDot{border-color:rgba(90,132,255,.34);box-shadow:0 0 0 5px rgba(90,132,255,.06),0 16px 26px rgba(0,0,0,.14)}.phaseStep.next .phaseStepDot{border-color:rgba(255,184,78,.36);box-shadow:0 0 0 5px rgba(255,184,78,.06),0 16px 26px rgba(0,0,0,.14)}.phaseStep.plan .phaseStepDot{border-style:dashed;opacity:.92}.phaseRailSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.phaseRailSummary .miniStat{padding:10px 12px}.dashboardShell[data-tab="3"] .dashcard .dashTitle{color:color-mix(in oklab,var(--text) 88%, var(--amber))}.dashboardShell[data-tab="2"] .dashcard .dashTitle{color:color-mix(in oklab,var(--text) 90%, var(--blue))}.dashboardShell[data-tab="1"] .dashcard .dashTitle{color:color-mix(in oklab,var(--text) 88%, var(--green))}.dashboardShell[data-tab="4"] .dashcard .dashTitle{color:color-mix(in oklab,var(--text) 90%, var(--accent))}.dashboardShell[data-tab="0"] .dashcard .dashTitle{color:color-mix(in oklab,var(--text) 90%, var(--blue))}
+@keyframes phaseRailLoad{from{width:0}to{width:78%}}
+@media (max-width:1180px){.towerMixWrap{grid-template-columns:1fr}.towerMixDonut{justify-self:start}.phaseRailNodes{grid-template-columns:1fr}.phaseConnector{display:none}.phaseStep{grid-template-columns:50px 1fr;justify-items:start;text-align:left}.phaseStepBody{padding-top:4px}.phaseRailSummary{grid-template-columns:1fr}}
+
+
+/* v8.2 responsive live dashboard pass */
+.dashcard,.dashKpi,.opsCard,.miniStat,.bandCard,.sparkCard{will-change:box-shadow,filter}
+.dashKpiLabel{font-size:clamp(10px,.72vw,11px)}
+.dashKpiValue{font-size:clamp(22px,2vw,28px)}
+.dashKpiMeta{font-size:clamp(9px,.72vw,10.5px)}
+.dashTitle{font-size:clamp(15px,1.18vw,18px)}
+.dashSub{font-size:clamp(9px,.78vw,10.8px);line-height:1.42}
+.opsCard .dashTitle{font-size:clamp(13px,1.02vw,16px)}
+.opsCard .dashSub{font-size:clamp(8.8px,.76vw,10px)}
+.miniStat strong{font-size:clamp(15px,1.2vw,18px)}
+.miniStat span,.towerLegendRow small,.phaseRailPct span,.phaseStepBody span,.mapLegendItem,.toolbarBadge,.toolbarBtn{font-size:clamp(8.8px,.72vw,10.5px)}
+.opsTableHead{font-size:clamp(8px,.66vw,9px)}
+.opsTableRow{font-size:clamp(9.4px,.74vw,10.6px)}
+.opsTableRow small{font-size:clamp(8px,.66vw,8.8px)}
+.dashKpis{grid-template-columns:repeat(5,minmax(118px,1fr))}
+.opsGridA,.opsGridB,.opsGridC,.opsGridD,.opsGridE{align-items:start}
+.opsChart{overflow:visible}
+.trafficLegend{margin-bottom:10px}
+.dashKpi:after{animation:kpiHalo 4.2s ease-in-out infinite}
+.dashKpiIcon{animation:iconBreath 3.8s ease-in-out infinite}
+.opsCard .dashTitle,.dashcard .dashTitle{position:relative}
+.opsCard .dashTitle:after,.dashcard .dashTitle:after{content:"";display:block;width:44px;height:2px;border-radius:999px;margin-top:8px;background:linear-gradient(90deg,var(--accent),var(--blue),transparent);opacity:.9;animation:titleTrace 3.8s linear infinite}
+.drawPath{filter:drop-shadow(0 0 8px rgba(90,132,255,.15));animation:drawPath 1.3s cubic-bezier(.25,.7,.2,1) forwards, pathGlow 3.8s ease-in-out infinite 1.35s}
+.drawPath.delay{animation:drawPath 1.3s cubic-bezier(.25,.7,.2,1) forwards .18s, pathGlowWarm 3.6s ease-in-out infinite 1.55s}
+.areaReveal{animation:fadeArea .9s ease .32s forwards, areaBreathe 4.8s ease-in-out infinite 1.3s}
+.barGrow,.waveSeg,.phaseFill,.mixFill,.histBar{animation-duration:.75s,3.2s;animation-iteration-count:1,infinite;animation-timing-function:cubic-bezier(.2,.8,.2,1),ease-in-out}
+.barGrow{animation-name:barGrow,barPulse}
+.waveSeg,.phaseFill,.mixFill{animation-name:barGlow}
+.scatterDot,.towerMixRing .sw,.timelineDot{animation:pointPulse 2.8s ease-in-out infinite}
+.towerMixRing{animation:ringBreath 4s ease-in-out infinite}
+.phaseRailFill{background-size:200% 100%;animation:phaseRailLoad 1s cubic-bezier(.2,.8,.2,1) both, gradientShift 4.2s linear infinite 1s}
+.phaseConnector{background-size:200% 100%;animation:connectorFlow 5s linear infinite}
+.legendSw.dashed{animation:dashTravel 1.2s linear infinite}
+.osmMap:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 28% 26%, rgba(90,132,255,.08), transparent 18%),radial-gradient(circle at 72% 68%, rgba(255,49,77,.07), transparent 18%);mix-blend-mode:screen;animation:mapPulse 6s ease-in-out infinite}
+.statusPill.good,.statusPill.warn,.statusPill.bad,.statusPill.blue{animation:pillPulse 3.2s ease-in-out infinite}
+body.light .dashcard,body.light .dashKpi,body.light .opsCard{box-shadow:0 12px 28px rgba(36,54,92,.07), inset 0 1px 0 rgba(255,255,255,.96)}
+body.light .opsCard .dashTitle:after,body.light .dashcard .dashTitle:after{opacity:.75}
+@keyframes kpiHalo{0%,100%{filter:saturate(1);box-shadow:0 10px 24px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.03)}50%{filter:saturate(1.05);box-shadow:0 0 0 1px rgba(90,132,255,.10),0 0 18px rgba(90,132,255,.08),0 10px 26px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.04)}}
+@keyframes iconBreath{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(90,132,255,0))}50%{transform:scale(1.04);filter:drop-shadow(0 0 10px rgba(90,132,255,.18))}}
+@keyframes titleTrace{0%{background-position:0% 50%;opacity:.65}50%{background-position:100% 50%;opacity:1}100%{background-position:0% 50%;opacity:.65}}
+@keyframes pathGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(90,132,255,.12))}50%{filter:drop-shadow(0 0 12px rgba(90,132,255,.28))}}
+@keyframes pathGlowWarm{0%,100%{filter:drop-shadow(0 0 4px rgba(255,49,77,.10))}50%{filter:drop-shadow(0 0 12px rgba(255,49,77,.24))}}
+@keyframes areaBreathe{0%,100%{opacity:.92}50%{opacity:1}}
+@keyframes barPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08)}}
+@keyframes barGlow{0%,100%{box-shadow:0 0 0 rgba(255,255,255,0)}50%{box-shadow:0 0 14px rgba(255,255,255,.08)}}
+@keyframes pointPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{filter:drop-shadow(0 0 8px rgba(255,255,255,.25))}}
+@keyframes ringBreath{0%,100%{transform:scale(1);box-shadow:0 0 0 1px rgba(255,255,255,.04),0 22px 34px rgba(0,0,0,.18),inset 0 0 30px rgba(255,255,255,.05)}50%{transform:scale(1.012);box-shadow:0 0 0 1px rgba(255,255,255,.04),0 0 18px rgba(90,132,255,.12),0 22px 34px rgba(0,0,0,.18),inset 0 0 30px rgba(255,255,255,.05)}}
+@keyframes gradientShift{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes connectorFlow{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes dashTravel{0%{background-position:0 0}100%{background-position:14px 0}}
+@keyframes mapPulse{0%,100%{opacity:.55}50%{opacity:.95}}
+@keyframes pillPulse{0%,100%{box-shadow:0 0 14px rgba(0,0,0,0)}50%{box-shadow:0 0 14px rgba(255,255,255,.04)}}
+/* override laptop collapse: keep large-screen composition */
+@media (max-width:1280px) and (min-width:901px){
+  .opsGridA{grid-template-columns:1.34fr .86fr!important}
+  .opsGridB{grid-template-columns:1.08fr .92fr!important}
+  .opsGridC{grid-template-columns:1.12fr .88fr!important}
+  .opsGridD{grid-template-columns:1.02fr .98fr!important}
+  .opsGridE{grid-template-columns:1fr 1fr!important}
+  .opsCol.two{grid-template-rows:repeat(2,minmax(168px,auto))!important}
+  .opsCol.three{grid-template-rows:repeat(3,minmax(142px,auto))!important}
+  .cardSplit{grid-template-columns:1fr 1fr!important}
+  .dashboardShell{padding-right:4px!important}
+  .opsChart{height:160px;min-height:160px}
+  .opsChart.tall{height:190px;min-height:190px}
+  .opsChart.compact{height:132px;min-height:132px}
+  .towerMixWrap{grid-template-columns:160px 1fr}
+  .towerMixRing{width:154px;height:154px}
+  .dashKpis{grid-template-columns:repeat(5,minmax(104px,1fr))}
+}
+@media (max-width:1180px) and (min-width:901px){
+  .phaseRailNodes{grid-template-columns:repeat(9,minmax(0,1fr))!important}
+  .phaseConnector{display:block!important}
+  .phaseStep{display:grid;justify-items:center;text-align:center}
+  .phaseStepBody{padding-top:0}
+  .phaseRailSummary{grid-template-columns:repeat(3,1fr)!important}
+}
+@media (max-width:900px){
+  .dashKpis{grid-template-columns:repeat(2,minmax(120px,1fr))}
+  .opsGridA,.opsGridB,.opsGridC,.opsGridD,.opsGridE{grid-template-columns:1fr!important}
+  .opsCol.two,.opsCol.three{grid-template-rows:none!important}
+  .cardSplit{grid-template-columns:1fr!important}
+  .opsChart{height:156px;min-height:156px}
+  .opsChart.tall{height:180px;min-height:180px}
+  .phaseRailNodes{grid-template-columns:1fr!important}
+  .phaseConnector{display:none!important}
+  .phaseStep{grid-template-columns:50px 1fr;justify-items:start;text-align:left}
+  .phaseRailSummary,.towerMixFooter{grid-template-columns:1fr}
+}
+
+
+/* v8.3 dashboard cleanup + live polish */
+/* remove artifact-prone title traces */
+.opsCard .dashTitle:after,.dashcard .dashTitle:after{content:none!important;display:none!important}
+/* calmer perpetual motion */
+.dashKpi:after{opacity:.62;animation:kpiGlowSoft 5s ease-in-out infinite!important}
+.dashKpiIcon{animation:iconPulseSoft 4.6s ease-in-out infinite!important}
+.opsCard,.dashcard,.dashKpi{overflow:hidden}
+.opsCard:before,.dashcard:before,.dashKpi:before{background-size:200% 200%;animation:surfaceShimmer 10s linear infinite}
+.drawPath{animation:drawPath 1.25s cubic-bezier(.25,.7,.2,1) forwards, pathGlow 4.2s ease-in-out infinite 1.25s!important}
+.drawPath.delay{animation:drawPath 1.25s cubic-bezier(.25,.7,.2,1) forwards .18s, pathGlowWarm 4.2s ease-in-out infinite 1.43s!important}
+.areaReveal{animation:fadeArea .9s ease .28s forwards, areaBreathe 5.2s ease-in-out infinite 1.1s!important}
+.scatterDot,.timelineDot,.statusPill.good,.statusPill.warn,.statusPill.bad,.statusPill.blue{animation:softBlink 3.8s ease-in-out infinite!important}
+.phaseRailFill{background-size:220% 100%;animation:phaseRailLoad 1s cubic-bezier(.2,.8,.2,1) both, gradientShift 5.2s linear infinite 1s!important}
+.phaseStepDot{animation:stepPulse 3.6s ease-in-out infinite}
+.waveSeg.live,.waveSeg.plan,.waveSeg.acc,.phaseFill,.mixFill,.histBar{animation:barGlowSoft 3.6s ease-in-out infinite}
+.osmMap:after{animation:mapPulse 7s ease-in-out infinite!important}
+/* cleaner typography */
+.dashTitle{font-size:clamp(14px,1.06vw,17px)!important;line-height:1.12!important;letter-spacing:-.02em}
+.dashSub{font-size:clamp(8.8px,.72vw,10.2px)!important;line-height:1.42!important}
+.opsCard .dashTitle{font-size:clamp(12.5px,.94vw,15px)!important}
+.opsCard .dashSub{font-size:clamp(8.3px,.66vw,9.4px)!important}
+.dashKpiLabel{font-size:clamp(9px,.68vw,10px)!important}
+.dashKpiValue{font-size:clamp(20px,1.65vw,25px)!important}
+.dashKpiMeta{font-size:clamp(8.5px,.68vw,9.6px)!important}
+.miniStat strong{font-size:clamp(14px,1vw,16px)!important}
+.miniStat span{font-size:clamp(8.2px,.62vw,9px)!important;line-height:1.3}
+.opsTableHead{font-size:clamp(7.5px,.58vw,8.4px)!important}
+.opsTableRow{font-size:clamp(8.8px,.66vw,9.8px)!important}
+.opsTableRow small{font-size:clamp(7.6px,.56vw,8.3px)!important}
+.towerLegendRow small,.phaseRailPct span,.phaseStepBody span,.mapLegendItem,.toolbarBadge,.toolbarBtn{font-size:clamp(8px,.62vw,9.6px)!important}
+/* laptop density */
+@media (max-width:1280px) and (min-width:901px){
+  .dashboardShell{padding-right:4px!important}
+  .dashKpis{grid-template-columns:repeat(5,minmax(98px,1fr))!important;gap:10px!important}
+  .dashKpi,.opsCard,.dashcard{padding:12px!important}
+  .opsGridA{grid-template-columns:1.3fr .9fr!important}
+  .opsGridB{grid-template-columns:1.06fr .94fr!important}
+  .opsGridC{grid-template-columns:1.08fr .92fr!important}
+  .opsGridD{grid-template-columns:1fr 1fr!important}
+  .opsGridE{grid-template-columns:1fr 1fr!important}
+  .opsCol{gap:10px!important}
+  .opsCol.two{grid-template-rows:repeat(2,minmax(160px,auto))!important}
+  .opsCol.three{grid-template-rows:repeat(3,minmax(134px,auto))!important}
+  .opsChart{height:150px!important;min-height:150px!important}
+  .opsChart.tall{height:176px!important;min-height:176px!important}
+  .opsChart.compact{height:124px!important;min-height:124px!important}
+  .cardSplit{gap:10px!important}
+  .trafficLegend{gap:10px!important}
+  .towerMixWrap{grid-template-columns:144px 1fr!important;gap:12px!important}
+  .towerMixRing{width:138px!important;height:138px!important}
+  .towerMixInner strong{font-size:28px!important}
+  .towerMixInner small{font-size:7.8px!important}
+}
+/* rebuilt phase milestone rail to remove floating artifacts */
+.phaseRailWrap{gap:12px!important}
+.phaseRailHead{align-items:flex-end!important}
+.phaseRailPct strong{font-size:clamp(20px,1.6vw,24px)!important}
+.phaseRailNodes{position:relative;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;align-items:start!important;padding-top:14px}
+.phaseRailNodes:before{content:"";position:absolute;left:8%;right:8%;top:40px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(90,132,255,.16),rgba(255,184,78,.16),rgba(255,255,255,.12));box-shadow:0 0 14px rgba(90,132,255,.07);z-index:0}
+.phaseConnector{display:none!important}
+.phaseStep{position:relative;z-index:1;display:grid!important;justify-items:center!important;text-align:center!important;gap:8px!important;padding:10px 8px 12px;border-radius:18px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 76%,transparent),color-mix(in oklab,var(--panel2) 92%,transparent));border:1px solid var(--soft2);min-height:170px}
+.phaseStepDot{width:46px!important;height:46px!important;box-shadow:0 10px 20px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.05)!important}
+.phaseStepDot img{width:16px!important;height:16px!important}
+.phaseStepBody strong{font-size:clamp(9px,.7vw,10px)!important;line-height:1.22!important}
+.phaseStepBody span{font-size:clamp(7.6px,.56vw,8.5px)!important;line-height:1.36!important;margin-top:3px!important}
+.phaseRailSummary{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+body.light .phaseStep{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(247,249,252,.99));border-color:rgba(32,49,82,.08)}
+@media (max-width:1180px) and (min-width:901px){
+  .phaseRailNodes{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  .phaseStep{min-height:164px!important;padding:9px 7px 11px!important}
+}
+@media (max-width:900px){
+  .phaseRailNodes{grid-template-columns:1fr!important;padding-top:4px!important}
+  .phaseRailNodes:before{display:none!important}
+  .phaseStep{grid-template-columns:46px 1fr!important;justify-items:start!important;text-align:left!important;min-height:auto!important}
+  .phaseRailSummary{grid-template-columns:1fr!important}
+}
+@keyframes kpiGlowSoft{0%,100%{opacity:.55}50%{opacity:.82}}
+@keyframes iconPulseSoft{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes surfaceShimmer{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+@keyframes softBlink{0%,100%{filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{filter:drop-shadow(0 0 7px rgba(255,255,255,.18))}}
+@keyframes stepPulse{0%,100%{box-shadow:0 10px 20px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.05)}50%{box-shadow:0 0 0 4px rgba(90,132,255,.06),0 12px 22px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.05)}}
+@keyframes barGlowSoft{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08) saturate(1.04)}}
+
+
+/* v8.4 mobile/iPad performance optimization */
+.slide:not(.active) *{animation-play-state:paused!important}
+.slide.active *{animation-play-state:running}
+.slide{contain:layout paint style}
+.dashcard,.dashKpi,.opsCard,.miniStat,.bandCard,.sparkCard{will-change:auto!important}
+@media (max-width:1100px){
+  .opsGridA .dashcard,.opsGridB .dashcard,.opsGridC .dashcard,.opsGridD .dashcard,.opsGridE .dashcard{backdrop-filter:blur(9px) saturate(122%)!important;-webkit-backdrop-filter:blur(9px) saturate(122%)!important}
+  .dashboardShell{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .osmTile{will-change:auto!important}
+}
+
+

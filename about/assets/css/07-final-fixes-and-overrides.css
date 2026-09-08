@@ -1,0 +1,274 @@
+/* 07 Final Fixes And Overrides — split from the working master stylesheet. */
+
+/* v9.8.1 focused hotfixes: POC snapshot fit + 6-up network status KPIs */
+.pocSnapshotPanel{padding:14px 14px 12px!important;display:flex;flex-direction:column;min-height:0}
+.pocSnapshotPanel .pocPanelTitle{margin-bottom:10px}
+.pocSnapshotPanel .pocStats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pocSnapshotPanel .pocStat{min-height:82px!important;padding:12px 13px 11px!important;border-radius:18px!important}
+.pocSnapshotPanel .pocStat .val{font-size:30px!important}
+.pocSnapshotPanel .pocStat .lbl{font-size:11.5px!important;line-height:1.3!important}
+.pocSitesPanel{min-height:0}
+.pocSiteList{padding-right:6px!important}
+@media (min-width:1381px){.dashKpis.kpi6{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important}.dashKpis.kpi6 .dashKpi{min-width:0;padding:11px 11px!important}.dashKpis.kpi6 .dashKpiLabel{font-size:var(--type-xs)!important}.dashKpis.kpi6 .dashKpiValue{font-size:clamp(18px,1.45vw,23px)!important}.dashKpis.kpi6 .dashKpiMeta{font-size:clamp(8px,.58vw,9px)!important}.dashKpis.kpi6 .dashKpiIcon{width:28px;height:28px}.dashKpis.kpi6 .dashKpiIcon img{width:14px;height:14px}}
+@media (min-width:1121px) and (max-width:1380px){.dashKpis.kpi6{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important}.dashKpis.kpi6 .dashKpi{min-width:0;padding:10px 10px!important}.dashKpis.kpi6 .dashKpiLabel{font-size:9px!important}.dashKpis.kpi6 .dashKpiValue{font-size:20px!important}.dashKpis.kpi6 .dashKpiMeta{font-size:8px!important}.dashKpis.kpi6 .dashKpiIcon{width:26px;height:26px}.dashKpis.kpi6 .dashKpiIcon img{width:13px;height:13px}}
+@media (max-width:1120px){.dashKpis.kpi6{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media (max-width:720px){.pocSnapshotPanel .pocStats{gap:8px}.pocSnapshotPanel .pocStat{min-height:76px!important;padding:11px!important}.pocSnapshotPanel .pocStat .val{font-size:27px!important}}
+
+/* v9.8.2 Arabic navigation rail fix */
+.navzone,.navrail{direction:ltr!important}
+body.rtl .navzone,body.rtl .navrail{direction:ltr!important}
+body.rtl .railbtn{direction:ltr!important}
+body.rtl .railbtn .railtxt{direction:rtl!important;text-align:right;unicode-bidi:plaintext}
+body.rtl .railbtn .railnum{direction:ltr!important}
+
+
+/* v9.8.3 POC live-map + snapshot fit hotfix */
+.pocInfoCol{grid-template-rows:auto minmax(0,1fr)!important;gap:14px!important;min-height:0!important;align-content:stretch!important}
+.pocSnapshotPanel{padding:14px 14px 13px!important;min-height:222px!important;height:auto!important;overflow:hidden!important;display:block!important}
+.pocSnapshotPanel .pocPanelTitle{margin:0 0 10px!important}
+.pocSnapshotPanel .pocStats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(78px,1fr))!important;gap:9px!important;height:174px!important}
+.pocSnapshotPanel .pocStat{min-height:0!important;height:auto!important;padding:11px 12px 10px!important;border-radius:17px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.pocSnapshotPanel .pocStat .val{font-size:29px!important;line-height:1!important;margin:0!important}
+.pocSnapshotPanel .pocStat .lbl{font-size:11px!important;line-height:1.28!important;margin-top:5px!important}
+.pocSitesPanel{min-height:0!important;height:auto!important;overflow:hidden!important;padding:14px 14px 12px!important}
+.pocSiteList{min-height:0!important;max-height:none!important;height:100%!important;overflow-y:auto!important;overscroll-behavior:contain!important;padding-right:8px!important}
+.pocNarrative{display:none!important}
+@media (max-width:1320px){.pocSnapshotPanel{min-height:210px!important}.pocSnapshotPanel .pocStats{height:163px!important;grid-template-rows:repeat(2,minmax(74px,1fr))!important}.pocSnapshotPanel .pocStat .val{font-size:27px!important}}
+@media (max-width:980px){.pocInfoCol{grid-template-rows:auto auto!important}.pocSnapshotPanel{min-height:205px!important}.pocSitesPanel{min-height:280px!important}.pocSiteList{max-height:260px!important}}
+
+
+/* GitHub hosted map runtime restored from v9.6.3 */
+/* natural hosted OSM tiles */
+.osmTile{filter:none!important;opacity:1!important}
+.osmMapShade{background:transparent!important}
+
+#pocMapCanvas .leaflet-tile{filter:none!important;opacity:1!important}
+#pocMapCanvas .leaflet-tile-pane{filter:none!important;opacity:1!important}
+#pocMapCanvas .leaflet-container{background:#e8e6df!important}
+body.light #pocMapCanvas .leaflet-container{background:#eef3f8!important}
+.pocDivIcon{background:transparent!important;border:none!important}
+.pocTip{background:rgba(7,12,20,.86)!important;color:#fff!important;border:1px solid rgba(255,255,255,.10)!important;border-radius:10px!important;box-shadow:0 8px 18px rgba(0,0,0,.18)!important;font-weight:800!important;padding:5px 8px!important}
+.pocTip:before{border-top-color:rgba(7,12,20,.86)!important}
+body.light .pocTip{background:rgba(255,255,255,.94)!important;color:#172334!important;border-color:rgba(17,32,50,.10)!important}
+body.light .pocTip:before{border-top-color:rgba(255,255,255,.94)!important}
+
+
+/* vNext Abu Dhabi intro + stronger nav + ops overlay */
+.intro-snapshot:before,.intro-highlights:before,.intro-metric:before,.intro-mini:before{display:none!important}
+.intro-mini .miniTop{grid-template-columns:1fr!important}
+.intro-mini .miniBadge{display:none!important}
+.intro-mini{align-items:flex-end!important}
+.intro-mini .miniNum{max-width:100%!important}
+.intro-snapshot,.intro-highlights,.intro-metric,.intro-mini{background-position:center center!important}
+.intro-highlights{gap:12px!important}
+.intro-metric .metricVal,.intro-metric .metricLbl{max-width:100%!important}
+.navrail{position:relative!important}
+.navActiveSlider{position:absolute;left:0;top:50%;height:34px;border-radius:14px;background:linear-gradient(135deg,rgba(255,49,77,.20),rgba(211,162,79,.12));border:1px solid color-mix(in oklab,var(--accent) 24%, var(--stroke));box-shadow:0 10px 24px rgba(213,34,64,.14), inset 0 1px 0 rgba(255,255,255,.08);transform:translateX(0);transition:transform .42s cubic-bezier(.2,.72,.2,1),width .42s cubic-bezier(.2,.72,.2,1),opacity .24s ease;translate:0 -50%;pointer-events:none;z-index:0}
+.navrail .railbtn{position:relative;z-index:1}
+.navrail.navmoving[data-dir="1"] .navActiveSlider{filter:brightness(1.08) saturate(1.05)}
+.navrail.navmoving[data-dir="-1"] .navActiveSlider{filter:brightness(1.02) saturate(1.05)}
+.navrail.navmoving .railbtn{animation:railSlide .44s ease}
+@keyframes railSlide{0%{transform:translateY(4px) scale(var(--navScale,.92));opacity:.35}100%{transform:translateY(0) scale(var(--navScale,.92));opacity:var(--navOpacity,.6)}}
+.deckProgress{height:3px!important}
+.deckProgress span{position:relative;overflow:visible}
+.deckProgress span:after{content:"";position:absolute;right:-7px;top:50%;width:14px;height:14px;border-radius:50%;translate:0 -50%;background:radial-gradient(circle,var(--gold) 0%,var(--accent2) 45%,rgba(255,49,77,.15) 72%,transparent 74%);box-shadow:0 0 14px rgba(255,80,90,.32)}
+.opsLauncher{display:grid;grid-template-columns:1.18fr .82fr;gap:18px;min-height:680px;padding:28px!important;align-items:end;background-image:linear-gradient(108deg,rgba(6,10,18,.95) 0%,rgba(6,10,18,.85) 34%,rgba(6,10,18,.52) 68%,rgba(6,10,18,.36) 100%),var(--photoimg)!important;background-size:cover!important;background-position:center!important}
+.opsLauncherCopy{max-width:760px}
+.opsLauncherCopy h3{font-size:40px;line-height:1.02;margin:6px 0 12px}
+.opsLauncherCopy p{font-size:17px;line-height:1.78;max-width:640px;color:var(--muted)}
+.opsLauncherBullets{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 22px}
+.opsLauncherBullets span,.opsLauncherBadge{padding:10px 14px;border-radius:999px;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));border:1px solid rgba(211,162,79,.20);font-size:12px;font-weight:800;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.opsLauncherStat{justify-self:end;align-self:start;min-width:290px;padding:18px;border-radius:22px;background:linear-gradient(180deg,rgba(7,12,20,.72),rgba(7,12,20,.48));border:1px solid rgba(211,162,79,.16);backdrop-filter:blur(16px) saturate(145%)}
+.opsLauncherGrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}.opsLauncherGrid div{padding:16px 16px 14px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--soft2)}.opsLauncherGrid strong{display:block;font-size:28px;line-height:1;font-weight:950}.opsLauncherGrid span{display:block;margin-top:7px;font-size:12px;color:var(--muted);line-height:1.4}
+.opsOverlay{position:absolute;inset:10px;z-index:70;display:flex;align-items:stretch;justify-content:center;background:rgba(4,8,14,.14);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .28s ease}
+.opsOverlay.open{opacity:1;pointer-events:auto}
+.opsOverlayPanel{position:relative;width:100%;height:100%;display:flex;flex-direction:column;border-radius:26px;padding:18px;background:linear-gradient(180deg,rgba(8,12,20,.98),rgba(8,12,20,.96));border:1px solid color-mix(in oklab,var(--stroke) 76%, rgba(255,255,255,.06));box-shadow:0 28px 60px rgba(0,0,0,.32)}
+.opsOverlayHeader{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:12px;padding:4px 4px 8px}
+.opsOverlayHeader h3{font-size:32px;line-height:1.05;margin:4px 0 0}
+.opsOverlayHeaderActions{display:flex;gap:10px;align-items:center}
+.opsOverlayBody{position:relative;flex:1;min-height:0;display:flex}
+.dashboardShell.overlayMode{width:100%;min-height:0;height:100%;overflow:auto;padding:18px 18px 16px;border-radius:24px}
+.dashboardShell.overlayMode .dashPane{min-height:100%}
+.dashboardShell.overlayMode .opsCard{min-height:unset}
+.dashboardShell.overlayMode .osmMap{min-height:320px}
+body.ops-overlay-open .navzone,body.ops-overlay-open .deckProgress{filter:saturate(1.04)}
+body.light .opsLauncher{background-image:linear-gradient(108deg,rgba(255,255,255,.985) 0%,rgba(255,255,255,.95) 36%,rgba(255,255,255,.76) 70%,rgba(255,255,255,.62) 100%),var(--photoimg)!important}
+body.light .opsLauncherCopy p,body.light .opsLauncherGrid span{color:#4d5d70}
+@media (max-width:900px){.opsLauncher{grid-template-columns:1fr;min-height:unset}.opsLauncherStat{justify-self:stretch;width:auto;min-width:0}.opsOverlay{inset:6px}.opsOverlayHeader{align-items:flex-start;flex-direction:column}.dashboardShell.overlayMode{padding:14px 14px 12px}}
+
+
+/* major update: slide 2 without icons */
+.no-icon-card:before{display:none!important}
+.briefSlide .briefIcon,.briefSlide .briefPillarBadge,.briefSlide .briefStatementIcon{display:none!important}
+.briefBullet.no-icon-card{padding:14px 16px!important;min-height:unset}
+.briefBullet.no-icon-card .briefBulletText{padding-inline-start:0!important;max-width:100%!important}
+.briefPillar.no-icon-card .briefPillarHead{grid-template-columns:1fr!important;justify-items:start!important}
+.briefPillar.no-icon-card .briefPillarKicker{margin-bottom:4px}
+.briefPillarPanel.no-icon-card:before,.briefHero.no-icon-card:before{display:none!important}
+
+/* smoother navigation and slide transitions */
+.slide{transform:perspective(1400px) rotateX(4deg) translateY(12px) scale(.994)!important;filter:blur(5px)!important;transition:opacity .42s cubic-bezier(.2,.72,.2,1), transform .42s cubic-bezier(.2,.72,.2,1), filter .42s ease!important}
+.slide.active{transform:perspective(1400px) rotateX(0deg) translateY(0) scale(1)!important;filter:blur(0)!important}
+html[data-navdir="1"] .slide.active .frame{animation:slideNextSoft .42s cubic-bezier(.2,.72,.2,1)!important}
+html[data-navdir="-1"] .slide.active .frame{animation:slidePrevSoft .42s cubic-bezier(.2,.72,.2,1)!important}
+@keyframes slideNextSoft{0%{opacity:.7;transform:translateX(18px) scale(.995)}100%{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes slidePrevSoft{0%{opacity:.7;transform:translateX(-18px) scale(.995)}100%{opacity:1;transform:translateX(0) scale(1)}}
+.navrail.navmoving .railbtn{animation:none!important;transition:opacity .28s ease,transform .28s cubic-bezier(.2,.72,.2,1),background .28s ease,border-color .28s ease,box-shadow .28s ease!important}
+.navActiveSlider{transition:transform .34s cubic-bezier(.22,.78,.2,1),width .34s cubic-bezier(.22,.78,.2,1),opacity .2s ease!important;box-shadow:0 8px 20px rgba(213,34,64,.12), inset 0 1px 0 rgba(255,255,255,.08)!important}
+.railbtn.active{animation:none!important}
+.railbtn.active:before,.railbtn.active .railnum{animation:none!important}
+body.slide-switching .frame:after,body.slide-switching .frame:before{animation:none!important}
+
+/* full-screen NOC overlay */
+.opsOverlay{position:fixed!important;inset:0!important;z-index:300!important;background:rgba(3,7,13,.46)!important;backdrop-filter:blur(10px)!important;padding:14px}
+.opsOverlayPanel{border-radius:30px!important;padding:18px 18px 16px!important;background:linear-gradient(180deg,rgba(7,11,18,.985),rgba(7,11,18,.965))!important}
+.opsOverlayHeader{align-items:center!important;margin-bottom:10px!important}
+.opsOverlayX{width:44px;height:44px;border-radius:14px;border:1px solid var(--soft2);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));color:var(--text);font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 12px 28px rgba(0,0,0,.16)}
+.opsOverlayX:hover{border-color:color-mix(in oklab,var(--accent) 32%,var(--soft2));transform:translateY(-1px)}
+.opsOverlayBody{position:relative;overflow:hidden!important}
+.dashboardShell.overlayMode{height:100%!important;overflow:auto!important;padding:16px!important;border-radius:24px!important;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))!important;border:1px solid rgba(255,255,255,.07)!important}
+.opsTicker{height:34px;overflow:hidden;border-radius:999px;border:1px solid rgba(211,162,79,.15);background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.02));margin:4px 0 10px;display:flex;align-items:center}
+.opsTickerTrack{display:flex;gap:38px;white-space:nowrap;will-change:transform;animation:opsTickerMove 24s linear infinite;padding-inline:16px;font-size:12px;font-weight:800;color:var(--muted)}
+.opsTickerTrack span{position:relative}.opsTickerTrack span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--green),#6ae7c0);margin-inline-end:8px;vertical-align:middle;box-shadow:0 0 12px rgba(31,208,154,.28)}
+@keyframes opsTickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.opsToolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}.toolbarLeft,.toolbarRight{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.toolbarBadge,.toolbarBtn{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:14px;border:1px solid rgba(255,255,255,.07);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));font-size:12px;font-weight:800;color:var(--text)}.toolbarBadge.subtle{color:var(--muted)}.toolbarDot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(31,208,154,.45)}.toolbarBtn{cursor:pointer}.toolbarBtn img{width:14px;height:14px}.toolbarBtn.emphasis{border-color:rgba(211,162,79,.22)}
+.opsDrilldown{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .22s ease}
+.opsDrilldown.open{pointer-events:auto;opacity:1}
+.opsDrilldown:before{content:"";position:absolute;inset:0;background:rgba(5,9,15,.54);backdrop-filter:blur(8px)}
+.opsDrillPanel{position:relative;z-index:1;width:min(940px,calc(100% - 40px));max-height:calc(100% - 40px);overflow:auto;border-radius:26px;padding:22px;background:linear-gradient(180deg,rgba(10,15,23,.98),rgba(10,15,23,.96));border:1px solid color-mix(in oklab,var(--stroke) 72%,rgba(255,255,255,.05));box-shadow:0 28px 70px rgba(0,0,0,.34)}
+.opsDrillClose{position:absolute;top:14px;right:14px;width:40px;height:40px;border:none;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));color:var(--text);font-size:28px;line-height:1;cursor:pointer}
+.opsDrillHeader h4{margin:2px 0 10px;font-size:30px;line-height:1.05}.opsDrillHeader p{margin:0 0 14px;color:var(--muted);max-width:700px;line-height:1.7}
+.opsDrillStats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.opsDrillStats div{padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.07)}.opsDrillStats strong{display:block;font-size:28px;font-weight:950}.opsDrillStats span{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.drillTable{display:grid;gap:8px}.drillRow{display:grid;grid-template-columns:1fr 2fr 1fr;gap:10px;padding:12px 14px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06)}.drillRow.head{background:linear-gradient(180deg,rgba(255,49,77,.12),rgba(211,162,79,.08));font-weight:900}.drillRow span{font-size:13px;line-height:1.45}.opsDrillFooter{margin-top:12px;font-size:12px;color:var(--muted)}
+.dashcard,.dashKpi,.actionBtn,.toolbarBtn{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.dashcard:hover,.dashKpi:hover,.actionBtn:hover,.toolbarBtn:hover{transform:translateY(-2px);border-color:color-mix(in oklab,var(--accent) 24%,var(--soft2))}
+body.light .opsOverlay{background:rgba(248,251,255,.44)!important}
+body.light .opsOverlayPanel{background:linear-gradient(180deg,rgba(255,255,255,.985),rgba(247,250,254,.975))!important;border-color:rgba(16,24,38,.08)!important}
+body.light .dashboardShell.overlayMode{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(250,252,255,.96))!important;border-color:rgba(16,24,38,.08)!important}
+body.light .toolbarBadge,body.light .toolbarBtn,body.light .opsLauncherStat,body.light .opsLauncherGrid div,body.light .dashcard,body.light .dashKpi,body.light .opsDrillPanel,body.light .opsDrillStats div,body.light .drillRow{background:linear-gradient(180deg,#ffffff,#f8fbfe)!important;border-color:rgba(16,24,38,.08)!important;box-shadow:0 12px 28px rgba(52,66,94,.08)}
+body.light .dashTitle,body.light .opsOverlayHeader h3,body.light .opsLauncherCopy h3,body.light .opsDrillHeader h4,body.light .opsDrillStats strong,body.light .drillRow,body.light .toolbarBadge,body.light .toolbarBtn,body.light .opsOverlayX{color:#132033!important}
+body.light .dashSub,body.light .opsLauncherCopy p,body.light .opsTickerTrack,body.light .opsDrillHeader p,body.light .opsDrillStats span,body.light .opsDrillFooter,body.light .opsLauncherGrid span,body.light .toolbarBadge.subtle{color:#536479!important}
+body.light .opsOverlayX,body.light .opsDrillClose{background:linear-gradient(180deg,#fff,#f4f7fb)!important;color:#132033!important;border:1px solid rgba(16,24,38,.09)}
+body.light .dashTabBtn{background:linear-gradient(180deg,#fff,#f8fbfe)!important;border-color:rgba(16,24,38,.09)!important;color:#122034!important}
+body.light .dashTabBtn.active{background:linear-gradient(135deg,rgba(255,49,77,.12),rgba(211,162,79,.10))!important}
+body.light .dashTabBtn .tabNo{background:rgba(16,24,38,.05)!important;color:#31445e!important}
+body.light .opsTicker{background:linear-gradient(180deg,#ffffff,#f7fbff)!important;border-color:rgba(16,24,38,.08)!important}
+body.light .liveBadge{background:#eef3f8!important;color:#203048!important;border-color:rgba(16,24,38,.08)!important}
+body.light .photo-card .metricLbl,body.light .photo-card .briefFactLbl,body.light .photo-card .briefBulletText,body.light .photo-card p,body.light .photo-card .miniNum{color:#415268!important;text-shadow:none!important}
+body.light .photo-card .metricVal,body.light .photo-card h3,body.light .photo-card .briefFactVal,body.light .photo-card .text-reveal{color:#111b2b!important;text-shadow:none!important}
+@media (max-width:900px){.opsOverlay{padding:8px}.opsDrillPanel{width:min(100%,calc(100% - 14px));padding:18px}.opsDrillStats{grid-template-columns:1fr}.opsOverlayHeader h3{font-size:28px}.opsToolbar{align-items:flex-start}.drillRow{grid-template-columns:1fr}.opsTicker{height:auto}.opsTickerTrack{padding-block:8px}}
+
+body.ops-overlay-open .topbar,body.ops-overlay-open .deckProgress{opacity:0;pointer-events:none;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease}
+body.ops-overlay-open .slide.active>.frame{box-shadow:none!important}
+
+
+/* executive refinements */
+.deckProgress{height:4px!important;background:rgba(255,255,255,.035)!important}
+.deckProgress span{transition:width .78s cubic-bezier(.22,.78,.2,1)!important;will-change:width}
+body.light .deckProgress{background:rgba(16,24,38,.05)!important}
+.deckProgress span:after{width:16px!important;height:16px!important;right:-8px!important;box-shadow:0 0 18px rgba(255,80,90,.30)!important}
+
+/* restore and enrich hover on intro and slide 2 cards */
+.intro-hero,.intro-snapshot,.intro-highlights,.intro-metric,.intro-mini,.briefHero,.briefBullet,.briefFact,.briefPillar,.briefPillarPanel{transition:transform .26s cubic-bezier(.2,.72,.2,1), box-shadow .26s ease, border-color .26s ease, filter .26s ease!important}
+.intro-hero:hover,.intro-snapshot:hover,.intro-highlights:hover,.intro-metric:hover,.intro-mini:hover,.briefHero:hover,.briefBullet:hover,.briefFact:hover,.briefPillar:hover,.briefPillarPanel:hover{transform:translateY(-5px)!important;box-shadow:0 24px 48px rgba(0,0,0,.20),0 0 24px rgba(211,162,79,.07)!important;border-color:color-mix(in oklab,var(--gold) 28%, var(--stroke))!important;filter:saturate(1.02)}
+.intro-metric:hover .metricVal,.briefFact:hover .briefFactVal,.briefPillar:hover h3{transform:translateY(-1px)}
+body.light .intro-hero:hover,body.light .intro-snapshot:hover,body.light .intro-highlights:hover,body.light .intro-metric:hover,body.light .intro-mini:hover,body.light .briefHero:hover,body.light .briefBullet:hover,body.light .briefFact:hover,body.light .briefPillar:hover,body.light .briefPillarPanel:hover{box-shadow:0 18px 36px rgba(52,66,94,.12),0 0 18px rgba(190,151,75,.06)!important}
+
+/* edge navigation buttons */
+.edgeNav{position:fixed;top:56%;width:58px;height:116px;border:none;display:grid;place-items:center;font-size:34px;font-weight:700;line-height:1;color:var(--text);cursor:pointer;z-index:35;border-radius:22px;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 96%, transparent),color-mix(in oklab,var(--panel2) 92%, transparent));border:1px solid color-mix(in oklab,var(--stroke) 82%, rgba(211,162,79,.08));backdrop-filter:blur(18px) saturate(145%);box-shadow:0 18px 34px rgba(0,0,0,.18);transform:translateY(-50%);transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, opacity .24s ease}
+.edgeNavPrev{left:-14px;padding-left:18px}
+.edgeNavNext{right:-14px;padding-right:18px}
+.edgeNav:hover{transform:translateY(-50%) scale(1.02);border-color:color-mix(in oklab,var(--gold) 34%, var(--stroke));box-shadow:0 22px 40px rgba(0,0,0,.22),0 0 18px rgba(211,162,79,.08)}
+.edgeNav:active{transform:translateY(-50%) scale(.985)}
+body.light .edgeNav{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(248,251,255,.98));box-shadow:0 16px 30px rgba(52,66,94,.10)}
+body.ops-overlay-open .edgeNav{opacity:0;pointer-events:none}
+@media (max-width:900px){.edgeNav{width:46px;height:86px;font-size:28px}.edgeNavPrev{left:-10px;padding-left:14px}.edgeNavNext{right:-10px;padding-right:14px}}
+
+/* dashboard overlay enlarged and copy made executive */
+.opsOverlay{padding:4px!important}
+.opsOverlayPanel{border-radius:24px!important;padding:14px 14px 12px!important}
+.opsOverlayHeader h3{font-size:34px!important}
+.opsLauncher{min-height:690px!important}
+.opsLauncherCopy h3{font-size:42px!important}
+.opsLauncherCopy p{max-width:700px!important}
+.opsLauncherBullets span,.opsLauncherBadge{font-size:11.5px!important}
+.dashboardShell.overlayMode{padding:14px!important}
+body.ops-overlay-open .stage{filter:none!important}
+body.ops-overlay-open .slide.active{filter:none!important}
+body.ops-overlay-open .slide.active .frame{box-shadow:none!important;background:transparent!important;border-color:transparent!important}
+body.ops-overlay-open .slide.active .body>.title,body.ops-overlay-open .slide.active .opsLauncher{visibility:hidden!important}
+
+/* intro card image variation polish */
+.intro-snapshot .kpiGrid .intro-metric:nth-child(1){background-position:center top!important}
+.intro-snapshot .kpiGrid .intro-metric:nth-child(2){background-position:center center!important}
+.intro-snapshot .kpiGrid .intro-metric:nth-child(3){background-position:right center!important}
+.intro-snapshot .kpiGrid .intro-metric:nth-child(4){background-position:center center!important}
+.intro-highlights .intro-mini:nth-child(2){background-position:center center!important}
+.intro-highlights .intro-mini:nth-child(3){background-position:right center!important}
+.intro-highlights .intro-mini:nth-child(4){background-position:center center!important}
+.intro-highlights .intro-mini:nth-child(5){background-position:center center!important}
+
+
+/* corrected dashboard portal + slide-edge navigation */
+#viewport{overflow:visible!important}
+.edgeNav{position:absolute!important;top:50%!important;width:72px!important;height:128px!important;z-index:18!important;border-radius:24px!important;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 97%,transparent),color-mix(in oklab,var(--panel2) 94%,transparent))!important;border:1px solid color-mix(in oklab,var(--stroke) 78%,rgba(211,162,79,.10))!important;color:var(--text)!important;backdrop-filter:blur(18px) saturate(150%);box-shadow:0 22px 44px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.05)!important;cursor:pointer;display:grid;place-items:center;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease,opacity .24s ease!important}
+.edgeNav span{font-size:38px;font-weight:500;line-height:1;transform:translateY(-1px);display:inline-block;direction:ltr;unicode-bidi:isolate}
+.edgeNavPrev{left:26px!important;right:auto!important;transform:translate(-58%,-50%)!important;justify-content:flex-end!important;padding-right:20px!important;padding-left:10px!important}
+.edgeNavNext{right:26px!important;left:auto!important;transform:translate(58%,-50%)!important;justify-content:flex-start!important;padding-left:20px!important;padding-right:10px!important}
+.edgeNav:hover{border-color:color-mix(in oklab,var(--gold) 40%,var(--stroke))!important;box-shadow:0 26px 50px rgba(0,0,0,.24),0 0 22px rgba(211,162,79,.08)!important}
+.edgeNavPrev:hover{transform:translate(-54%,-50%) scale(1.02)!important}.edgeNavNext:hover{transform:translate(54%,-50%) scale(1.02)!important}
+body.light .edgeNav{background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(247,250,254,.99))!important;box-shadow:0 18px 36px rgba(52,66,94,.12)!important}
+body.ops-overlay-open .edgeNav{opacity:.2!important;pointer-events:none!important}
+
+/* keep progress visually continuous between slide states */
+.deckProgress span{transition:width .82s cubic-bezier(.22,.78,.2,1)!important;will-change:width!important}
+
+/* global dashboard portal independent of scaled slide canvas */
+.opsPortal{position:fixed;inset:0;z-index:5000;display:block;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility 0s .24s}
+.opsPortal.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .24s ease}
+.opsPortalBackdrop{position:absolute;inset:0;background:rgba(3,7,13,.46);backdrop-filter:blur(12px) saturate(.78)}
+.opsPortalPanel{position:absolute;inset:10px;display:flex;flex-direction:column;min-width:0;min-height:0;border-radius:28px;padding:16px;background:linear-gradient(180deg,rgba(7,11,18,.992),rgba(7,11,18,.978));border:1px solid color-mix(in oklab,var(--stroke) 76%,rgba(255,255,255,.06));box-shadow:0 32px 90px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;transform:scale(.985);transition:transform .28s cubic-bezier(.2,.72,.2,1)}
+.opsPortal.open .opsPortalPanel{transform:scale(1)}
+.opsPortalBody{position:relative;display:flex;flex:1;min-height:0;overflow:hidden}
+.dashboardShell.portalMode{width:100%;height:100%;min-height:0;overflow:auto;padding:16px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.07)}
+.dashboardShell.portalMode .dashPane{min-height:100%}.dashboardShell.portalMode .osmMap{min-height:330px}
+body.ops-overlay-open #app{filter:blur(9px) saturate(.72);transform:scale(.992);transform-origin:center;pointer-events:none;transition:filter .24s ease,transform .24s ease}
+body:not(.ops-overlay-open) #app{transition:filter .24s ease,transform .24s ease}
+body.ops-overlay-open .topbar,body.ops-overlay-open .deckProgress{opacity:1!important;transform:none!important}
+body.ops-overlay-open .stage{filter:none!important}
+
+/* presentation-only launcher remains calm and executive */
+.opsLauncherCopy h3{font-size:42px!important}.opsLauncherCopy p{max-width:700px!important}.opsLauncher{min-height:680px!important}
+
+/* light-mode portal readability */
+body.light .opsPortalBackdrop{background:rgba(241,246,252,.42)}
+body.light .opsPortalPanel{background:linear-gradient(180deg,rgba(255,255,255,.995),rgba(247,250,254,.988));border-color:rgba(16,24,38,.08);box-shadow:0 28px 80px rgba(52,66,94,.20),inset 0 1px 0 #fff}
+body.light .dashboardShell.portalMode{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(249,252,255,.98));border-color:rgba(16,24,38,.08)}
+@media (max-width:900px){.opsPortalPanel{inset:6px;padding:12px;border-radius:22px}.dashboardShell.portalMode{padding:12px}.edgeNav{width:58px!important;height:100px!important}.edgeNav span{font-size:32px}.edgeNavPrev{left:24px!important;padding-right:16px!important;padding-left:8px!important}.edgeNavNext{right:24px!important;padding-left:16px!important;padding-right:8px!important}}
+
+.dashboardShell.portalMode .dashPane{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}
+
+
+/* final progress refinement: true fill/drain motion + continuous glow sweep */
+.deckProgress{overflow:visible!important;isolation:isolate}
+.deckProgress span{position:relative!important;overflow:hidden!important;transition:none!important;will-change:width;box-shadow:0 0 10px rgba(255,70,95,.24),0 0 18px rgba(211,162,79,.08)!important}
+.deckProgress span::before{content:"";position:absolute;inset:-2px 0;background:linear-gradient(90deg,transparent 0%,transparent 24%,rgba(211,162,79,.08) 36%,rgba(255,230,177,.68) 49%,rgba(255,99,120,.52) 55%,rgba(211,162,79,.14) 66%,transparent 78%,transparent 100%);transform:translateX(-115%);animation:deckGlowSweep 4.6s cubic-bezier(.45,0,.55,1) infinite;filter:blur(.25px);pointer-events:none;border-radius:inherit;mix-blend-mode:screen}
+.deckProgress span::after{right:-7px!important;width:14px!important;height:14px!important;background:radial-gradient(circle,rgba(255,238,199,1) 0%,var(--gold) 28%,var(--accent2) 52%,rgba(255,49,77,.12) 76%,transparent 78%)!important;box-shadow:0 0 12px rgba(255,80,90,.34),0 0 20px rgba(211,162,79,.20)!important;animation:deckHeadPulse 2.8s ease-in-out infinite}
+@keyframes deckGlowSweep{0%{transform:translateX(-115%);opacity:.18}12%{opacity:.7}58%{opacity:.88}82%{opacity:.46}100%{transform:translateX(115%);opacity:.16}}
+@keyframes deckHeadPulse{0%,100%{filter:brightness(.92);transform:translateY(-50%) scale(.92)}50%{filter:brightness(1.16);transform:translateY(-50%) scale(1.08)}}
+body.light .deckProgress span{box-shadow:0 0 8px rgba(213,34,64,.18),0 0 14px rgba(186,143,60,.08)!important}
+body.light .deckProgress span::before{background:linear-gradient(90deg,transparent 0%,transparent 25%,rgba(186,143,60,.08) 38%,rgba(255,255,255,.92) 49%,rgba(239,92,114,.36) 56%,rgba(186,143,60,.12) 68%,transparent 80%,transparent 100%)}
+@media (prefers-reduced-motion:reduce){.deckProgress span::before,.deckProgress span::after{animation:none!important}.deckProgress span::before{opacity:.18;transform:none}}
+
+
+/* progress motion v2: frame-by-frame fill/drain; glow remains contained inside the filled segment */
+.deckProgress span{overflow:hidden!important;transition:none!important}
+.deckProgress span::after{right:1px!important;width:9px!important;height:9px!important;box-shadow:0 0 10px rgba(255,80,90,.28),0 0 16px rgba(211,162,79,.16)!important}
+
+
+/* v53: Arabic deck progress animates visually right-to-left */
+body.rtl .deckProgress span{margin-left:auto!important;margin-right:0!important;transform-origin:right center!important;border-radius:999px 0 0 999px!important}
+body.rtl .deckProgress span::before{left:auto!important;right:0!important;background:linear-gradient(270deg,transparent 0%,transparent 24%,rgba(211,162,79,.08) 36%,rgba(255,230,177,.68) 49%,rgba(255,99,120,.52) 55%,rgba(211,162,79,.14) 66%,transparent 78%,transparent 100%)!important;transform:translateX(115%)!important;animation:deckGlowSweepRTL 4.6s cubic-bezier(.45,0,.55,1) infinite!important}
+body.rtl .deckProgress span::after{right:auto!important;left:-7px!important}
+@keyframes deckGlowSweepRTL{0%{transform:translateX(115%)}100%{transform:translateX(-115%)}}
+@media (max-width:760px){body.rtl .deckProgress span::after{left:1px!important;right:auto!important}}
+@media (prefers-reduced-motion:reduce){body.rtl .deckProgress span::before{animation:none!important;transform:none!important}}

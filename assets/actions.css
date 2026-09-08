@@ -1,0 +1,131 @@
+/* v9 — Action Point Tracker only. Shared navigation and Agenda stay in agenda.css. */
+#main[data-page=actions]{--action-edge:#dbeaff47;--action-ink:#f0f6ff;--action-panel:#101c2bea;--action-muted:#a4b4c9;padding-top:20px}
+#main[data-page=actions] .action-heading{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(300px,1fr) minmax(430px,1.12fr) 130px;align-items:center;gap:26px;flex:0 0 138px;margin:0 0 18px;padding:21px 24px;overflow:hidden;border:1px solid var(--action-edge);border-top-color:#e7f2ff85;border-radius:21px;background:linear-gradient(130deg,#10202b,#101b2a 64%,#182234);box-shadow:inset 0 1px 1px #fff7,inset 0 -1px 1px #000b,0 12px 30px #0004,0 2px 4px #0005}
+#main[data-page=actions] .action-hero-art{position:absolute;inset:0 42% 0 0;z-index:-1;overflow:hidden;pointer-events:none}
+#main[data-page=actions] .action-hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.75}
+#main[data-page=actions] .action-hero-art:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#09131d65 0%,#101b2a28 43%,#101b2a 98%),linear-gradient(0deg,#0c1828bd,transparent 90%)}
+#main[data-page=actions] .action-heading .page-title{min-width:0;display:block;text-shadow:0 2px 12px #000d}
+#main[data-page=actions] .action-heading h1{font-size:clamp(27px,2.25vw,38px);letter-spacing:-1px;line-height:1.14;white-space:normal;color:#f4f8ff}
+#main[data-page=actions] .action-heading .eyebrow{display:flex;align-items:center;gap:7px;font-size:10px;color:#e9d3a8;letter-spacing:2px;margin-bottom:9px}
+#main[data-page=actions] .action-heading .eyebrow svg{height:17px;width:17px}
+#main[data-page=actions] .action-heading .page-title p{display:block;font-size:12px;color:#c2cbd8;letter-spacing:.12px;margin-top:8px}
+#main[data-page=actions] .action-heading>.button-row{display:flex;flex-direction:column-reverse;align-items:stretch;gap:10px;width:auto;grid-column:auto;grid-row:auto}
+#main[data-page=actions] .action-heading .button-row .primary{justify-content:center;min-height:40px;padding:9px 13px;font-size:13px;white-space:nowrap;border:1px solid #ffaabbb3;background:linear-gradient(155deg,#ff7c90 0%,#f14466 42%,#b31f47 100%);box-shadow:inset 0 1px 2px #fff8,inset 0 -1px 2px #7a1534,0 5px 18px #ee38592e;transition:box-shadow .25s,transform .25s}
+#main[data-page=actions] .action-heading .button-row .primary:hover{box-shadow:inset 0 1px 2px #fffc,0 5px 24px #ff49644f;transform:translateY(-2px)}
+#main[data-page=actions] .action-heading .page-export{align-self:center;padding:0;min-height:20px;font-size:12px;color:#cbd7e7}
+#main[data-page=actions] #tracker-analytics{max-width:none;min-width:0;padding:0;border:0;grid-column:auto;grid-row:auto}
+#main[data-page=actions] .action-insights{display:grid;grid-template-columns:1.55fr .78fr 1fr;gap:21px;align-items:center}
+#main[data-page=actions] .action-completion{display:flex;gap:12px;align-items:center;min-width:0}
+#main[data-page=actions] .action-completion .donut{height:80px;width:80px;flex:0 0 80px;background:radial-gradient(circle,#8debc60a 0 45%,transparent 64%);filter:drop-shadow(0 0 9px #57dbae16)}
+#main[data-page=actions] .action-completion .donut b{font-size:22px;letter-spacing:-.9px}
+#main[data-page=actions] .action-completion .donut small{font-size:9px}
+#main[data-page=actions] .action-completion>div:last-child{display:flex;flex-direction:column;gap:5px}
+#main[data-page=actions] .action-completion strong{font-weight:600;font-size:26px;line-height:1;color:var(--success)}
+#main[data-page=actions] .action-completion strong>small,#main[data-page=actions] .action-mini strong>small{font-size:15px;font-weight:400;color:#869aaf;white-space:nowrap}
+#main[data-page=actions] .action-completion>div>span{font-size:12px;color:#d2deeb}
+#main[data-page=actions] .action-scope{font-size:10px;color:var(--action-muted);white-space:nowrap}
+#main[data-page=actions] .action-mini{display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+#main[data-page=actions] .action-mini:before{content:'';position:absolute;left:-12px;inset-block:6px;width:1px;background:linear-gradient(transparent,#acc7e12b,transparent)}
+#main[data-page=actions] .action-mini-label{display:flex;gap:6px;align-items:center;font-size:11px;white-space:nowrap;color:#d2deeb}
+#main[data-page=actions] .action-mini-label svg{height:16px;width:16px;flex:none;color:var(--tone)}
+#main[data-page=actions] .action-mini strong{font-size:30px;line-height:1.05;font-weight:550;color:var(--tone);letter-spacing:-.7px;font-variant-numeric:tabular-nums}
+#main[data-page=actions] .action-mini>span:last-child{font-size:10px;color:var(--action-muted);white-space:nowrap}
+#main[data-page=actions] .filter-bar{margin-bottom:12px;gap:12px}
+#main[data-page=actions] .filter-controls input{width:260px;background:linear-gradient(155deg,#b8dbf112,#081220aa);box-shadow:inset 0 1px 4px #0004,0 1px #ddecff1c;border-color:#a5bfd32e;transition:border-color .25s,box-shadow .25s,width .25s}
+#main[data-page=actions] .filter-controls input:focus{border-color:#83b7dc99;box-shadow:0 0 0 3px #77b9e10d,inset 0 1px 3px #0002}
+#main[data-page=actions] .glass-select-trigger{background:linear-gradient(155deg,#b9daed12,#0c172891);box-shadow:inset 0 1px #e0f3ff2e,0 2px 4px #0002;border-color:#aac4db30}
+#main[data-page=actions] .view-switch button{transition:background .2s,box-shadow .2s,color .2s}
+#main[data-page=actions] .view-switch button.active{background:linear-gradient(150deg,#d2e9ff32,#8aa9cf0d);border-color:#d5e9ff57;box-shadow:inset 0 1px #edfbff99,0 2px 6px #0005}
+#main[data-page=actions] .action-table-wrap{position:relative;isolation:isolate;border:1px solid var(--action-edge);border-top-color:#d6ecff7a;border-radius:18px;background:linear-gradient(115deg,#172635f7,#0f1a28f7 58%,#142032f7);box-shadow:inset 1px 1px 1px #eef8ff29,inset -1px -1px 1px #000a,0 10px 26px #0004;scrollbar-gutter:stable}
+#main[data-page=actions] .action-table{width:100%;min-width:1120px;table-layout:fixed;border-collapse:separate;border-spacing:0}
+#main[data-page=actions] .col-number{width:3.3%}#main[data-page=actions] .col-name{width:21.1%}#main[data-page=actions] .col-owner{width:14%}#main[data-page=actions] .col-status{width:12%}#main[data-page=actions] .col-remarks{width:22%}#main[data-page=actions] .col-dates{width:12.6%}#main[data-page=actions] .col-updates{width:12%}#main[data-page=actions] .col-tools{width:3%}
+#main[data-page=actions] .action-table thead th{background:linear-gradient(#25384bf5,#1e3043fa);color:#c3d2e1;letter-spacing:.25px;font-size:11px;font-weight:500;padding:13px 12px;border-right:0;border-bottom:1px solid #c8e0f442;box-shadow:inset 0 1px #fff2}
+#main[data-page=actions] .action-table th svg{width:14px;height:14px;vertical-align:-3px;margin-right:4px;color:#8faac1}
+#main[data-page=actions] .action-table td{padding:14px 12px;vertical-align:middle;border-bottom:1px solid #bcd9f019;background:transparent;transition:background .22s,box-shadow .22s}
+#main[data-page=actions] .action-table tbody tr:nth-child(even) td{background:#cbe5ff04}
+#main[data-page=actions] .action-table .is-complete td{background:#55dbae08}
+#main[data-page=actions] .action-table tr:hover td,#main[data-page=actions] .action-table tr:focus-within td{background:color-mix(in srgb,var(--tone) 7%,#152332)}
+#main[data-page=actions] .action-table tbody tr:hover td:first-child,#main[data-page=actions] .action-table tbody tr:focus-within td:first-child{box-shadow:inset 2px 0 var(--tone)}
+#main[data-page=actions] .action-table .cell-number{font-size:11px;color:#8d9eaf;padding-left:15px;padding-right:4px;font-variant-numeric:tabular-nums}
+#main[data-page=actions] .action-title{display:block;text-align:left;font-weight:500;color:var(--action-ink);font-size:14px;line-height:1.5;background:none;border:0;border-radius:3px;box-shadow:none;padding:0;overflow-wrap:anywhere}
+#main[data-page=actions] .action-title:hover{background:none}
+#main[data-page=actions] .action-remarks{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;color:var(--action-muted);font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+#main[data-page=actions] .action-owner{display:flex;gap:9px;align-items:center;min-width:0;font-size:12px;line-height:1.5;color:#cfdaea}
+#main[data-page=actions] .action-owner>span:last-child{overflow-wrap:anywhere;min-width:0}
+#main[data-page=actions] .owner-avatar{display:grid;place-items:center;flex:0 0 30px;width:30px;height:31px;border-radius:10px;color:#bbdcee;font-size:10px;font-weight:600;border:1px solid #a4c7de39;background:linear-gradient(145deg,#88b5d42b,#26476129);box-shadow:inset 0 1px #eefbff3d,0 3px 6px #0002}
+#main[data-page=actions] .owner-avatar svg{width:16px;height:16px}
+#main[data-page=actions] .action-owner.unassigned{color:var(--warning)}
+#main[data-page=actions] .action-owner small{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--warning)}
+#main[data-page=actions] .action-owner small svg{width:11px;height:11px}
+#main[data-page=actions] .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;white-space:nowrap;padding:6px 8px;border-radius:9px;box-shadow:inset 0 1px #ffffff38,0 2px 5px #0002}
+#main[data-page=actions] .badge svg{height:13px;width:13px;flex:none;stroke-width:1.8}
+#main[data-page=actions] .action-dates{display:flex;flex-direction:column;gap:7px}
+#main[data-page=actions] .action-dates>span{display:flex;align-items:center;justify-content:space-between;gap:7px;font-size:10px;line-height:1.5}
+#main[data-page=actions] .action-dates small{font-size:10px;color:#7f93ab}
+#main[data-page=actions] .action-dates time{font-size:10px;color:#b9c9da;white-space:nowrap;font-variant-numeric:tabular-nums}
+#main[data-page=actions] .action-dates .has-date time{color:var(--success)}
+#main[data-page=actions] .cell-history button,#main[data-page=actions] .history-button{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:7px 9px;border-radius:9px;border:1px solid #bad9f533;background:linear-gradient(145deg,#a5c4e017,#52718c07);color:#d0deef;box-shadow:inset 0 1px #fff2;white-space:nowrap;transition:box-shadow .22s,border-color .22s,transform .22s}
+#main[data-page=actions] .cell-history button:hover,#main[data-page=actions] .history-button:hover{border-color:#c8e7fa80;box-shadow:inset 0 1px #fff6,0 3px 12px #77bce516;transform:translateY(-1px)}
+#main[data-page=actions] .cell-history button svg,#main[data-page=actions] .history-button svg{width:13px;height:13px}
+#main[data-page=actions] .latest-date{font-size:10px;color:#859db7;margin-top:6px}
+#main[data-page=actions] .action-table .cell-tools{padding:8px 5px 8px 0}
+#main[data-page=actions] .cell-tools .icon-button{height:29px;width:29px;padding:6px;color:#a9c0d8;background:transparent;box-shadow:none;border-color:transparent}
+#main[data-page=actions] .cell-tools .icon-button:hover{color:#eff9ff;border-color:#cae8ff54;background:#c7e4ff0f}
+#main[data-page=actions] .cell-tools .icon-button svg{width:15px;height:15px}
+#main[data-page=actions] .source-note{margin-top:8px;font-size:10px;color:#8699b1}
+#main[data-page=actions] .record-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:320px;gap:16px;padding:2px 3px 10px;scrollbar-gutter:stable}
+#main[data-page=actions] .action-card{position:relative;isolation:isolate;min-height:0;max-height:none;border-radius:20px;padding:20px 20px 14px;gap:16px;background:radial-gradient(ellipse at 90% -20%,color-mix(in srgb,var(--tone) 17%,transparent),transparent 57%),linear-gradient(135deg,#263649ec,#152332f5 36%,#0d1928f5 80%,#213144ed);border:1px solid color-mix(in srgb,var(--tone) 24%,#829eb956);border-top-color:#e0f1ff91;box-shadow:inset 0 1px 1px #fffa,inset 1px 0 1px #c5e2ff1f,inset -1px -1px 1px #000b,0 7px 16px #0005;transition:box-shadow .25s,transform .25s}
+#main[data-page=actions] .action-card:before{content:none}
+#main[data-page=actions] .action-card:after{content:'';position:absolute;inset:-1px;border-radius:21px;padding:2px;pointer-events:none;z-index:2;opacity:0;background:conic-gradient(from var(--ringAngle),transparent 0deg 300deg,rgba(255,211,123,.10) 312deg,rgba(255,211,123,.98) 327deg,rgba(255,255,255,.98) 338deg,rgba(255,160,201,.95) 349deg,rgba(255,211,123,.36) 357deg,transparent 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;transition:opacity .2s}
+#main[data-page=actions] .action-card:hover,#main[data-page=actions] .action-card:focus-within{transform:translateY(-2px);box-shadow:inset 0 1px 1px #fffc,inset -1px -1px #0008,0 12px 24px #0006,0 0 22px color-mix(in srgb,var(--tone) 8%,transparent)}
+#main[data-page=actions] .action-card:hover:after,#main[data-page=actions] .action-card:focus-within:after{opacity:1;animation:ringSpin 3.2s linear infinite}
+#main[data-page=actions] .action-card .record-top{margin:0;align-items:center}
+#main[data-page=actions] .action-card .record-id{font-size:12px;color:#90a5bd;font-variant-numeric:tabular-nums}
+#main[data-page=actions] .action-card .record-scroll{flex:1;overflow:auto;padding-right:6px;scrollbar-width:thin;scrollbar-color:#8ca6bd70 transparent}
+#main[data-page=actions] .record-scroll::-webkit-scrollbar{width:5px}
+#main[data-page=actions] .record-scroll::-webkit-scrollbar-thumb{background:#8ca6bd70;border-radius:8px;border:0}
+#main[data-page=actions] .record-scroll::-webkit-scrollbar-track{background:transparent}
+#main[data-page=actions] .action-card h3{margin-bottom:12px}
+#main[data-page=actions] .action-card .action-title{font-size:19px;line-height:1.4;font-weight:500}
+#main[data-page=actions] .action-card .action-owner{font-size:12px;margin-bottom:14px}
+#main[data-page=actions] .action-card .record-summary{font-size:13px;line-height:1.65;color:var(--action-muted);margin:0 0 14px}
+#main[data-page=actions] .action-card .action-dates{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding-top:12px;border-top:1px solid #c3d5e41a}
+#main[data-page=actions] .action-card .action-dates>span{align-items:flex-start;flex-direction:column;gap:4px}
+#main[data-page=actions] .action-card .action-dates time{font-size:11px}
+#main[data-page=actions] .action-card .record-bottom{padding-top:11px;border-top:1px solid #c8dff126;flex:none}
+#main[data-page=actions] .action-card .record-bottom .icon-button{height:29px;width:29px;padding:6px;background:#aec9dd08;border-color:#b0cbe425;box-shadow:inset 0 1px #ffffff17}
+#main[data-page=actions] .action-card .latest-update{margin-top:13px}
+#main[data-page=actions] .action-card .latest-update small{font-size:10px}
+#main[data-page=actions] .action-card .latest-update svg{width:12px;height:12px}
+#main[data-page=actions] .action-card .latest-update p{font-size:12px;margin-top:6px}
+#main[data-page=actions] .action-empty-icon{display:block;margin:10px auto 13px;color:var(--info)}
+#main[data-page=actions] .action-empty-icon svg{width:34px;height:34px}
+#main[data-page=actions] .empty-table{height:250px;text-align:center}
+#main[data-page=actions] .empty-table h3{font-size:18px;color:var(--text)}
+#main[data-page=actions] .empty-table p{font-size:13px;margin:8px 0 15px;color:var(--muted)}
+@supports (-webkit-background-clip:text){
+ #main[data-page=actions] .action-title:hover,#main[data-page=actions] .action-card:hover .action-title,#main[data-page=actions] .action-mini:hover .metric-number,#main[data-page=actions] .action-completion:hover .metric-number{background-image:linear-gradient(110deg,var(--action-ink) 25%,#fff 42%,#b9f0ff 47%,#fff 52%,var(--action-ink) 70%);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:action-text-shine 1.45s ease-in-out infinite}
+}
+@keyframes action-text-shine{from{background-position:140% 0}to{background-position:-100% 0}}
+#modal:has([data-key=actions]){border-color:#bcd8ef65;border-top-color:#e8f6ff9c;box-shadow:inset 0 1px 1px #fff6,0 30px 100px #0009;background:linear-gradient(140deg,#1b2c3df7,#101c2cfa 65%,#1e2b3bf7)}
+#modal:has([data-key=actions]) .modal-header{background:linear-gradient(115deg,#c1ddfa0b,transparent);border-bottom-color:#cee5ff29}
+#modal:has([data-key=actions]) .detail-fields>div{padding:12px 14px;border-radius:12px;background:linear-gradient(140deg,#aecfe809,#6585a005);border:1px solid #a9c7e51b;box-shadow:inset 0 1px #fff1}
+#modal:has([data-key=actions]) .detail-fields dt{font-size:10px;letter-spacing:.6px;margin-bottom:6px;color:#a0b6ce}
+#modal:has([data-key=actions]) .detail-fields dd{font-size:14px;line-height:1.65}
+#modal:has([data-key=actions]) .timeline-entry:not(.audit){padding:13px 16px;margin-bottom:18px;border:1px solid #79c6e536;border-radius:13px;background:linear-gradient(135deg,#78c8e410,#9dbeff04);box-shadow:inset 0 1px #ffffff1c}
+#modal:has([data-key=actions]) .timeline-entry:not(.audit):before{background:var(--info);top:16px;box-shadow:0 0 10px #6bcafa4d}
+#modal:has([data-key=actions]) input,#modal:has([data-key=actions]) textarea{transition:border-color .2s,box-shadow .2s;background:#07111f80;border-color:#aecce036;box-shadow:inset 0 1px 4px #0004}
+#modal:has([data-key=actions]) input:focus,#modal:has([data-key=actions]) textarea:focus{border-color:#8dcae97d;box-shadow:0 0 0 3px #69a6d00d}
+/* Basic adaptive fallback; desktop/dark is the presentation target. */
+body.light #main[data-page=actions]{--action-edge:#8599ad66;--action-ink:#20354b;--action-muted:#52687d}
+body.light #main[data-page=actions] .action-table-wrap,body.light #main[data-page=actions] .action-card{background:linear-gradient(130deg,#f1f7fcee,#dfeaf5f5)}
+body.light #main[data-page=actions] .action-table thead th{background:#d5e3f0;color:#405a72}
+body.light #main[data-page=actions] .action-table tr:hover td,body.light #main[data-page=actions] .action-table tr:focus-within td{background:#ccdde9}
+body.light #main[data-page=actions] .action-owner,body.light #main[data-page=actions] .cell-history button,body.light #main[data-page=actions] .history-button,body.light #main[data-page=actions] .action-dates time{color:#36536d}
+body.light #modal:has([data-key=actions]){background:linear-gradient(140deg,#f2f7fc,#e1ebf5);color:var(--text)}
+body.light #modal:has([data-key=actions]) input,body.light #modal:has([data-key=actions]) textarea{background:#f7fbff}
+@media(min-width:1700px){#main[data-page=actions] .action-heading{flex-basis:164px;padding:27px 31px;grid-template-columns:minmax(430px,1fr) minmax(490px,1fr) 150px}#main[data-page=actions] .action-table td{padding-block:21px}#main[data-page=actions] .action-title{font-size:17px}#main[data-page=actions] .action-remarks{font-size:14px}#main[data-page=actions] .action-owner{font-size:14px}#main[data-page=actions] .action-dates time{font-size:12px}#main[data-page=actions] .record-grid{grid-auto-rows:360px}}
+@media(max-width:1200px){#main[data-page=actions] .action-heading{grid-template-columns:minmax(265px,1fr) minmax(330px,1fr) 115px;gap:17px;padding:20px}#main[data-page=actions] .action-insights{gap:13px;grid-template-columns:1.6fr .7fr 1fr}#main[data-page=actions] .action-completion{gap:7px}#main[data-page=actions] .action-completion .donut{width:62px;height:62px;flex-basis:62px}#main[data-page=actions] .action-completion .donut b{font-size:18px}#main[data-page=actions] .action-completion .donut small{font-size:8px}#main[data-page=actions] .action-heading h1{font-size:26px}#main[data-page=actions] .action-mini-label{font-size:10px;gap:4px}#main[data-page=actions] .action-mini-label svg{height:13px;width:13px}#main[data-page=actions] .action-mini:before{left:-7px}#main[data-page=actions] .filter-controls input{width:200px}}
+@media(max-width:900px){#main[data-page=actions] .action-heading{grid-template-columns:1fr auto;flex-basis:auto;gap:20px}#main[data-page=actions] #tracker-analytics{grid-column:1/-1;grid-row:2}#main[data-page=actions] .action-heading>.button-row{grid-column:2;grid-row:1}#main[data-page=actions] .action-hero-art{inset:0 0 35% 0}#main[data-page=actions] .action-insights{max-width:500px}#main[data-page=actions] .record-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){#main[data-page=actions] .action-heading{padding:17px 15px;border-radius:17px;gap:15px;grid-template-columns:minmax(0,1fr) auto}#main[data-page=actions] .action-heading h1{font-size:23px}#main[data-page=actions] .action-heading .page-title p{display:none}#main[data-page=actions] .action-heading .button-row .primary{font-size:11px;padding:8px}#main[data-page=actions] .action-heading .button-row .page-export{font-size:11px}#main[data-page=actions] .action-completion .donut{height:53px;width:53px;flex-basis:53px}#main[data-page=actions] .action-completion strong{font-size:22px}#main[data-page=actions] .action-mini strong{font-size:25px}#main[data-page=actions] .action-completion>div>span{font-size:10px}#main[data-page=actions] .action-scope,#main[data-page=actions] .action-mini>span:last-child{font-size:9px}#main[data-page=actions] .action-mini-label svg{display:none}#main[data-page=actions] .filter-controls input{width:100%}#main[data-page=actions] .record-grid{grid-template-columns:1fr}#main[data-page=actions] .action-insights{gap:12px}#main[data-page=actions] .action-completion{gap:4px}}
+@media(prefers-reduced-motion:reduce){#main[data-page=actions] .action-card:hover{transform:none}#main[data-page=actions] .action-card:after{animation:none!important}#main[data-page=actions] .action-title,#main[data-page=actions] .metric-number{animation:none!important}}

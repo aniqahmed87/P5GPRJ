@@ -1,0 +1,45 @@
+Pulse 5G v5 image asset provenance
+
+Created: 2026-09-08
+Skill: imagegen (e0/.system/imagegen)
+Tool: built-in image_gen.imagegen / tools.image_gen__imagegen
+Mode: new image generation, one generation per asset, three calls in one concurrent Promise.allSettled batch. No source image inputs, variants, or edits.
+Output: three 1536x1024 PNG raster assets.
+Inspection: all three outputs visually inspected. Skyline/mobile rooftop hardware, optical patch/chassis hardware, and desert antenna installation are distinct and clearly recognizable. No overlay UI, diagrams, logos, or people observed. Conceptual generated illustrations of project context; not documentary photographs of actual project sites.
+
+ASSET: uae-network
+Saved path: /workspace/scratch/8ff88520cc24/v5-imagery/uae-network.png
+Original tool output: /workspace/scratch/8ff88520cc24/generated_images/exec-4bcb0d52-1f7e-4fbc-bfcf-85bf0ce076a7.png
+PROMPT:
+Use case: photorealistic-natural
+Asset type: landscape raster artwork for a premium dark Pulse 5G executive project tracker, 1536x1024 pixels, one image only.
+Primary request: conceptual high-end architectural photograph of Abu Dhabi waterfront modern skyline at blue hour, with a discreet mobile antenna rooftop in the foreground. Photographic UAE feel; a conceptual image, not a claim of an actual project location.
+Composition/framing: wide landscape, carefully composed architecture and water, a real recognizable modern mobile rooftop antenna subtly visible in foreground. Strong, sharply readable subject within the middle horizontal crop for a shallow website card.
+Lighting/mood: calm and premium editorial architectural photography, blue-hour deep navy scene with warm bronze reflections across waterfront glazing and water.
+Materials/textures: crisp glass buildings, natural water reflections, believable metal antenna hardware. Glassy light reflections naturally present in real architecture.
+Constraints: no people, no text, no logos, no watermarks, no fake network lines, no HUD, no UI elements, no illustrated overlays, no blurred gradients. Photorealistic legible real imagery, restrained cinematic contrast.
+
+ASSET: optical-core
+Saved path: /workspace/scratch/8ff88520cc24/v5-imagery/optical-core.png
+Original tool output: /workspace/scratch/8ff88520cc24/generated_images/exec-bf79ff2d-f45a-44ce-9f35-bb03725290ad.png
+PROMPT:
+Use case: photorealistic-natural
+Asset type: landscape raster artwork for RFP, network assets, and procurement cards in a premium dark Pulse 5G executive project tracker, 1536x1024 pixels, one image only.
+Primary request: exquisite macro editorial photograph of real-looking fibre-optic patch panels and DWDM optical transmission chassis in a modern telecom rack. Recognizable physical optical networking hardware, patch ports, neat fine fibre jumpers, and modular transmission cards.
+Composition/framing: close landscape macro, strong central hardware subject suitable for a wide shallow website card crop. Clear readable material detail and a controlled shallow depth of field without obscuring the subject.
+Lighting/mood: high contrast premium industrial editorial photography with tiny cyan and violet optical status lights against black brushed metal and thin natural glass reflections.
+Materials/textures: black brushed aluminium, real fibre cables, precise connectors, vented metal transmission chassis, clean optical rack.
+Constraints: no people, no readable text, no logos, no watermarks, no fake network lines, no luminous cable fantasy, no HUD, no UI elements, no diagrams. Photorealistic and technically plausible hardware.
+
+ASSET: radio-deployment
+Saved path: /workspace/scratch/8ff88520cc24/v5-imagery/radio-deployment.png
+Original tool output: /workspace/scratch/8ff88520cc24/generated_images/exec-2720ba55-c36e-4d3e-b11b-572b39e3f002.png
+PROMPT:
+Use case: photorealistic-natural
+Asset type: landscape raster artwork for deployment milestone cards in a premium dark Pulse 5G executive project tracker, 1536x1024 pixels, one image only.
+Primary request: UAE desert-edge private mobile network antenna installation with modern white panel antennas against a dramatic dusk sky. Understated premium industrial photography showing a believable compact mobile antenna tower and grounded equipment installation at the edge of warm dunes.
+Composition/framing: landscape photograph; clearly recognizable modern white cellular panel antennas and cool metal mast, carefully arranged as the main subject. Keep antenna subject readable in the center horizontal band for a shallow website card crop. Desert horizon and dusk sky provide environmental context.
+Lighting/mood: dramatic but natural dusk, warm dune earth tones and cool metallic industrial surfaces, deep navy cloud sky and a restrained bronze horizon glow.
+Materials/textures: clean white antenna radomes, realistic galvanized steel, believable telecom installation, natural sand.
+Constraints: no people, no text, no logos, no watermarks, no fake network lines, no HUD, no UI elements, no overlaid diagrams, no futuristic fantasy tower. Photographic realism with precise hardware detail.
+

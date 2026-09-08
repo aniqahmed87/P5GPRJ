@@ -1,0 +1,664 @@
+/* v12 — native vector map, four operational layers, seven emirate labels only */
+body.rtl .navrail{flex-direction:row!important}
+body.rtl .railbtn{direction:rtl}
+body.rtl .header{direction:rtl}
+body.rtl .title,body.rtl .landingHeroContent,body.rtl .landingMapBoardNative,body.rtl .landingMapTitles,body.rtl .introMapInfoBar{text-align:right}
+body.rtl .title p,body.rtl .landingAboutP,body.rtl .landingMapSub,body.rtl .introMapSummaryLabel,body.rtl .introMapInfoMeta{text-align:right}
+body.rtl .index{text-align:left}
+body.rtl .btnrow,body.rtl .chips{justify-content:flex-start}
+
+.title h1,.title h2{font-size:clamp(28px,2.25vw,40px)!important;line-height:1.06!important;margin:8px 0 6px}
+.title p{font-size:clamp(12.6px,.94vw,14.4px)!important;line-height:1.60!important;max-width:1120px}
+.heroBig{font-size:clamp(25px,2vw,34px)!important;line-height:1.06!important;margin:4px 0}
+.typewriter{font-size:clamp(13px,.93vw,15px)!important}
+.landingAboutP{margin:0;font-size:clamp(11.8px,.84vw,13.5px)!important;line-height:1.64!important;color:var(--text)}
+.introSectionTitle{font-size:clamp(19px,1.35vw,25px)!important;font-weight:900;margin-bottom:8px}
+
+.landingMasterBody{gap:12px!important;overflow:hidden}
+.landingSplitNative{display:grid;grid-template-columns:minmax(390px,.72fr) minmax(0,1.28fr);gap:14px;flex:1;min-height:0;align-items:stretch}
+.landingHeroNative{position:relative;overflow:hidden;padding:18px 20px 16px;display:flex;min-height:0;background:linear-gradient(135deg,rgba(7,13,22,.98),rgba(12,21,38,.94));border-color:color-mix(in oklab,var(--gold) 16%, var(--stroke))!important}
+body.light .landingHeroNative{background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(247,250,253,.96))}
+.landingHeroNative .landingHeroArt{position:absolute;inset:0;background-image:var(--heroimg);background-repeat:no-repeat;background-position:center right;background-size:cover;opacity:.34;filter:saturate(1.08) contrast(1.02)}
+.landingHeroNative::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,22,.96) 0%,rgba(8,14,22,.90) 34%,rgba(8,14,22,.58) 66%,rgba(8,14,22,.28) 100%)}
+body.light .landingHeroNative::after{background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 34%,rgba(255,255,255,.58) 66%,rgba(255,255,255,.24) 100%)}
+.landingHeroContent{position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;max-width:100%;min-width:0}
+.landingAboutTitle{display:inline-flex;align-self:flex-start;padding:7px 12px;border-radius:999px;background:linear-gradient(180deg,rgba(211,162,79,.18),rgba(255,49,77,.07));border:1px solid rgba(211,162,79,.22);font-size:12px;font-weight:900;letter-spacing:.02em;color:#ffd89a}
+body.light .landingAboutTitle{color:#8b6426}
+.landingAboutText{display:grid;gap:6px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px}
+
+.landingMapBoardNative{padding:14px;display:grid;grid-template-rows:auto auto minmax(0,1fr);gap:12px;min-height:0;background:radial-gradient(circle at 14% 12%,rgba(32,120,255,.10),transparent 26%),radial-gradient(circle at 86% 10%,rgba(211,162,79,.09),transparent 22%),linear-gradient(180deg,rgba(6,12,24,.98),rgba(4,8,16,.99));border-color:color-mix(in oklab,var(--gold) 18%, var(--stroke))!important}
+body.light .landingMapBoardNative{background:radial-gradient(circle at 14% 12%,rgba(32,120,255,.06),transparent 24%),radial-gradient(circle at 86% 10%,rgba(211,162,79,.07),transparent 22%),linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,249,252,.98))}
+.landingMapHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.landingMapTitles{min-width:0;max-width:64%;flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
+.landingMapSub{color:var(--muted);font-size:12.3px;line-height:1.54}
+.introMapTools{display:flex;gap:9px;align-items:center;flex-wrap:nowrap;justify-content:flex-end;min-height:40px;direction:ltr;flex:0 0 auto}
+.introMapCtlRow{display:flex;flex-wrap:nowrap;gap:8px;justify-content:flex-end;align-items:center}
+.introCtl{height:40px;border:1px solid rgba(211,162,79,.38);background:linear-gradient(180deg,rgba(42,30,18,.96),rgba(19,21,30,.98));color:#f8e7bb;padding:0 15px;border-radius:13px;font-size:11.4px;font-weight:850;cursor:pointer;white-space:nowrap;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;box-shadow:0 8px 18px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.04)}
+body.light .introCtl{background:linear-gradient(180deg,#fffdf8,#f8f2e7);color:#6c4e16;border-color:rgba(166,123,44,.22)}
+.introCtl:hover{background:linear-gradient(180deg,rgba(90,54,24,.98),rgba(35,25,24,.98));border-color:rgba(232,188,96,.60);box-shadow:0 8px 20px rgba(0,0,0,.16),0 0 0 2px rgba(211,162,79,.08)}
+
+/* custom layer selector: fully themed, no white native select */
+.introLayerPicker{position:relative;z-index:30;min-width:220px}
+.introLayerButton{width:100%;height:40px;border:1px solid rgba(231,191,108,.45);border-radius:13px;background:linear-gradient(180deg,rgba(34,29,28,.99),rgba(12,16,24,.99));color:#fff4d6;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 13px;font-size:11.8px;font-weight:850;cursor:pointer;box-shadow:0 10px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.04),0 0 0 1px rgba(201,45,65,.18)}
+body.light .introLayerButton{background:linear-gradient(180deg,#fffdf9,#f7f2e9);color:#342816;border-color:rgba(166,123,44,.28);box-shadow:0 8px 18px rgba(52,64,88,.06),inset 0 1px 0 rgba(255,255,255,.92),0 0 0 1px rgba(201,45,65,.12)}
+.introLayerChevron{font-size:18px;line-height:1;color:#e0b45d;transition:transform .18s ease}.introLayerPicker.open .introLayerChevron{transform:rotate(180deg)}
+.introLayerMenu{position:absolute;top:46px;right:0;left:0;padding:7px;border-radius:15px;background:linear-gradient(180deg,rgba(28,24,22,.995),rgba(10,16,27,.995));border:1px solid rgba(231,191,108,.34);box-shadow:0 18px 36px rgba(0,0,0,.34);opacity:0;visibility:hidden;transform:translateY(-5px) scale(.985);transition:opacity .16s ease,transform .16s ease,visibility .16s;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.rtl .introLayerMenu{direction:rtl}
+body.light .introLayerMenu{background:linear-gradient(180deg,#ffffff,#f6f9fd);border-color:rgba(62,113,166,.14);box-shadow:0 16px 30px rgba(52,64,88,.12)}
+.introLayerPicker.open .introLayerMenu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.introLayerOption{width:100%;border:0;background:transparent;color:#eee7dc;display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:10px;font-size:11.5px;font-weight:820;text-align:left;cursor:pointer}
+body.rtl .introLayerOption{text-align:right;direction:rtl}.introLayerOption:hover,.introLayerOption.active{background:linear-gradient(90deg,rgba(194,38,61,.16),rgba(211,162,79,.16));color:#fff8e7}
+body.light .introLayerOption{color:#263a52}body.light .introLayerOption:hover,body.light .introLayerOption.active{color:#14283f;background:linear-gradient(90deg,rgba(62,145,255,.09),rgba(211,162,79,.05))}
+.introLayerDot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;box-shadow:0 0 0 3px rgba(255,255,255,.03)}
+.layer-all{background:#8ea9c3}.layer-pop{background:#5fc8ff}.layer-ila{background:#68efd9}.layer-control{background:#ddb766}.layer-entity{background:#ff8791}
+
+.introMapSummaryRow{display:grid;gap:10px}.introMapSummaryFive{grid-template-columns:repeat(5,minmax(0,1fr))}
+.introMapSummaryCard{position:relative;min-height:88px;padding:14px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(110,176,255,.16);box-shadow:0 10px 24px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.03)}
+body.light .introMapSummaryCard{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(249,251,253,.95));box-shadow:0 10px 22px rgba(56,64,86,.08),inset 0 1px 0 rgba(255,255,255,.85)}
+.introMapSummaryCard::before{content:"";position:absolute;inset:0;background-image:var(--summaryimg);background-repeat:no-repeat;background-size:cover;background-position:center;opacity:.34;filter:saturate(1.04) contrast(1.02)}
+.introMapSummaryCard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,24,.50),rgba(8,14,24,.82));}
+body.light .introMapSummaryCard::after{background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(247,250,253,.84));}
+.introMapSummaryValue{position:relative;z-index:1;margin-top:4px;font-size:clamp(18px,1.32vw,24px);font-weight:900;line-height:1;color:var(--text);text-shadow:0 2px 10px rgba(0,0,0,.28)}
+.introMapSummaryLabel{position:relative;z-index:1;margin-top:6px;font-size:clamp(10.2px,.72vw,12px);line-height:1.42;color:#e7eef5;text-shadow:0 2px 8px rgba(0,0,0,.28)}
+body.light .introMapSummaryLabel{color:#38516a;text-shadow:none}
+
+.introNativeShell{position:relative;min-height:0;height:100%;border-radius:24px;overflow:hidden;border:1px solid rgba(110,176,255,.16);background:linear-gradient(180deg,#0b1f34,#07111f);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 16px 36px rgba(0,0,0,.18)}
+body.light .introNativeShell{background:linear-gradient(180deg,#edf5fb,#e8f0f7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 16px 36px rgba(52,64,88,.09)}
+.introNativeMap{position:absolute;inset:0;overflow:hidden;cursor:grab;background:#06101c;touch-action:none}.introNativeMap.dragging{cursor:grabbing}
+.introNativeCanvas,.introNativeLinks,.introEmirateLayer,.introMarkerLayer,.introNativeGrid{position:absolute;inset:0;width:100%;height:100%}
+.introNativeCanvas{display:block}.introNativeGrid{pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(107,194,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(107,194,255,.09) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,transparent,#000 18%,#000 84%,transparent)}
+body.light .introNativeGrid{opacity:.10}
+.introNativeLinks{z-index:2;pointer-events:none;overflow:visible}
+.introNativeLink{fill:none;stroke-linecap:round;stroke-dasharray:10 8;animation:introNativeDash 6.8s linear infinite;opacity:.96}.introNativeLink.gold{stroke:#e7bf6c;stroke-width:2.2;filter:drop-shadow(0 0 6px rgba(231,191,108,.26))}.introNativeLink.cyan{stroke:#75e8ff;stroke-width:1.9;filter:drop-shadow(0 0 5px rgba(117,232,255,.22))}@keyframes introNativeDash{to{stroke-dashoffset:-180}}
+
+/* seven emirate names: these are the only geographic labels */
+.introEmirateLayer{z-index:3;pointer-events:none}
+.introEmirateLabel{position:absolute;transform:translate(-50%,-50%);padding:4px 7px;border-radius:8px;background:rgba(5,15,27,.62);border:1px solid rgba(116,190,239,.12);color:rgba(223,239,250,.86);font-size:9.4px;font-weight:850;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.45);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+body.light .introEmirateLabel{background:rgba(255,255,255,.72);border-color:rgba(67,112,150,.10);color:#36536c;text-shadow:none}
+
+.introMarkerLayer{z-index:4;pointer-events:none}
+.introNativeMarker{position:absolute;transform:translate(-50%,-50%);width:42px;height:42px;border:0;background:none;padding:0;pointer-events:auto;cursor:pointer}
+.nativeMarkerGlow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;animation:nativePulse 3.4s ease-in-out infinite}
+.introNativeMarker.pop .nativeMarkerGlow{background:radial-gradient(circle,rgba(85,196,255,.27),rgba(85,196,255,.06) 60%,transparent 76%)}
+.introNativeMarker.ila .nativeMarkerGlow{background:radial-gradient(circle,rgba(102,239,217,.25),rgba(102,239,217,.06) 60%,transparent 76%)}
+.introNativeMarker.control .nativeMarkerGlow{background:radial-gradient(circle,rgba(221,183,102,.27),rgba(221,183,102,.06) 60%,transparent 76%)}
+.introNativeMarker.entity .nativeMarkerGlow{background:radial-gradient(circle,rgba(255,126,139,.24),rgba(255,126,139,.06) 60%,transparent 76%)}
+.nativeMarkerIcon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.24));transition:transform .18s ease,filter .18s ease}
+.introNativeMarker.ila .nativeMarkerIcon{width:30px;height:30px}.introNativeMarker.control .nativeMarkerIcon{width:36px;height:36px}.introNativeMarker.entity .nativeMarkerIcon{width:32px;height:32px}
+.introNativeMarker:hover .nativeMarkerIcon,.introNativeMarker.is-selected .nativeMarkerIcon{transform:translate(-50%,-50%) scale(1.12);filter:drop-shadow(0 10px 16px rgba(0,0,0,.28))}
+.nativeMarkerLabel{position:absolute;left:50%;top:38px;transform:translateX(-50%);padding:4px 7px;border-radius:999px;white-space:nowrap;font-size:9.4px;font-weight:850;color:#f4f9ff;background:rgba(5,14,25,.84);border:1px solid rgba(255,255,255,.10);box-shadow:0 8px 15px rgba(0,0,0,.16);opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+body.light .nativeMarkerLabel{color:#263b52;background:rgba(255,255,255,.90);border-color:rgba(38,61,82,.08)}
+.introNativeMarker:hover .nativeMarkerLabel,.introNativeMarker.is-selected .nativeMarkerLabel{opacity:1;transform:translateX(-50%) translateY(2px)}
+@keyframes nativePulse{0%,100%{transform:translate(-50%,-50%) scale(.88);opacity:.55}50%{transform:translate(-50%,-50%) scale(1.10);opacity:1}}
+
+.introMapInfoBar{position:absolute;left:14px;right:14px;bottom:14px;z-index:8;padding:12px 14px;border-radius:18px;border:1px solid rgba(110,176,255,.16);background:linear-gradient(180deg,rgba(9,15,25,.78),rgba(9,15,25,.64));box-shadow:0 14px 28px rgba(0,0,0,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+body.light .introMapInfoBar{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(248,250,252,.88))}.introMapInfoTitle{font-size:16px;font-weight:900;line-height:1.16}.introMapInfoMeta{font-size:12.1px;line-height:1.56;color:var(--muted);margin-top:4px}
+.introNativeAttribution{position:absolute;right:12px;bottom:86px;z-index:7;padding:3px 6px;border-radius:8px;background:rgba(7,12,20,.68);border:1px solid rgba(255,255,255,.08);font-size:8px;font-weight:700;color:rgba(255,255,255,.72);pointer-events:none;backdrop-filter:blur(6px)}
+body.light .introNativeAttribution{background:rgba(255,255,255,.78);border-color:rgba(18,34,54,.08);color:rgba(25,40,58,.72)}
+.introNativeMap.map-error::after{content:"Vector map connection unavailable";position:absolute;right:12px;top:12px;z-index:9;padding:6px 9px;border-radius:9px;background:rgba(120,28,38,.82);color:#fff;font-size:9px;font-weight:800}
+
+@media (max-width:1360px){.landingSplitNative{grid-template-columns:minmax(360px,.72fr) minmax(0,1.28fr)}.landingMapTitles{max-width:100%}}
+@media (max-width:1180px){.landingSplitNative{grid-template-columns:1fr;grid-template-rows:minmax(330px,auto) minmax(0,1fr)}.landingMapHead{flex-direction:column;align-items:stretch}.introMapTools{justify-content:flex-start;flex-wrap:wrap}.landingMapTitles{max-width:100%}.introMapSummaryFive{grid-template-columns:repeat(3,minmax(0,1fr))}.introNativeShell{min-height:430px;position:relative}}
+@media (max-width:780px){.landingHeroNative .landingHeroArt{background-size:cover;opacity:.24}.introMapSummaryFive{grid-template-columns:repeat(2,minmax(0,1fr))}.introNativeShell{min-height:360px}.introMapTools{align-items:stretch;justify-content:flex-start}.introLayerPicker{min-width:170px}}
+@media (max-width:540px){.landingMapSub,.introMapInfoMeta,.landingAboutP{font-size:12px!important}.introCtl{padding:7px 10px;font-size:11px}.introNativeShell{min-height:320px}}
+
+/* v13 RTL control alignment */
+body.rtl .landingMapHead{direction:rtl;display:flex;justify-content:space-between;align-items:flex-start}
+body.rtl .landingMapTitles{text-align:right;align-items:flex-end;max-width:66%}
+body.rtl .introMapTools{justify-content:flex-start;direction:ltr}
+body.rtl .introLayerPicker{direction:rtl}
+body.rtl .introLayerButton{direction:rtl;text-align:right;box-shadow:0 10px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.04),0 0 0 1px rgba(201,45,65,.18)}
+body.rtl .introLayerButtonLabel{flex:1;text-align:right}
+body.rtl .introResetCtl{direction:rtl}
+@media (max-width:1180px){body.rtl .landingMapHead{direction:rtl;flex-direction:column;align-items:stretch}body.rtl .landingMapTitles,body.rtl .introMapTools{max-width:100%}body.rtl .introMapTools{justify-content:flex-start}}
+
+body.rtl .btnrow{justify-content:flex-start}
+body.rtl .landingHeroContent{align-items:flex-start}
+
+
+
+
+/* v16 map fit, official OSM borders and radio tower cleanup */
+.landingMapBoardNative{grid-template-rows:auto auto minmax(330px,1fr)!important}
+.introNativeShell{min-height:330px!important;height:100%!important;position:relative!important;overflow:hidden!important}
+.introNativeMap{inset:0!important;width:100%!important;height:100%!important}
+.introNativeCanvas,.introNativeLinks,.introEmirateLayer,.introMarkerLayer,.introNativeGrid{inset:0!important;width:100%!important;height:100%!important}
+
+.introNativeMarker.radio{width:38px;height:38px;pointer-events:none;filter:drop-shadow(0 7px 12px rgba(0,0,0,.24))}
+.introNativeMarker.radio .nativeMarkerIcon{position:absolute;left:50%;top:50%;width:29px;height:29px;transform:translate(-50%,-50%);object-fit:contain;opacity:1;filter:drop-shadow(0 0 7px rgba(83,212,255,.38))}
+.introNativeMarker.radio .nativeMarkerGlow{position:absolute;left:50%;top:50%;width:36px;height:36px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(70,200,255,.18),rgba(70,200,255,.06) 55%,transparent 76%);animation:none}
+.towerCoverageRing{position:absolute;left:50%;top:50%;width:42px;height:42px;border-radius:50%;transform:translate(-50%,-50%);border:1.3px solid rgba(93,222,255,.48);background:rgba(63,188,255,.025);box-shadow:0 0 11px rgba(80,204,255,.11);animation:towerCoveragePulse 4.4s ease-in-out infinite}
+.towerCoverageRing.ring2{width:58px;height:58px;border-color:rgba(93,222,255,.20);animation-delay:1.1s}
+@keyframes towerCoveragePulse{0%,100%{opacity:.48;transform:translate(-50%,-50%) scale(.96)}50%{opacity:.92;transform:translate(-50%,-50%) scale(1.04)}}
+
+.introTowerLinkBase{fill:none;stroke:#214b65;stroke-width:2.4;stroke-linecap:round;opacity:.72}
+.introTowerLinkFlow{fill:none;stroke:#72e8ff;stroke-width:2.0;stroke-linecap:round;stroke-dasharray:14 12;opacity:.95;filter:drop-shadow(0 0 5px rgba(114,232,255,.25));animation:towerLineFlow 4.4s linear infinite}
+@keyframes towerLineFlow{to{stroke-dashoffset:-104}}
+
+.introMapInfoBar.is-hidden{opacity:0;transform:translateY(14px);pointer-events:none;visibility:hidden}
+.introMapInfoBar{transition:opacity .20s ease,transform .20s ease,visibility .20s ease}
+
+@media (max-width:1180px){
+  .landingMapBoardNative{grid-template-rows:auto auto minmax(420px,1fr)!important}
+  .introNativeShell{min-height:420px!important}
+}
+@media (max-width:780px){
+  .landingMapBoardNative{grid-template-rows:auto auto minmax(360px,1fr)!important}
+  .introNativeShell{min-height:360px!important}
+}
+
+
+/* v26 — remove slide eyebrow and place pulsing dot before title */
+.title h2.titleWithDot{display:flex;align-items:center;gap:12px;margin-top:2px!important}
+.title h2.titleWithDot::before{content:"";flex:0 0 12px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,49,77,.10),0 0 18px rgba(255,49,77,.34);animation:pulse 2s ease-in-out infinite}
+body.rtl .title h2.titleWithDot{justify-content:flex-start}
+body.rtl .title h2.titleWithDot::before{order:-1}
+body.light .title h2.titleWithDot::before{box-shadow:0 0 0 6px rgba(255,49,77,.08),0 0 16px rgba(255,49,77,.24)}
+@media (max-width:760px){.title h2.titleWithDot{gap:10px}.title h2.titleWithDot::before{width:10px;height:10px;flex-basis:10px}}
+
+
+/* v32 — Slide 4 connected entities + worksheet-approved Arabic translation */
+.capabilitiesBody{gap:11px!important}
+.connectedEntitiesBand{flex:0 0 72px;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 12px 8px 16px;border-radius:20px;border:1px solid color-mix(in oklab,var(--gold) 20%,var(--stroke));background:linear-gradient(110deg,color-mix(in oklab,var(--panel) 90%,transparent),color-mix(in oklab,var(--panel2) 96%,transparent));box-shadow:0 12px 28px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.045);overflow:hidden;position:relative;isolation:isolate}
+.connectedEntitiesBand::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 6% 20%,rgba(255,49,77,.10),transparent 25%),radial-gradient(circle at 92% 45%,rgba(211,162,79,.09),transparent 28%),linear-gradient(90deg,rgba(255,255,255,.025),transparent 35%);pointer-events:none}
+.connectedEntitiesBand>*{position:relative;z-index:1}
+.connectedEntitiesLabel{display:flex;align-items:center;gap:11px;min-width:0}
+.connectedEntitiesPulse{width:10px;height:10px;flex:0 0 10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,49,77,.09),0 0 16px rgba(255,49,77,.34);animation:pulse 2s ease-in-out infinite}
+.connectedEntitiesLabel strong{display:block;font-size:13px;font-weight:900;line-height:1.15;color:var(--text)}
+.connectedEntitiesLabel small{display:block;margin-top:3px;font-size:9px;font-weight:750;color:var(--muted)}
+.connectedEntitiesLogos{display:flex;align-items:center;gap:10px;height:56px;min-width:0}
+.connectedLogoCard{height:56px;width:170px;display:grid;place-items:center;padding:5px 12px;border-radius:15px;background:#fff;border:1px solid rgba(211,162,79,.18);box-shadow:0 8px 18px rgba(0,0,0,.13);overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.connectedLogoCard.csc{width:190px}
+.connectedLogoCard:hover{transform:translateY(-2px);border-color:rgba(211,162,79,.34);box-shadow:0 11px 24px rgba(0,0,0,.17),0 0 16px rgba(211,162,79,.06)}
+.connectedLogoCard img{display:block;max-width:100%;max-height:48px;width:auto;height:auto;object-fit:contain}
+body.light .connectedEntitiesBand{background:linear-gradient(110deg,#fff,#f7f9fc);box-shadow:0 10px 22px rgba(52,66,94,.08)}
+.capabilitiesGrid{gap:11px!important}
+.capabilitiesBody .card{padding:13px 14px!important;gap:7px!important;border-radius:20px!important}
+.capabilitiesBody .cardVisual{height:78px!important;border-radius:15px!important}
+.capabilitiesBody .cardVisual img{width:45px!important;height:45px!important;padding:10px!important;border-radius:15px!important}
+.capabilitiesBody .cardTagRow{gap:7px}
+.capabilitiesBody .tag,.capabilitiesBody .subtag{padding:5px 8px!important;font-size:9.5px!important}
+.capabilitiesBody .card h3{font-size:16px!important;line-height:1.22!important}
+.capabilitiesBody .card p{font-size:11.3px!important;line-height:1.48!important}
+.capabilitiesBody .line{height:3px;width:78px}
+body.rtl .connectedEntitiesBand{direction:rtl;padding:8px 16px 8px 12px}
+body.rtl .connectedEntitiesLabel{text-align:right}
+body.rtl .connectedEntitiesLogos{direction:ltr}
+body.rtl .capabilitiesBody .card h3,body.rtl .capabilitiesBody .card p{text-align:right}
+@media (max-width:1180px){
+  .connectedEntitiesBand{flex-basis:68px;min-height:68px}
+  .connectedLogoCard{width:150px;height:52px}.connectedLogoCard.csc{width:170px}.connectedLogoCard img{max-height:44px}
+  .capabilitiesBody .cardVisual{height:72px!important}
+  .capabilitiesBody .card h3{font-size:15px!important}.capabilitiesBody .card p{font-size:10.8px!important}
+}
+@media (max-width:820px){
+  .connectedEntitiesLabel small{display:none}
+  .connectedEntitiesBand{gap:10px;padding-inline:10px}
+  .connectedLogoCard{width:132px}.connectedLogoCard.csc{width:150px}
+}
+
+
+/* v37 — Slide 4 connected entities as a vertical side card */
+.connectedEntitiesBand{display:none!important}
+.capabilitiesBody{display:flex;flex-direction:column;min-height:0}
+.capabilitiesLayout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:14px;align-items:stretch;min-height:0;flex:1}
+.capabilitiesGrid{gap:12px!important;align-content:start}
+.connectedEntitiesSideCard{position:relative;display:flex;flex-direction:column;gap:14px;padding:16px 16px 18px;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,color-mix(in oklab,var(--panel) 96%,transparent),color-mix(in oklab,var(--panel2) 97%,transparent));border:1px solid color-mix(in oklab,var(--gold) 26%,var(--stroke));box-shadow:0 14px 32px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.05);isolation:isolate}
+.connectedEntitiesSideCard::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 14%, rgba(255,77,103,.10), transparent 30%),radial-gradient(circle at 84% 20%, rgba(255,211,92,.14), transparent 26%),radial-gradient(circle at 50% 100%, rgba(106,144,255,.10), transparent 36%);pointer-events:none;z-index:0}
+.connectedEntitiesSideCard::after{content:'';position:absolute;inset:-40% -30%;background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,.075) 50%, transparent 65%);transform:translateX(-55%) rotate(8deg);animation:entitiesSheen 6.8s ease-in-out infinite;pointer-events:none;z-index:0}
+@keyframes entitiesSheen{0%,12%{transform:translateX(-65%) rotate(8deg)} 48%,100%{transform:translateX(58%) rotate(8deg)}}
+.connectedEntitiesSideHead,.connectedEntitiesSideLogos{position:relative;z-index:1}
+.connectedEntitiesSideHead{display:flex;align-items:flex-start;gap:12px}
+.connectedEntitiesSideDot{width:10px;height:10px;flex:0 0 auto;border-radius:50%;margin-top:5px;background:radial-gradient(circle at 35% 35%, #ffb9c4 0%, #ff516e 55%, #c91e3b 100%);box-shadow:0 0 0 7px rgba(255,77,103,.11),0 0 14px rgba(255,77,103,.42);animation:entityPulse 2.4s ease-in-out infinite}
+@keyframes entityPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 7px rgba(255,77,103,.10),0 0 12px rgba(255,77,103,.34)}50%{transform:scale(1.08);box-shadow:0 0 0 10px rgba(255,77,103,.07),0 0 18px rgba(255,77,103,.46)}}
+.connectedEntitiesSideHead strong{display:block;font-size:15px;font-weight:900;line-height:1.08;color:var(--text);letter-spacing:.01em}
+.connectedEntitiesSideHead small{display:block;margin-top:5px;font-size:11px;line-height:1.45;color:var(--muted)}
+.connectedEntitiesSideLogos{display:grid;grid-template-columns:1fr;gap:12px;flex:1;align-content:start}
+.connectedLogoTall{display:flex;align-items:center;justify-content:center;min-height:136px;padding:14px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 24px rgba(0,0,0,.09);transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease}
+.connectedLogoTall:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 14px 28px rgba(0,0,0,.13);border-color:color-mix(in oklab,var(--gold) 26%, rgba(255,255,255,.08))}
+.connectedLogoTall img{display:block;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.30)) drop-shadow(0 4px 12px rgba(0,0,0,.12));animation:entityFloat 4.6s ease-in-out infinite}
+.connectedLogoTall.mod img{max-height:92px}
+.connectedLogoTall.csc img{max-height:82px;animation-delay:.45s}
+@keyframes entityFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+body.light .connectedEntitiesSideCard{background:linear-gradient(180deg,#ffffff,#f7f9fc);box-shadow:0 12px 28px rgba(52,66,94,.10), inset 0 1px 0 rgba(255,255,255,.86)}
+body.light .connectedLogoTall{background:linear-gradient(180deg,rgba(248,250,252,.98),rgba(255,255,255,.92));border-color:rgba(24,38,64,.08)}
+body.light .connectedLogoTall img{filter:drop-shadow(0 1px 1px rgba(255,255,255,.60)) drop-shadow(0 0 1px rgba(0,0,0,.25)) drop-shadow(0 3px 8px rgba(0,0,0,.10))}
+body.rtl .connectedEntitiesSideCard{direction:ltr}
+body.rtl .connectedEntitiesSideHead{direction:ltr}
+
+@media (max-width: 1180px){
+  .capabilitiesLayout{grid-template-columns:270px minmax(0,1fr);gap:12px}
+  .connectedEntitiesSideCard{padding:14px 14px 16px}
+  .connectedLogoTall{min-height:124px}
+  .connectedLogoTall.mod img{max-height:82px}
+  .connectedLogoTall.csc img{max-height:74px}
+}
+@media (max-width: 980px){
+  .capabilitiesLayout{grid-template-columns:250px minmax(0,1fr)}
+  .connectedEntitiesSideHead strong{font-size:14px}
+  .connectedLogoTall{min-height:116px;padding:12px}
+  .connectedLogoTall.mod img{max-height:74px}
+  .connectedLogoTall.csc img{max-height:66px}
+}
+@media (max-width: 820px){
+  .capabilitiesLayout{grid-template-columns:1fr;gap:12px}
+  .connectedEntitiesSideCard{order:0}
+  .connectedEntitiesSideLogos{grid-template-columns:1fr 1fr;gap:10px}
+  .connectedLogoTall{min-height:108px}
+}
+@media (max-width: 640px){
+  .connectedEntitiesSideLogos{grid-template-columns:1fr}
+}
+
+
+
+/* v38 — make Slide 4 cards evenly spread to full height */
+.capabilitiesLayout{align-items:stretch}
+.capabilitiesGrid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  grid-auto-rows:minmax(0,1fr);
+  height:100%;
+  min-height:100%;
+  align-items:stretch;
+}
+.capabilitiesGrid > .card{
+  height:100%;
+  min-height:0;
+  display:grid;
+  grid-template-rows:auto auto auto 1fr auto;
+}
+.connectedEntitiesSideCard{height:100%;min-height:100%}
+.capabilitiesBody{min-height:0}
+.capabilitiesLayout{flex:1;min-height:0}
+
+@media (max-width: 820px){
+  .capabilitiesGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:auto;
+    grid-auto-rows:minmax(0,1fr);
+    height:auto;
+    min-height:0;
+  }
+  .connectedEntitiesSideCard{height:auto;min-height:0}
+}
+@media (max-width: 560px){
+  .capabilitiesGrid{
+    grid-template-columns:1fr!important;
+  }
+}
+
+
+/* v39 — Slide 4 capability cards: larger image area, less dead space under description */
+.capabilitiesGrid > .card{
+  grid-template-rows:auto auto auto auto 1fr auto;
+  gap:9px;
+}
+.capabilitiesGrid > .card .cardVisual{
+  height:146px;
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(255,255,255,.16), transparent 24%),
+    radial-gradient(circle at 20% 100%, rgba(255,211,92,.10), transparent 34%),
+    linear-gradient(135deg, rgba(255,49,77,.22), rgba(90,132,255,.12));
+}
+.capabilitiesGrid > .card .cardVisual img{
+  width:72px;
+  height:72px;
+}
+.capabilitiesGrid > .card p{
+  align-self:start;
+  margin-bottom:0;
+}
+.capabilitiesGrid > .card .subchips{
+  align-self:end;
+  margin-top:2px;
+}
+.capabilitiesGrid > .card .line{
+  align-self:end;
+}
+
+@media (max-width: 1180px){
+  .capabilitiesGrid > .card .cardVisual{height:132px}
+  .capabilitiesGrid > .card .cardVisual img{width:66px;height:66px}
+}
+@media (max-width: 820px){
+  .capabilitiesGrid > .card .cardVisual{height:118px}
+  .capabilitiesGrid > .card .cardVisual img{width:60px;height:60px}
+}
+@media (max-width: 560px){
+  .capabilitiesGrid > .card .cardVisual{height:108px}
+  .capabilitiesGrid > .card .cardVisual img{width:56px;height:56px}
+}
+
+
+/* v40 — exact 2:1 capability visual ratio + true RTL Arabic navigation */
+/* Arabic navigation: slide 01 starts at the RIGHT and numbering progresses right-to-left. */
+body.rtl .navrail{
+  direction:ltr!important;
+  flex-direction:row-reverse!important;
+}
+body.rtl .railbtn{
+  direction:rtl!important;
+}
+body.rtl .railbtn .railnum{
+  direction:ltr!important;
+}
+body.rtl .railbtn .railtxt{
+  direction:rtl!important;
+  text-align:right!important;
+  unicode-bidi:plaintext;
+}
+
+/* The visual block in each of the 6 capability cards is exactly 2:1 (width:height). */
+.capabilitiesGrid > .card .cardVisual{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:2 / 1!important;
+  border-radius:18px!important;
+  flex:0 0 auto;
+}
+.capabilitiesGrid > .card .cardVisual img{
+  width:64px!important;
+  height:64px!important;
+  padding:12px!important;
+  border-radius:17px!important;
+}
+/* Compact the text stack so the larger visual consumes the previous dead space. */
+.capabilitiesGrid > .card{
+  display:flex!important;
+  flex-direction:column;
+  gap:9px!important;
+}
+.capabilitiesGrid > .card p{margin-bottom:0!important}
+.capabilitiesGrid > .card .subchips{margin-top:2px!important}
+.capabilitiesGrid > .card .line{margin-top:auto!important}
+
+@media (max-width:1180px){
+  .capabilitiesGrid > .card .cardVisual{aspect-ratio:2 / 1!important;height:auto!important}
+  .capabilitiesGrid > .card .cardVisual img{width:60px!important;height:60px!important;padding:11px!important}
+}
+@media (max-width:820px){
+  .capabilitiesGrid > .card .cardVisual{aspect-ratio:2 / 1!important;height:auto!important}
+  .capabilitiesGrid > .card .cardVisual img{width:56px!important;height:56px!important;padding:10px!important}
+}
+
+
+/* v41 — keep true Arabic RTL nav while centering the active item + mirror slide edge controls */
+/* Do not change the v40 RTL ordering: 01 remains at the far right and progresses right-to-left. */
+body.rtl .navrail{
+  direction:ltr!important;
+  flex-direction:row-reverse!important;
+  scroll-behavior:smooth;
+}
+body.rtl .railbtn{direction:rtl!important}
+body.rtl .railbtn .railnum{direction:ltr!important}
+body.rtl .railbtn .railtxt{direction:rtl!important;text-align:right!important;unicode-bidi:plaintext}
+
+/* v52: keep header chrome physically consistent in both languages */
+body.rtl .topbar{direction:ltr!important;grid-template-columns:max-content minmax(0,1fr) max-content!important;}
+body.rtl .brand{grid-column:1;justify-self:start;}
+body.rtl .navzone{grid-column:2;}
+body.rtl .actions{grid-column:3;justify-self:end;direction:ltr!important;}
+body.rtl #langBtn,body.rtl #themeBtn,body.rtl #fullBtn{direction:ltr!important;}
+
+
+/* v54: deterministic deck-progress direction in both languages */
+.deckProgress{direction:ltr!important;overflow:visible!important}
+.deckProgress>span{position:absolute!important;top:0!important;bottom:0!important;display:block!important;margin:0!important;opacity:1!important;visibility:visible!important;min-height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2) 60%,var(--gold))!important;box-shadow:0 0 10px rgba(255,70,95,.24),0 0 18px rgba(211,162,79,.08)!important}
+body:not(.rtl) .deckProgress>span{left:0!important;right:auto!important;border-radius:0 999px 999px 0!important}
+body.rtl .deckProgress>span{right:0!important;left:auto!important;border-radius:999px 0 0 999px!important;background:linear-gradient(270deg,var(--accent),var(--accent2) 60%,var(--gold))!important}
+body.rtl .deckProgress>span::before{left:auto!important;right:0!important;inset-block:-2px!important;background:linear-gradient(270deg,transparent 0%,transparent 24%,rgba(211,162,79,.08) 36%,rgba(255,230,177,.72) 49%,rgba(255,99,120,.55) 55%,rgba(211,162,79,.16) 66%,transparent 78%,transparent 100%)!important;transform:translateX(115%);animation:deckGlowSweepRTL54 4.6s cubic-bezier(.45,0,.55,1) infinite!important}
+body.rtl .deckProgress>span::after{right:auto!important;left:1px!important}
+@keyframes deckGlowSweepRTL54{0%{transform:translateX(115%)}100%{transform:translateX(-115%)}}
+@media (prefers-reduced-motion:reduce){body.rtl .deckProgress>span::before{animation:none!important;transform:none!important}}
+
+
+/* v55: force RTL deck-progress glow visibility and sweep from right to left */
+body.rtl .deckProgress,body.rtl #deckProgressBar{direction:ltr!important;overflow:visible!important;isolation:isolate}
+body.rtl .deckProgress>span,body.rtl #deckProgressBar>span{position:absolute!important;top:0!important;bottom:0!important;right:0!important;left:auto!important;display:block!important;opacity:1!important;visibility:visible!important;overflow:hidden!important;border-radius:999px 0 0 999px!important;background:linear-gradient(270deg,var(--accent),var(--accent2) 60%,var(--gold))!important;box-shadow:0 0 10px rgba(255,70,95,.24),0 0 18px rgba(211,162,79,.08)!important}
+body.rtl .deckProgress>span::before,body.rtl #deckProgressBar>span::before{content:""!important;position:absolute!important;top:-2px!important;bottom:-2px!important;right:-42%!important;width:58%!important;left:auto!important;border-radius:inherit!important;background:linear-gradient(270deg,transparent 0%,rgba(211,162,79,.08) 18%,rgba(255,230,177,.94) 40%,rgba(255,99,120,.58) 52%,rgba(211,162,79,.16) 66%,transparent 84%)!important;transform:translateX(100%)!important;animation:deckGlowSweepRTL55 4.2s cubic-bezier(.45,0,.55,1) infinite!important;filter:blur(.2px)!important;pointer-events:none!important;mix-blend-mode:screen!important;opacity:1!important}
+body.rtl .deckProgress>span::after,body.rtl #deckProgressBar>span::after{content:""!important;left:-7px!important;right:auto!important;top:50%!important;translate:0 -50%!important;width:14px!important;height:14px!important;border-radius:50%!important;background:radial-gradient(circle,rgba(255,238,199,1) 0%,var(--gold) 28%,var(--accent2) 52%,rgba(255,49,77,.12) 76%,transparent 78%)!important;box-shadow:0 0 12px rgba(255,80,90,.34),0 0 20px rgba(211,162,79,.20)!important;animation:deckHeadPulse 2.8s ease-in-out infinite!important;opacity:1!important}
+@keyframes deckGlowSweepRTL55{0%{transform:translateX(120%)}100%{transform:translateX(-235%)}}
+@media (max-width:760px){body.rtl .deckProgress>span::after,body.rtl #deckProgressBar>span::after{left:1px!important;right:auto!important}}
+@media (prefers-reduced-motion:reduce){body.rtl .deckProgress>span::before,body.rtl #deckProgressBar>span::before{animation:none!important;transform:none!important;opacity:.2!important}}
+
+
+/* v56: RTL deck glow sweep - animate background position, not transform.
+   This avoids an !important transform locking the pseudo-element in local/file mode. */
+body.rtl .deckProgress>span::before,
+body.rtl #deckProgressBar>span::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-2px 0!important;
+  width:auto!important;
+  height:auto!important;
+  left:0!important;
+  right:0!important;
+  border-radius:inherit!important;
+  background-image:linear-gradient(270deg,
+    transparent 0%,
+    transparent 34%,
+    rgba(211,162,79,.08) 40%,
+    rgba(255,238,203,.96) 48%,
+    rgba(255,99,120,.62) 53%,
+    rgba(211,162,79,.18) 60%,
+    transparent 68%,
+    transparent 100%)!important;
+  background-repeat:no-repeat!important;
+  background-size:240% 100%!important;
+  background-position:120% 0;
+  transform:none!important;
+  animation:deckGlowSweepRTL56 4.2s cubic-bezier(.45,0,.55,1) infinite!important;
+  filter:blur(.15px)!important;
+  pointer-events:none!important;
+  mix-blend-mode:screen!important;
+  opacity:1!important;
+}
+@keyframes deckGlowSweepRTL56{
+  0%{background-position:120% 0}
+  100%{background-position:-120% 0}
+}
+@media (prefers-reduced-motion:reduce){
+  body.rtl .deckProgress>span::before,
+  body.rtl #deckProgressBar>span::before{
+    animation:none!important;
+    background-position:50% 0!important;
+    opacity:.22!important;
+  }
+}
+
+
+/* v56 final: RTL glow travel using the independent translate property.
+   Important transform/background declarations from earlier local-mode rules cannot freeze this animation. */
+body.rtl .deckProgress>span::before,
+body.rtl #deckProgressBar>span::before{
+  content:""!important;
+  position:absolute!important;
+  top:-2px!important;
+  bottom:-2px!important;
+  right:-42%!important;
+  left:auto!important;
+  width:58%!important;
+  height:auto!important;
+  border-radius:inherit!important;
+  background:linear-gradient(270deg,
+    transparent 0%,
+    rgba(211,162,79,.08) 18%,
+    rgba(255,238,203,.98) 40%,
+    rgba(255,99,120,.64) 52%,
+    rgba(211,162,79,.18) 66%,
+    transparent 84%)!important;
+  background-size:100% 100%!important;
+  transform:none!important;
+  animation:deckGlowTranslateRTL56 4.2s cubic-bezier(.45,0,.55,1) infinite!important;
+  filter:blur(.15px)!important;
+  pointer-events:none!important;
+  mix-blend-mode:screen!important;
+  opacity:1!important;
+}
+@keyframes deckGlowTranslateRTL56{
+  0%{translate:120% 0}
+  100%{translate:-235% 0}
+}
+@media (prefers-reduced-motion:reduce){
+  body.rtl .deckProgress>span::before,
+  body.rtl #deckProgressBar>span::before{
+    animation:none!important;
+    translate:-55% 0;
+    opacity:.22!important;
+  }
+}
+
+
+/* v56 visibility pass: concentrated travelling highlight, matching the English sweep but reversed. */
+body.rtl .deckProgress>span::before,
+body.rtl #deckProgressBar>span::before{
+  content:""!important;
+  position:absolute!important;
+  top:-2px!important;
+  bottom:-2px!important;
+  right:-30%!important;
+  left:auto!important;
+  width:30%!important;
+  height:auto!important;
+  border-radius:999px!important;
+  background:linear-gradient(270deg,
+    transparent 0%,
+    rgba(255,255,255,0) 18%,
+    rgba(255,225,170,.24) 32%,
+    rgba(255,248,226,1) 48%,
+    rgba(255,109,132,.84) 58%,
+    rgba(211,162,79,.28) 70%,
+    transparent 100%)!important;
+  box-shadow:0 0 8px rgba(255,236,195,.35),0 0 14px rgba(255,83,109,.22)!important;
+  transform:none!important;
+  animation:deckGlowTranslateRTL56Visible 4.6s cubic-bezier(.45,0,.55,1) infinite!important;
+  filter:blur(.12px)!important;
+  pointer-events:none!important;
+  mix-blend-mode:screen!important;
+  opacity:.98!important;
+}
+@keyframes deckGlowTranslateRTL56Visible{
+  0%{translate:100% 0}
+  100%{translate:-435% 0}
+}
+@media (prefers-reduced-motion:reduce){
+  body.rtl .deckProgress>span::before,
+  body.rtl #deckProgressBar>span::before{
+    animation:none!important;
+    translate:-170% 0;
+    opacity:.18!important;
+  }
+}
+
+
+/* ===== Slide 1 map refinement v61 ===== */
+.introNativeGrid{opacity:.10!important;background-size:56px 56px!important}
+body.light .introNativeGrid{opacity:.055!important}
+.introNativeMarker{width:38px!important;height:38px!important}
+.nativeMarkerIcon,.introNativeMarker.ila .nativeMarkerIcon,.introNativeMarker.control .nativeMarkerIcon,.introNativeMarker.entity .nativeMarkerIcon,.introNativeMarker.radio .nativeMarkerIcon{width:34px!important;height:34px!important;opacity:1!important;filter:drop-shadow(0 7px 12px rgba(0,0,0,.30))!important}
+.nativeMarkerGlow{width:42px!important;height:42px!important;opacity:.16!important;animation:none!important}
+.introNativeMarker:hover .nativeMarkerGlow{opacity:.42!important}
+.introNativeMarker.is-selected .nativeMarkerGlow{opacity:.85!important;animation:introSelectedMarkerPulse 2.5s ease-in-out infinite!important}
+.introNativeMarker.radio{pointer-events:auto!important;filter:none!important}
+.introNativeMarker.radio .towerCoverageRing{display:none!important}
+@keyframes introSelectedMarkerPulse{0%,100%{transform:translate(-50%,-50%) scale(.88);opacity:.48}50%{transform:translate(-50%,-50%) scale(1.18);opacity:.92}}
+.introBackboneBase{fill:none;stroke-linecap:round;stroke-width:1.55;opacity:.42;transition:opacity .20s ease,stroke-width .20s ease}
+.introBackboneBase.gold{stroke:#dfb45c}.introBackboneBase.cyan{stroke:#5fcfe9}.introBackboneBase.blue{stroke:#65a9ff;stroke-dasharray:4 6}
+.introBackboneGroup.is-dim .introBackboneBase{opacity:.10}.introBackboneGroup.is-active .introBackboneBase{opacity:.86;stroke-width:2.15}.introBackboneGroup.is-related .introBackboneBase{opacity:.62}
+.introBackbonePulse{fill:none;stroke-linecap:round;stroke-width:2.8;stroke-dasharray:8 22;opacity:.92;animation:introBackboneTravel 2.7s linear infinite;filter:drop-shadow(0 0 4px currentColor)}
+.introBackbonePulse.gold{stroke:#ffd98a}.introBackbonePulse.cyan{stroke:#93efff}.introBackbonePulse.blue{stroke:#8ec5ff}
+@keyframes introBackboneTravel{to{stroke-dashoffset:-120}}
+.introMapZoomControls{position:absolute;right:10px;top:10px;z-index:9;display:grid;gap:5px;padding:5px;border-radius:13px;background:rgba(5,13,23,.66);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.introMapZoomBtn{width:30px;height:30px;border:1px solid rgba(255,255,255,.10);border-radius:9px;background:rgba(255,255,255,.07);color:#fff;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.18s ease}
+.introMapZoomBtn:hover{background:rgba(255,255,255,.13);border-color:rgba(117,232,255,.28);transform:translateY(-1px)}
+body.light .introMapZoomControls{background:rgba(255,255,255,.82);border-color:rgba(35,61,82,.09)}
+body.light .introMapZoomBtn{color:#29455d;background:rgba(29,63,91,.05);border-color:rgba(35,61,82,.09)}
+.introNativeAttribution{right:6px!important;bottom:5px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;font-size:6.5px!important;font-weight:600!important;color:rgba(215,232,244,.44)!important}
+body.light .introNativeAttribution{background:transparent!important;color:rgba(45,67,85,.44)!important}
+.introEmirateLabel{background:rgba(5,15,27,.46)!important;border-color:rgba(116,190,239,.08)!important;font-size:9px!important}
+@media (prefers-reduced-motion:reduce){.introBackbonePulse,.introNativeMarker.is-selected .nativeMarkerGlow{animation:none!important}}
+.introNativeMarker .nativeMarkerIcon,.introNativeMarker .nativeMarkerGlow,.introNativeMarker .nativeMarkerLabel{pointer-events:none!important}
+.introNativeMarker.radio{z-index:4!important}
+.introNativeMarker.pop,.introNativeMarker.ila{z-index:6!important}
+.introNativeMarker.control,.introNativeMarker.entity{z-index:8!important}
+.introNativeMarker.is-selected{z-index:12!important}
+
+/* v64: Slide 1 active-site map filter */
+.introLayerDot.layer-sites{background:linear-gradient(135deg,#55c4ff,#66efd9);box-shadow:0 0 0 3px rgba(102,239,217,.08),0 0 10px rgba(85,196,255,.24)}
+
+/* Arabic edge buttons: keep physical placement + glyph placement */
+body.rtl .edgeNav{
+ direction:ltr!important;
+}
+body.rtl .edgeNavPrev{
+ left:-8px!important;
+ right:auto!important;
+ justify-content:flex-start!important;
+ padding-left:13px!important;
+ padding-right:0!important;
+}
+body.rtl .edgeNavNext{
+ right:-8px!important;
+ left:auto!important;
+ justify-content:flex-end!important;
+ padding-right:13px!important;
+ padding-left:0!important;
+}
+
+/* Slide 1 filter dropdown - align chevron like POC dropdown */
+.introLayerButton{
+ position:relative!important;
+ height:40px!important;
+ padding-inline:14px 42px!important;
+}
+.introLayerButtonLabel{
+ flex:1!important;
+ min-width:0!important;
+ line-height:1.2!important;
+}
+/* Replace the small text chevron look */
+.introLayerChevron{
+ position:absolute!important;
+ top:50%!important;
+ right:13px!important;
+ left:auto!important;
+ width:22px!important;
+ height:22px!important;
+ display:grid!important;
+ place-items:center!important;
+ margin:0!important;
+ padding:0!important;
+ font-size:0!important;
+ line-height:1!important;
+ transform:translateY(-50%)!important;
+ transform-origin:center!important;
+ pointer-events:none!important;
+}
+/* Clean larger SVG-style arrow */
+.introLayerChevron::before{
+ content:""!important;
+ width:16px!important;
+ height:16px!important;
+ display:block!important;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffd57a' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")!important;
+ background-repeat:no-repeat!important;
+ background-position:center!important;
+ background-size:16px 16px!important;
+}
+/* Arabic - arrow on the left INSIDE the dropdown */
+body.rtl .introLayerButton{
+ padding-right:14px!important;
+ padding-left:42px!important;
+}
+body.rtl .introLayerChevron{
+ right:auto!important;
+ left:13px!important;
+}
+/* Open state */
+.introLayerPicker.open .introLayerChevron{
+ transform:translateY(-50%) rotate(180deg)!important;
+}
